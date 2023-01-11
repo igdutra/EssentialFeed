@@ -164,14 +164,6 @@ private extension URLSessionHTTPClientTests {
     }
     
     // MARK: Stubs
-    // TODO: why you can't use anyURL as default paramether?
-    func anyURL(_ differentText: String = "a-url") -> URL {
-        URL(string: differentText + ".com")!
-    }
-    
-    func anyNSError() -> NSError {
-        NSError(domain: "any error", code: 1)
-    }
     
     func anyData() -> Data {
         return Data("any data".utf8)

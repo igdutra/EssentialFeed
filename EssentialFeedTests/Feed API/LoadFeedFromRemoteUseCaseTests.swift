@@ -215,12 +215,7 @@ private extension LoadFeedFromRemoteUseCaseTests {
         let feed = ["items": items]
         return try! JSONSerialization.data(withJSONObject: feed)
     }
-    
-    // TODO: why you can't use anyURL as default paramether?
-    func anyURL(_ differentText: String = "a-url") -> URL {
-        URL(string: differentText + ".com")!
-    }
-    
+        
     func invalidJSON() -> Data {
         Data("invalid json".utf8)
     }
