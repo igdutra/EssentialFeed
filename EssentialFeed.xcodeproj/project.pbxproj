@@ -19,6 +19,8 @@
 		9200438E296F625E00A49070 /* EssentialFeedEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200438D296F625E00A49070 /* EssentialFeedEndToEndTests.swift */; };
 		9200438F296F625E00A49070 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927019E6296F5F6800AE7B38 /* EssentialFeed.framework */; };
 		92004395296F629800A49070 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92004374296F619100A49070 /* XCTestCase+MemoryLeakTracking.swift */; };
+		92004399296F63A000A49070 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92004397296F63A000A49070 /* FeedStore.swift */; };
+		9200439A296F63A000A49070 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92004398296F63A000A49070 /* LocalFeedLoader.swift */; };
 		927019EF296F5F6800AE7B38 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927019E6296F5F6800AE7B38 /* EssentialFeed.framework */; };
 		927019F5296F5F6900AE7B38 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 927019E9296F5F6800AE7B38 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		92004374296F619100A49070 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		9200438B296F625D00A49070 /* EssentialFeedEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9200438D296F625E00A49070 /* EssentialFeedEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedEndToEndTests.swift; sourceTree = "<group>"; };
+		92004397296F63A000A49070 /* FeedStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
+		92004398296F63A000A49070 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		927019E6296F5F6800AE7B38 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927019E9296F5F6800AE7B38 /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		927019EE296F5F6800AE7B38 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +149,15 @@
 			path = EssentialFeedEndToEndTests;
 			sourceTree = "<group>";
 		};
+		92004396296F637D00A49070 /* Feed Cache */ = {
+			isa = PBXGroup;
+			children = (
+				92004397296F63A000A49070 /* FeedStore.swift */,
+				92004398296F63A000A49070 /* LocalFeedLoader.swift */,
+			);
+			path = "Feed Cache";
+			sourceTree = "<group>";
+		};
 		927019DC296F5F6800AE7B38 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +184,7 @@
 				9200435E296F5FD900A49070 /* App */,
 				9200435F296F5FE400A49070 /* Feed Feature */,
 				92004364296F607A00A49070 /* Feed API */,
+				92004396296F637D00A49070 /* Feed Cache */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
@@ -336,7 +350,9 @@
 				9200436A296F60A200A49070 /* URLSessionHTTPClient.swift in Sources */,
 				92004363296F602700A49070 /* FeedLoader.swift in Sources */,
 				9200436D296F60AF00A49070 /* FeedItemsMapper.swift in Sources */,
+				92004399296F63A000A49070 /* FeedStore.swift in Sources */,
 				92004362296F602700A49070 /* FeedItem.swift in Sources */,
+				9200439A296F63A000A49070 /* LocalFeedLoader.swift in Sources */,
 				92004368296F60A200A49070 /* HTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
