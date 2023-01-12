@@ -7,7 +7,7 @@
 
 import Foundation
 
-public typealias LoadFeedResult = Result<[FeedItem], Error>
+public typealias LoadFeedResult = Result<[FeedImage], Error>
 
 public protocol FeedLoader {
     associatedtype Error: Swift.Error

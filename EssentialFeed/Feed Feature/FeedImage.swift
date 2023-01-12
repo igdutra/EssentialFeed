@@ -1,5 +1,5 @@
 //
-//  FeedItem.swift
+//  FeedImage.swift
 //  Network-Essentials
 //
 //  Created by Ivo on 14/11/22.
@@ -7,20 +7,20 @@
 
 import Foundation
 
-public struct FeedItem: Equatable {
+public struct FeedImage: Equatable {
     // TODO: is this correct? -> yes
     public let id: UUID
     public let description: String?
     public let location: String?
-    public let imageURL: URL
+    public let url: URL
     
     public init(id: UUID,
                 description: String? = nil,
                 location: String? = nil,
-                imageURL: URL) {
+                url: URL) {
         self.id = id
         self.description = description
         self.location = location
-        self.imageURL = imageURL
+        self.url = url
     }
 }

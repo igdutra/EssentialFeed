@@ -87,8 +87,8 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     func test_load_whenHTTPResponseIs200_deliversItemsArray() {
         let (sut, client) = makeSUT()
         
-        let item1 = makeItem(id: UUID(), description: "A description", location: "A location", imageURL: anyURL())
-        let item2 = makeItem(id:  UUID(), imageURL: anyURL("anotherURL"))
+        let item1 = makeItem(id: UUID(), description: "A description", location: "A location", url: anyURL())
+        let item2 = makeItem(id:  UUID(), url: anyURL("anotherURL"))
         let items = [item1.model, item2.model]
         
         expect(sut,
@@ -198,14 +198,14 @@ private extension LoadFeedFromRemoteUseCaseTests {
     
     // MARK: Stubs
     
-    func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
-        let item = FeedItem(id: id, description: description, location: location, imageURL: imageURL)
+    func makeItem(id: UUID, description: String? = nil, location: String? = nil, url: URL) -> (model: FeedImage, json: [String: Any]) {
+        let item = FeedImage(id: id, description: description, location: location, url: url)
         
         let itemJSON = [
             "id": item.id.uuidString,
             "description": item.description,
             "location": item.location,
-            "image": item.imageURL.absoluteString
+            "image": item.url.absoluteString
         ].compactMapValues { $0 }
         
         return (item, itemJSON)
