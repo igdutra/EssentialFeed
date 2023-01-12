@@ -7,38 +7,31 @@
 
 import Foundation
 
-// 1 - I forgt to make it internal
-internal struct FeedItemsMapper {
-    
-    private struct Feed: Decodable {
-        let items: [Item]
-        
-        var feedItems: [FeedItem] {
-            items.map { $0.item }
-        }
-    }
+// The API team calls it Item instead of Image
+internal struct RemoteFeedItem: Decodable {
+    internal let id: UUID
+    internal let description: String?
+    internal let location: String?
+    internal let image: URL
+}
 
-    /// This is done in order to: the API DETAILS ARE PRIVATE, separated from the FeedLoader protocol
-    private struct Item: Decodable {
-        let id: UUID
-        let description: String?
-        let location: String?
-        let image: URL
-        
-        var item: FeedItem {
-            FeedItem(id: id, description: description, location: location, imageURL: image)
-        }
+// 1 - I forgt to make it internal
+internal final class FeedItemsMapper {
+    private struct Root: Decodable {
+        let items: [RemoteFeedItem]
     }
     
-    private static var OK_200: Int { 200 }
+    private static var OK_200: Int { return 200 }
     
-    // Replace the throw for the already correct result return
-    internal static func map(_ data: Data, _ response: HTTPURLResponse) -> RemoteFeedLoader.Result {
+    /// When Item was private:
+    /// This is done in order to: the API DETAILS ARE PRIVATE, separated from the FeedLoader protocol
+    
+    internal static func map(_ data: Data, from response: HTTPURLResponse) throws -> [RemoteFeedItem] {
         guard response.statusCode == OK_200,
-              let feed = try? JSONDecoder().decode(Feed.self, from: data) else {
-            return .failure(RemoteFeedLoader.Error.invalidData)
+              let root = try? JSONDecoder().decode(Root.self, from: data) else {
+            throw RemoteFeedLoader.Error.invalidData
         }
         
-        return .success(feed.feedItems)
+        return root.items
     }
 }
