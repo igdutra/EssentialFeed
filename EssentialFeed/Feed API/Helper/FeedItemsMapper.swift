@@ -7,14 +7,6 @@
 
 import Foundation
 
-// The API team calls it Item instead of Image
-internal struct RemoteFeedItem: Decodable {
-    internal let id: UUID
-    internal let description: String?
-    internal let location: String?
-    internal let image: URL
-}
-
 // 1 - I forgt to make it internal
 internal final class FeedItemsMapper {
     private struct Root: Decodable {
