@@ -9,25 +9,38 @@ import Foundation
 import EssentialFeed
 
 class FeedStoreSpy: FeedStore {
-
-    
-    typealias DeletionCompletion = (Error?) -> Void
-    typealias InsertionCompletion = (Error?) -> Void
-    
-    private(set) var receivedMessages: [ReceivedMessage] = []
-    private var deletionCompletions = [DeletionCompletion]()
-    private var insertionCompletions = [InsertionCompletion]()
-    
     enum ReceivedMessage: Equatable {
         case deleteCachedFeed
         case insert(feed: [LocalFeedImage], timestamp: Date)
         case retrieve
     }
     
+    private(set) var receivedMessages: [ReceivedMessage] = []
+    
+    typealias DeletionCompletion = (Error?) -> Void
+    typealias InsertionCompletion = (Error?) -> Void
+    typealias RetrievalCompletion = (Error?) -> Void
+    
+    private var deletionCompletions = [DeletionCompletion]()
+    private var insertionCompletions = [InsertionCompletion]()
+    private var retrievalCompletions = [RetrievalCompletion]()
+    
     func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         receivedMessages.append(.deleteCachedFeed)
         deletionCompletions.append(completion)
     }
+    
+    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
+        insertionCompletions.append(completion)
+        receivedMessages.append(.insert(feed: feed, timestamp: timestamp))
+    }
+    
+    func retrieve(completion: @escaping RetrivalCompletion) {
+        retrievalCompletions.append(completion)
+        receivedMessages.append(.retrieve)
+    }
+    
+    // MARK: - Complete with
     
     func completeDeletion(with error: Error, at index: Int = 0) {
         deletionCompletions[index](error)
@@ -37,20 +50,15 @@ class FeedStoreSpy: FeedStore {
         deletionCompletions[index](nil)
     }
     
-    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        insertionCompletions.append(completion)
-        receivedMessages.append(.insert(feed: feed, timestamp: timestamp))
-    }
-    
-    func retrieve() {
-        receivedMessages.append(.retrieve)
-    }
-    
     func completeInsertion(with error: Error, at index: Int = 0) {
         insertionCompletions[index](error)
     }
     
     func completeInsertionSuccessfully(at index: Int = 0) {
         insertionCompletions[index](nil)
+    }
+    
+    func completeRetrieval(with error: Error, at index: Int = 0) {
+        retrievalCompletions[index](error)
     }
 }
