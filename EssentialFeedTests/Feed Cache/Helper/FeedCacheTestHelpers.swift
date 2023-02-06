@@ -18,6 +18,7 @@ func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
     return (models, local)
 }
 
+// Cache DSL, domain Language
 extension Date {
     // Extensions must not contain stored properties !!!
     private var feedCacheMaxAgeInDays: Int {
@@ -31,7 +32,10 @@ extension Date {
     func adding(days: Int) -> Date {
         return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
     }
-    
+}
+ 
+// Domain Extension
+extension Date {
     func adding(seconds: TimeInterval) -> Date {
         return self + seconds
     }
