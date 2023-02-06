@@ -169,10 +169,10 @@
 		92004396296F637D00A49070 /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
+				9228A34729919DB8000502A7 /* Domain */,
 				925CE35529701BAA004C6859 /* DTO */,
 				92004397296F63A000A49070 /* FeedStore.swift */,
 				92004398296F63A000A49070 /* LocalFeedLoader.swift */,
-				9228A34529915359000502A7 /* FeedCachePolicy.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -186,6 +186,14 @@
 				92FA2572297B2D400069722A /* ValidateFeedCacheUseCase.swift */,
 			);
 			path = "Feed Cache";
+			sourceTree = "<group>";
+		};
+		9228A34729919DB8000502A7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9228A34529915359000502A7 /* FeedCachePolicy.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		925CE35229701B4D004C6859 /* DTO */ = {
