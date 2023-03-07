@@ -8,7 +8,7 @@
 import Foundation
 
 // Why RemoteFeedITem is internal, while LocalFeedItem is public?
-public struct LocalFeedImage: Equatable {
+public struct LocalFeedImage: Equatable, Codable {
     public let id: UUID
     public let description: String?
     public let location: String?
