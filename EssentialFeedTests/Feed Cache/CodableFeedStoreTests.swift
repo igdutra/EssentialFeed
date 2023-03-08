@@ -67,13 +67,13 @@ class CodableFeedStoreTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        try? FileManager.default.removeItem(at: storeURL())
+        try? FileManager.default.removeItem(at: testSpecificURL())
     }
     
     override func tearDown() {
         super.tearDown()
         
-        try? FileManager.default.removeItem(at: storeURL())
+        try? FileManager.default.removeItem(at: testSpecificURL())
     }
     
     // MARK: - Methods
@@ -149,13 +149,14 @@ class CodableFeedStoreTests: XCTestCase {
 private extension CodableFeedStoreTests {
     
     func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableFeedStore {
-        let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
+        let storeURL = testSpecificURL()
         let sut = CodableFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
     
-    private func storeURL() -> URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
+    private func testSpecificURL() -> URL {
+        // file:///Users/ivo/Library/Caches/CodableFeedStoreTests.store
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
     }
 }
