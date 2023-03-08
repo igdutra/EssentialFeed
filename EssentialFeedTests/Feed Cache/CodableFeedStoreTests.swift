@@ -128,6 +128,8 @@ class CodableFeedStoreTests: XCTestCase {
         expect(sut, toRetrieve: .empty)
     }
     
+    // Test Case '-[EssentialFeedTests.CodableFeedStoreTests test_delete_deliversErrorOnDeletionError]' passed (2.212 seconds)
+    // I wanted to know why this cache test is taking that long, but it was nice to mesure it anyway!
     func test_delete_deliversErrorOnDeletionError() {
         let noDeletePermissionURL = cachesDirectory()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
