@@ -67,13 +67,14 @@ class CodableFeedStoreTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        try? FileManager.default.removeItem(at: testSpecificURL())
+        // This is self-docummenting code, repeting the function is better than writting a comment
+        setupEmptyStoreState()
     }
     
     override func tearDown() {
         super.tearDown()
         
-        try? FileManager.default.removeItem(at: testSpecificURL())
+        undoStoreSideEffects()
     }
     
     // MARK: - Methods
@@ -149,13 +150,25 @@ class CodableFeedStoreTests: XCTestCase {
 private extension CodableFeedStoreTests {
     
     func makeSUT(file: StaticString = #file, line: UInt = #line) -> CodableFeedStore {
-        let storeURL = testSpecificURL()
+        let storeURL = testSpecificStoreURL()
         let sut = CodableFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
     
-    private func testSpecificURL() -> URL {
+    func setupEmptyStoreState() {
+         deleteStoreArtifacts()
+     }
+
+    func undoStoreSideEffects() {
+         deleteStoreArtifacts()
+     }
+
+    func deleteStoreArtifacts() {
+         try? FileManager.default.removeItem(at: testSpecificStoreURL())
+     }
+    
+    func testSpecificStoreURL() -> URL {
         // file:///Users/ivo/Library/Caches/CodableFeedStoreTests.store
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
     }
