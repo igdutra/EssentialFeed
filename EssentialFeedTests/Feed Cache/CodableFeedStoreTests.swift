@@ -147,6 +147,8 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
      898
      Test Case '-[EssentialFeedTests.CodableFeedStoreTests test_delete_hasNoSideEffectsOnDeletionError]' failed (9.509 seconds).
      ALMOST 10 SECONDS. SOMETHING IS OFF.
+     
+     after trying real hard we saw that that's it, it takes simply to long to verify that we don't have permission to delete.. not my focus now to think of a workaround so lets just set timeout to 15s and let this big warning here!
      */
     func test_delete_hasNoSideEffectsOnDeletionError() {
         let noDeletePermissionURL = cachesDirectory()
