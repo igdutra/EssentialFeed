@@ -40,6 +40,7 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         assertThatRetrieveHasNoSideEffectsOnEmptyCache(on: sut)
     }
     
+    // Old: test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues
     func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
         let sut = makeSUT()
         
@@ -137,7 +138,16 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         
         assertThatDeleteDeliversErrorOnDeletionError(on: sut)
     }
-    
+    // Test Case '-[EssentialFeedTests.CodableFeedStoreTests test_delete_deliversErrorOnDeletionError]' passed (2.212 seconds)
+    // I wanted to know why this cache test is taking that long, but it was nice to mesure it anyway!
+    // Had to change the expectation to 5.0
+    /*
+     However, in the CI gitHubActions:
+     /Users/runner/work/EssentialFeed/EssentialFeed/EssentialFeedTests/Feed Cache/FeedStoreSpecs/XCTestCase+FeedStoreSpecs.swift:139: error: -[EssentialFeedTests.CodableFeedStoreTests test_delete_hasNoSideEffectsOnDeletionError] : Asynchronous wait failed: Exceeded timeout of 5 seconds, with unfulfilled expectations: "Wait for cache deletion".
+     898
+     Test Case '-[EssentialFeedTests.CodableFeedStoreTests test_delete_hasNoSideEffectsOnDeletionError]' failed (9.509 seconds).
+     ALMOST 10 SECONDS. SOMETHING IS OFF.
+     */
     func test_delete_hasNoSideEffectsOnDeletionError() {
         let noDeletePermissionURL = cachesDirectory()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
