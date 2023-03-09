@@ -149,6 +149,8 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
      ALMOST 10 SECONDS. SOMETHING IS OFF.
      
      after trying real hard we saw that that's it, it takes simply to long to verify that we don't have permission to delete.. not my focus now to think of a workaround so lets just set timeout to 15s and let this big warning here!
+     
+     there is a comment saying that had the same problem as I did, so Investigate it!
      */
     func test_delete_hasNoSideEffectsOnDeletionError() {
         let noDeletePermissionURL = cachesDirectory()
