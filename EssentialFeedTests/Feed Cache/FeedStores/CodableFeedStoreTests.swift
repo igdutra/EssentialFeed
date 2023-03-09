@@ -138,6 +138,10 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         
         assertThatDeleteDeliversErrorOnDeletionError(on: sut)
     }
+    
+    // TODO: WATCH HERE
+    // https://academy.essentialdeveloper.com/courses/447455/lectures/10675368/comments/7321729
+    
     // Test Case '-[EssentialFeedTests.CodableFeedStoreTests test_delete_deliversErrorOnDeletionError]' passed (2.212 seconds)
     // I wanted to know why this cache test is taking that long, but it was nice to mesure it anyway!
     // Had to change the expectation to 5.0
