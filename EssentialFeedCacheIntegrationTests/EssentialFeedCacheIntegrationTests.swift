@@ -12,6 +12,23 @@ import EssentialFeed
 // I'll first read a bit about CoreData, read the challenge, only then copy the coreData implementation to this project.
 
 final class EssentialFeedCacheIntegrationTests: XCTestCase {
+    
+    // MARK: - Setup
+    
+    override func setUp() {
+        super.setUp()
+        
+        setupEmptyStoreState()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        undoStoreSideEffects()
+    }
+    
+    // MARK: - Methods
+    
     func test_load_deliversNoItemsOnEmptyCache() {
         let sut = makeSUT()
         
@@ -44,6 +61,18 @@ private extension EssentialFeedCacheIntegrationTests {
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
+    }
+    
+    func setupEmptyStoreState() {
+        deleteStoreArtifacts()
+    }
+    
+    func undoStoreSideEffects() {
+        deleteStoreArtifacts()
+    }
+    
+    func deleteStoreArtifacts() {
+        try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
     
     func testSpecificStoreURL() -> URL {
