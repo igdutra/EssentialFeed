@@ -172,7 +172,7 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
 
 private extension CodableFeedStoreTests {
     // Cannot use functions as default parameters
-    func makeSUT(storeURL: URL? = nil,file: StaticString = #file, line: UInt = #line) -> FeedStore {
+    func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> FeedStore {
         let storeURL = storeURL ?? testSpecificStoreURL()
         let sut = CodableFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
