@@ -228,8 +228,8 @@
 		9200439B296F63CA00A49070 /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
-				92F6E23729BA55DA000BCEE3 /* FeedStores */,
 				92EB191D29B945D90078676A /* FeedStoreSpecs */,
+				92F6E23729BA55DA000BCEE3 /* FeedStores */,
 				92D5854D29772376001F4158 /* Helper */,
 				9200439C296F641800A49070 /* CacheFeedUseCaseTests.swift */,
 				92D5854B2977229D001F4158 /* LoadFeedFromCacheUseCaseTests.swift */,
