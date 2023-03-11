@@ -39,6 +39,9 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     }
     
     func test_insert_deliversNoErrorOnNonEmptyCache() {
+        let sut = makeSUT()
+        
+        assertThatInsertDeliversNoErrorOnNonEmptyCache(on: sut)
         
     }
     
@@ -72,6 +75,7 @@ class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
 private extension CoreDataFeedStoreTests {
     func makeSUT(file: StaticString = #file, line: UInt = #line) -> FeedStore {
         let storeBundle = Bundle(for: CoreDataFeedStore.self)
+        // Sending to dev/null will NOT create any artifact!
         let storeURL = URL(fileURLWithPath: "/dev/null")
         let sut = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
         trackForMemoryLeaks(sut, file: file, line: line)
