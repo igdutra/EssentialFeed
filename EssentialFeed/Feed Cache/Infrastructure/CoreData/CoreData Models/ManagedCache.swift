@@ -12,6 +12,12 @@ internal final class ManagedCache: NSManagedObject {
     @NSManaged var timestamp: Date
     @NSManaged var feed: NSOrderedSet
     
+    var localFeed: [LocalFeedImage] {
+        return feed.compactMap { ($0 as? ManagedFeedImage)?.local }
+    }
+}
+
+extension ManagedCache {
     // Note: also this function I placed in an enum outside this, because I believe this does not belong to a plain model data
     static func find(in context: NSManagedObjectContext) throws -> ManagedCache? {
         let request = NSFetchRequest<ManagedCache>(entityName: entity().name!)
@@ -23,9 +29,5 @@ internal final class ManagedCache: NSManagedObject {
     static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedCache {
         try find(in: context).map(context.delete)
         return ManagedCache(context: context)
-    }
-    
-    var localFeed: [LocalFeedImage] {
-        return feed.compactMap { ($0 as? ManagedFeedImage)?.local }
     }
 }
