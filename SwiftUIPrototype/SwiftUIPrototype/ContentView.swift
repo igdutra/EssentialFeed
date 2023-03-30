@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        List {
+            ForEach(FeedImageViewModel.prototypeFeed) { model in
+                Text(model.imageName)
+            }
+        }
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
@@ -18,6 +23,7 @@ struct ContentView: View {
         .padding()
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
