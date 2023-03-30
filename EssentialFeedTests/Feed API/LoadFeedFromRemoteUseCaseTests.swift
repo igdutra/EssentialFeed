@@ -207,6 +207,13 @@ private extension LoadFeedFromRemoteUseCaseTests {
             "location": item.location,
             "image": item.url.absoluteString
         ].compactMapValues { $0 }
+        // Before swift 5
+        /*
+         reduce(into: [String: Any]()) { (acc, e) in
+                      if let value = e.value { acc[e.key] = value }
+                  }
+         // credo
+         */
         
         return (item, itemJSON)
     }
