@@ -210,14 +210,14 @@ private extension URLSessionHTTPClientTests {
         }
     }
     
-    func resultFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #file, line: UInt = #line) -> HTTPClientResult? {
+    func resultFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #file, line: UInt = #line) -> HTTPClient.Result? {
         URLProtocolStub.stub(data: data, response: response, error: error)
         
         let sut = makeSUT(file: file, line: line)
         
         let exp = expectation(description: "Wait")
         
-        var receivedResult: HTTPClientResult?
+        var receivedResult: HTTPClient.Result?
         
         sut.get(from: anyURL()) { result in
             switch result {
