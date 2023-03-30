@@ -16,7 +16,7 @@ public final class RemoteFeedLoader: FeedLoader {
        case invalidData
     }
     
-    public typealias Result = LoadFeedResult
+    public typealias Result = FeedLoader.Result
     
 //    public typealias Result = Swift.Result<[FeedItem], RemoteFeedLoader.Error>
     
