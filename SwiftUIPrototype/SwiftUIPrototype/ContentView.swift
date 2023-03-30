@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(FeedImageViewModel.prototypeFeed) { model in
-                Text(model.imageName)
+                Image(model.imageName)
             }
         }
         VStack {
