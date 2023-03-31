@@ -133,7 +133,7 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
     }
     
     func test_delete_deliversErrorOnDeletionError() {
-        let noDeletePermissionURL = cachesDirectory()
+        let noDeletePermissionURL = noDeletePermissionURL()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
         assertThatDeleteDeliversErrorOnDeletionError(on: sut)
@@ -157,7 +157,7 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
      there is a comment saying that had the same problem as I did, so Investigate it!
      */
     func test_delete_hasNoSideEffectsOnDeletionError() {
-        let noDeletePermissionURL = cachesDirectory()
+        let noDeletePermissionURL = noDeletePermissionURL()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
         assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
@@ -202,5 +202,11 @@ private extension CodableFeedStoreTests {
     
     func cachesDirectory() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }
+    
+    // For the iOS Only ->
+    // The cache directory permission is different in the iOS simulator (you can delete the directory on the simulator, but not on the macOS target!). 
+    private func noDeletePermissionURL() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
 }
