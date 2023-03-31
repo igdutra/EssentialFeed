@@ -53,12 +53,12 @@ struct CustomLabel: View {
 
 // MARK: - Previews
 
-//struct Cell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Cell(model: FeedImageViewModel.prototypeFeed.first!)
-//            .previewLayout(.sizeThatFits)
-//    }
-//}
+struct Cell_Previews: PreviewProvider {
+    static var previews: some View {
+        Cell(model: FeedImageViewModel.prototypeFeed.first!)
+            .previewLayout(.sizeThatFits)
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
