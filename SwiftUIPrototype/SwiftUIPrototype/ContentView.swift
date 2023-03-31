@@ -9,10 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        List {
-            ForEach(FeedImageViewModel.prototypeFeed) { model in
-                Cell(model: model)
+        NavigationView {
+            List {
+                ForEach(FeedImageViewModel.prototypeFeed) { model in
+                    Cell(model: model)
+                        .padding(.bottom)
+                }
+                .listRowSeparator(.hidden)
             }
+            .listStyle(.plain)
+            .navigationTitle("MY Feed")
         }
     }
 }
@@ -47,15 +53,15 @@ struct CustomLabel: View {
 
 // MARK: - Previews
 
-struct Cell_Previews: PreviewProvider {
-    static var previews: some View {
-        Cell(model: FeedImageViewModel.prototypeFeed.first!)
-            .previewLayout(.sizeThatFits)
-    }
-}
-
-//struct ContentView_Previews: PreviewProvider {
+//struct Cell_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ContentView()
+//        Cell(model: FeedImageViewModel.prototypeFeed.first!)
+//            .previewLayout(.sizeThatFits)
 //    }
 //}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
