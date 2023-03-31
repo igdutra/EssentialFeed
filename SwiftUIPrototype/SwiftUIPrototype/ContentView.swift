@@ -11,22 +11,51 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(FeedImageViewModel.prototypeFeed) { model in
-                Image(model.imageName)
+                Cell(model: model)
             }
         }
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+    }
+}
+
+struct Cell: View {
+    let model: FeedImageViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            CustomLabel(text: model.location ?? "",
+                        icon: "mappin.circle.fill")
+            Image(model.imageName)
+                .resizable()
+            Text(model.description ?? "")
         }
-        .padding()
     }
 }
 
+/// Having more than one line, native Label would not center the icon with the Text
+struct CustomLabel: View {
+    let text: String
+    let icon: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: icon)
+                .font(.title)
+            Text(text)
+        }
+    }
+}
 
-struct ContentView_Previews: PreviewProvider {
+// MARK: - Previews
+
+struct Cell_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Cell(model: FeedImageViewModel.prototypeFeed.first!)
+            .previewLayout(.sizeThatFits)
     }
 }
+
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
