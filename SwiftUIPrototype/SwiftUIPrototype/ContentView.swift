@@ -32,6 +32,8 @@ struct Cell: View {
                         icon: "mappin.circle.fill")
             Image(model.imageName)
                 .resizable()
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(16)
             Text(model.description ?? "")
         }
     }
