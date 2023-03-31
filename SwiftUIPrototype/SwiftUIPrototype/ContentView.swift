@@ -23,21 +23,29 @@ struct ContentView: View {
     }
 }
 
+// MARK: - Cell
+
 struct Cell: View {
     let model: FeedImageViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            CustomLabel(text: model.location ?? "",
-                        icon: "mappin.circle.fill")
+            if let location = model.location {
+                CustomLabel(text: location,
+                            icon: "mappin.circle.fill")
+            }
             Image(model.imageName)
-                .resizable()
+                .resizable() // Fill entire screen
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(16)
-            Text(model.description ?? "")
+            if let description = model.description {
+                Text(description)
+            }
         }
     }
 }
+
+// MARK: - Custom Label
 
 /// Having more than one line, native Label would not center the icon with the Text
 struct CustomLabel: View {
