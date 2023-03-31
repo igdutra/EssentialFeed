@@ -27,7 +27,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="Bpn-L8-8d7">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="Bpn-L8-8d7" customClass="FeedImageCell" customModule="UIKitPrototype" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="66" width="393" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bpn-L8-8d7" id="Edv-rv-afN">
@@ -57,7 +57,7 @@
                                                                 <constraint firstAttribute="trailing" secondItem="k6n-vw-8vG" secondAttribute="trailing" id="zSp-tE-oKx"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fs-Ee-daT">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fs-Ee-daT" userLabel="LocationLabel">
                                                             <rect key="frame" x="18" y="7.3333333333333321" width="335" height="36"/>
                                                             <string key="text">Location
 , Location</string>
@@ -109,6 +109,12 @@
                                         <constraint firstItem="co3-nV-fZJ" firstAttribute="top" secondItem="Edv-rv-afN" secondAttribute="topMargin" priority="999" constant="8" id="r1x-0H-GAJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="7iK-l2-ZZl" id="XIh-CM-gPU"/>
+                                    <outlet property="feedImageView" destination="QeM-Or-ngA" id="UOl-CS-nwa"/>
+                                    <outlet property="locationContainer" destination="bGm-ad-FRx" id="KA8-Ry-vjK"/>
+                                    <outlet property="locationLabel" destination="3fs-Ee-daT" id="TbX-lj-Nyq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
