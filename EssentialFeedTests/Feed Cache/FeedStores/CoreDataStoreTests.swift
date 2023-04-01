@@ -96,7 +96,7 @@ private extension CoreDataFeedStoreTests {
         let storeBundle = Bundle(for: CoreDataFeedStore.self)
         // Sending to dev/null will NOT create any artifact!
         let storeURL = URL(fileURLWithPath: "/dev/null")
-        let sut = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
+        let sut = try! CoreDataFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
