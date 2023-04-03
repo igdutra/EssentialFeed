@@ -62,6 +62,8 @@ struct Cell: View {
                 .resizable() // Fill entire screen
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(16)
+            // TODO: make a better shimmer effect in swiftUI
+                .shimmer()
             if let description = model.description {
                 Text(description)
             }

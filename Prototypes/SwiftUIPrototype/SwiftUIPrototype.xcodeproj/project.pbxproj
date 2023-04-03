@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920247F829DB040C003B426D /* ShimmerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920247F729DB040C003B426D /* ShimmerModifier.swift */; };
 		92B90AD729D62EAF00989EA7 /* SwiftUIPrototypeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B90AD629D62EAF00989EA7 /* SwiftUIPrototypeApp.swift */; };
 		92B90AD929D62EAF00989EA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B90AD829D62EAF00989EA7 /* ContentView.swift */; };
 		92B90ADB29D62EB000989EA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B90ADA29D62EB000989EA7 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		920247F729DB040C003B426D /* ShimmerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerModifier.swift; sourceTree = "<group>"; };
 		92B90AD329D62EAF00989EA7 /* SwiftUIPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B90AD629D62EAF00989EA7 /* SwiftUIPrototypeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPrototypeApp.swift; sourceTree = "<group>"; };
 		92B90AD829D62EAF00989EA7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				92B90AE729D62F2700989EA7 /* FeedImageViewModel+PrototypeData.swift */,
 				92B90AE429D62ED800989EA7 /* Protoype.png */,
 				92B90AD829D62EAF00989EA7 /* ContentView.swift */,
+				920247F729DB040C003B426D /* ShimmerModifier.swift */,
 				92B90ADA29D62EB000989EA7 /* Assets.xcassets */,
 				92B90ADC29D62EB000989EA7 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920247F829DB040C003B426D /* ShimmerModifier.swift in Sources */,
 				92B90AD929D62EAF00989EA7 /* ContentView.swift in Sources */,
 				92B90AD729D62EAF00989EA7 /* SwiftUIPrototypeApp.swift in Sources */,
 				92B90AE829D62F2700989EA7 /* FeedImageViewModel.swift in Sources */,
