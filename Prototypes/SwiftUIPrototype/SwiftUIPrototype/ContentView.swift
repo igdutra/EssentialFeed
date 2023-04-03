@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var service = ImageService()
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(FeedImageViewModel.prototypeFeed) { model in
+                ForEach(service.feed) { model in
                     Cell(model: model)
                         .padding(.bottom)
                 }
@@ -19,6 +21,28 @@ struct ContentView: View {
             }
             .listStyle(.plain)
             .navigationTitle("MY Feed")
+            .task {
+                await service.downloadItems()
+            }
+            .refreshable {
+                await service.downloadItems()
+            }
+        }
+    }
+    
+    
+}
+
+// TODO: Make this architecture better!
+class ImageService: ObservableObject {
+    @MainActor @Published var feed: [FeedImageViewModel] = []
+    
+    func downloadItems() async {
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        await MainActor.run {
+            if feed.isEmpty {
+                feed.append(contentsOf: FeedImageViewModel.prototypeFeed)
+            }
         }
     }
 }
