@@ -32,14 +32,13 @@ public final class FeedViewController: UITableViewController {
     private func load() {
         refreshControl?.beginRefreshing()
         loader?.load { [weak self] result in
-            switch result {
-            case let .success(feed):
+            // GET it is a native function from result
+            // Refactored it using if/let because they did not cared about failure case
+            if let feed = try? result.get() {
                 self?.tableModel = feed
                 self?.tableView.reloadData()
-                self?.refreshControl?.endRefreshing()
-                
-            case .failure: break
             }
+           self?.refreshControl?.endRefreshing()
         }
     }
     
