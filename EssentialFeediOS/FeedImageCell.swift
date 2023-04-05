@@ -13,4 +13,8 @@ import UIKit.UITableViewCell
      public let descriptionLabel = UILabel()
      public let feedImageContainer = UIView()
      public let feedImageView = UIImageView()
+     
+     public override func prepareForReuse() {
+         feedImageView.image = nil
+     }
  }
