@@ -339,9 +339,7 @@
 		926CE4EF29D7526C00DF2157 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				927F85D029DF087E00DEDAE6 /* Controllers */,
-				927F85D129DF088200DEDAE6 /* Views */,
-				927F85D229DF089100DEDAE6 /* Helpers */,
+				927F85DF29DF0C3F00DEDAE6 /* FeedUI */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -349,8 +347,7 @@
 		926CE4F929D7526C00DF2157 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				927F85C529DF062300DEDAE6 /* Helpers */,
-				927F85CF29DF086D00DEDAE6 /* Controllers */,
+				927F85DE29DF0C3100DEDAE6 /* FeedUI */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -472,6 +469,25 @@
 				927F85DA29DF0A7F00DEDAE6 /* LoaderSpy.swift */,
 			);
 			path = Spies;
+			sourceTree = "<group>";
+		};
+		927F85DE29DF0C3100DEDAE6 /* FeedUI */ = {
+			isa = PBXGroup;
+			children = (
+				927F85C529DF062300DEDAE6 /* Helpers */,
+				927F85CF29DF086D00DEDAE6 /* Controllers */,
+			);
+			path = FeedUI;
+			sourceTree = "<group>";
+		};
+		927F85DF29DF0C3F00DEDAE6 /* FeedUI */ = {
+			isa = PBXGroup;
+			children = (
+				927F85D029DF087E00DEDAE6 /* Controllers */,
+				927F85D129DF088200DEDAE6 /* Views */,
+				927F85D229DF089100DEDAE6 /* Helpers */,
+			);
+			path = FeedUI;
 			sourceTree = "<group>";
 		};
 		928BC39829BA02380075CF90 /* EssentialFeedCacheIntegrationTests */ = {
