@@ -396,19 +396,19 @@
 		927F85C529DF062300DEDAE6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				927F85C829DF069E00DEDAE6 /* Test DSLs */,
+				927F85C829DF069E00DEDAE6 /* Test-specific DSLs */,
 				927F85C629DF063600DEDAE6 /* UIImage+TestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		927F85C829DF069E00DEDAE6 /* Test DSLs */ = {
+		927F85C829DF069E00DEDAE6 /* Test-specific DSLs */ = {
 			isa = PBXGroup;
 			children = (
 				927F85C929DF075E00DEDAE6 /* UIRefreshControl+DSL.swift */,
 				927F85CB29DF07A500DEDAE6 /* UIButton+DSL.swift */,
 			);
-			path = "Test DSLs";
+			path = "Test-specific DSLs";
 			sourceTree = "<group>";
 		};
 		928BC39829BA02380075CF90 /* EssentialFeedCacheIntegrationTests */ = {
