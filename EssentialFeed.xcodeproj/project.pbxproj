@@ -72,6 +72,7 @@
 		92FC852229E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852129E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift */; };
 		92FC852429E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852329E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift */; };
 		92FC852629E04794002CA4A2 /* FeedViewControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852529E04794002CA4A2 /* FeedViewControllerMVVM.swift */; };
+		92FC852829E06F80002CA4A2 /* FeedRefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852729E06F80002CA4A2 /* FeedRefreshViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +189,7 @@
 		92FC852129E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedImageCellControllerMVVM.swift; sourceTree = "<group>"; };
 		92FC852329E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewControllerMVVM.swift; sourceTree = "<group>"; };
 		92FC852529E04794002CA4A2 /* FeedViewControllerMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewControllerMVVM.swift; sourceTree = "<group>"; };
+		92FC852729E06F80002CA4A2 /* FeedRefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -638,6 +640,7 @@
 		92FC851D29E0476F002CA4A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				92FC852729E06F80002CA4A2 /* FeedRefreshViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FC852829E06F80002CA4A2 /* FeedRefreshViewModel.swift in Sources */,
 				927F85E129DF0C6800DEDAE6 /* FeedImageDataLoader.swift in Sources */,
 				92FC852629E04794002CA4A2 /* FeedViewControllerMVVM.swift in Sources */,
 				927F85E329DF0CAF00DEDAE6 /* FeedRefreshViewControllerMVC.swift in Sources */,
