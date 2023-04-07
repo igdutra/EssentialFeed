@@ -5,9 +5,14 @@
 //  Created by Ivo on 03/04/23.
 //
 
-import EssentialFeed
 import UIKit
 
+// NOTE: The Controller has no need to do a viewModel
+/*
+ The FeedViewControllerdoesn’t communicate with any EssentialFeed core component.
+ As you can see, none of its responsibilities is about managing core model state.
+ That’s why, at this point, we decided it doesn’t need a View Model.
+ */
 public final class FeedViewControllerMVVM: UITableViewController {
     
     var tableModel = [FeedImageCellControllerMVVM]() {
@@ -54,6 +59,7 @@ public final class FeedViewControllerMVVM: UITableViewController {
 }
 
 // MARK: - UITableViewDataSourcePrefetching
+
 extension FeedViewControllerMVVM: UITableViewDataSourcePrefetching {
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
