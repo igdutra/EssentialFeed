@@ -9,7 +9,7 @@ import UIKit
 import EssentialFeed
 
 final class FeedRefreshViewModel {
-    public typealias Result = ([FeedImage]) -> Void
+    typealias Observer<T> = (T) -> Void
     
     private let feedLoader: FeedLoader
     
@@ -17,30 +17,24 @@ final class FeedRefreshViewModel {
         self.feedLoader = feedLoader
     }
     
-    var onRefresh: Result?
-    var isLoading: Bool = false
+    var onLoadingStateChange: Observer<Bool>?
+    var onFeedLoad: Observer<[FeedImage]>?
     
     func load() {
-        isLoading = true
+        onLoadingStateChange?(true)
         feedLoader.load { [weak self] result in
             guard let self else { return }
             if let feed = try? result.get() {
-                self.onRefresh?(feed)
-                self.isLoading = false
+                self.onFeedLoad?(feed)
+                self.onLoadingStateChange?(false)
             }
         }
     }
 }
 
-
 final class FeedRefreshViewControllerMVVM: NSObject {
     
-    private(set) lazy var view: UIRefreshControl = {
-        let view = UIRefreshControl()
-        bind(view)
-        view.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        return view
-    }()
+    private(set) lazy var view: UIRefreshControl = binded(UIRefreshControl())
     
     private let viewModel: FeedRefreshViewModel
     
@@ -53,11 +47,15 @@ final class FeedRefreshViewControllerMVVM: NSObject {
         viewModel.load()
     }
     
-    private func bind(_ view: UIRefreshControl) {
-        if viewModel.isLoading {
-            view.beginRefreshing()
-        } else {
-            view.endRefreshing()
+    private func binded(_ view: UIRefreshControl)  -> UIRefreshControl {
+        viewModel.onLoadingStateChange = { [weak view] isLoading in
+            if isLoading {
+                view?.beginRefreshing()
+            } else {
+                view?.endRefreshing()
+            }
         }
+        view.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return view
     }
 }
