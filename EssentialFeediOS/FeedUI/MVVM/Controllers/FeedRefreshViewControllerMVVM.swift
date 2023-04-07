@@ -24,6 +24,7 @@ final class FeedRefreshViewControllerMVVM: NSObject {
     }
     
     private func binded(_ view: UIRefreshControl)  -> UIRefreshControl {
+        // NOTE: By makign the view stateless, there's no need to make self weak
         viewModel.onLoadingStateChange = { [weak view] isLoading in
             if isLoading {
                 view?.beginRefreshing()
