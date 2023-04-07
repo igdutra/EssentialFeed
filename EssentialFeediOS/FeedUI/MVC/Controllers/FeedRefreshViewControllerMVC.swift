@@ -8,7 +8,7 @@
 import UIKit
 import EssentialFeed
 
-final class FeedRefreshViewController: NSObject {
+final class FeedRefreshViewControllerMVC: NSObject {
     public typealias Result = ([FeedImage]) -> Void
     
     private(set) lazy var view: UIRefreshControl = {

@@ -8,15 +8,15 @@
 import EssentialFeed
 import UIKit
 
-public final class FeedViewController: UITableViewController {
+public final class FeedViewControllerMVC: UITableViewController {
     
-    var tableModel = [FeedImageCellController]() {
+    var tableModel = [FeedImageCellControllerMVC]() {
         didSet { tableView.reloadData() }
     }
-    private var refreshController: FeedRefreshViewController?
-    private var cellControllers = [IndexPath: FeedImageCellController]()
+    private var refreshController: FeedRefreshViewControllerMVC?
+    private var cellControllers = [IndexPath: FeedImageCellControllerMVC]()
     
-    convenience init(refreshController: FeedRefreshViewController) {
+    convenience init(refreshController: FeedRefreshViewControllerMVC) {
         self.init()
         self.refreshController = refreshController
     }
@@ -44,7 +44,7 @@ public final class FeedViewController: UITableViewController {
         cancelCellControllerLoad(forRowAt: indexPath)
     }
     
-    private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
+    private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellControllerMVC {
         return tableModel[indexPath.row]
     }
     
@@ -54,7 +54,7 @@ public final class FeedViewController: UITableViewController {
 }
 
 // MARK: - UITableViewDataSourcePrefetching
-extension FeedViewController: UITableViewDataSourcePrefetching {
+extension FeedViewControllerMVC: UITableViewDataSourcePrefetching {
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
             cellController(forRowAt: indexPath).preload()
