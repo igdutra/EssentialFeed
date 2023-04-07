@@ -25,7 +25,7 @@ public enum FeedUIComposerMVVM {
                                                    loader: FeedImageDataLoader) -> FeedLoadCompletion {
         return { [weak controller] feed in
             controller?.tableModel = feed.map { model in
-                FeedImageCellControllerMVVM(model: model, imageLoader: loader)
+                FeedImageCellControllerMVVM(viewModel: FeedImageViewModel(model: model, imageLoader: loader))
             }
         }
     }
