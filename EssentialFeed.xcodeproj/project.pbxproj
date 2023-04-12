@@ -651,9 +651,9 @@
 		92FC851E29E04774002CA4A2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				92FC852329E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift */,
-				92FC852129E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift */,
 				92FC852529E04794002CA4A2 /* FeedViewControllerMVVM.swift */,
+				92FC852129E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift */,
+				92FC852329E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

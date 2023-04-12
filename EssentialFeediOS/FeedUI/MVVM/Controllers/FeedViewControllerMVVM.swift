@@ -49,6 +49,12 @@ public final class FeedViewControllerMVVM: UITableViewController {
         cancelCellControllerLoad(forRowAt: indexPath)
     }
     
+    public override func tableView(_ tableView: UITableView,
+                                   willDisplay cell: UITableViewCell,
+                                   forRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
     private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellControllerMVVM {
         return tableModel[indexPath.row]
     }

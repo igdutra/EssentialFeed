@@ -44,6 +44,13 @@ public final class FeedViewControllerMVC: UITableViewController {
         cancelCellControllerLoad(forRowAt: indexPath)
     }
     
+    /* NOTE Possible iOS 15+ bug
+     
+     If some of the images are not rendering, is because when scrolling and comming back, the cell will not be called using cellForRowAt, it will simply reuse the element and call willDisplay
+     So the task should be re-started
+     
+     */
+    
     private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellControllerMVC {
         return tableModel[indexPath.row]
     }
