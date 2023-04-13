@@ -7,16 +7,6 @@
 
 import EssentialFeed
 
-// MARK: - MVP ViewModels
-
-struct FeedLoadingViewModel {
-    let isLoading: Bool
-}
-
-struct FeedRefreshMVPViewModel {
-    let feed: [FeedImage]
-}
-
 // MARK: - View Protocols
 
 protocol FeedLoadingView {
