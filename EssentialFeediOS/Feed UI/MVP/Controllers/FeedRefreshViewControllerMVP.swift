@@ -8,20 +8,30 @@
 import UIKit
 import EssentialFeed
 
+// TODO: Think of a more direct name to it, looking at the diagram
+/* NOTE Delegate
+ 
+ This Delegate lives inside the Feed UI
+ 
+ */
+protocol FeedRefreshViewControllerDelegate {
+    func didRequestFeedRefresh()
+}
+
 final class FeedRefreshViewControllerMVP: NSObject, FeedLoadingView {
     
     private(set) lazy var refreshView: UIRefreshControl = loadView()
     
     // Decouple Controller with the presentation Layer
-    private let loadFeed: () -> Void
+    private let delegate: FeedRefreshViewControllerDelegate
     
-    init(loadFeed: @escaping () -> Void) {
-        self.loadFeed = loadFeed
+    init(delegate: FeedRefreshViewControllerDelegate) {
+        self.delegate = delegate
     }
     
     @objc
     func refresh() {
-        loadFeed()
+        delegate.didRequestFeedRefresh()
     }
     
     func display(_ viewModel: FeedLoadingViewModel) {
