@@ -13,23 +13,48 @@ public enum FeedUIComposerMVP {
     typealias FeedLoadCompletion = ([FeedImage]) -> Void
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewControllerMVP {
-        let viewModel = FeedRefreshViewModelPresenter(feedLoader: feedLoader)
-        let refreshController = FeedRefreshViewControllerMVP(viewModel: viewModel)
+        let presenter = FeedPresenter(feedLoader: feedLoader)
+        let refreshController = FeedRefreshViewControllerMVP(presenter: presenter)
         let feedController = FeedViewControllerMVP(refreshController: refreshController)
-        viewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedController, loader: imageLoader)
+        
+        presenter.loadingView = refreshController
+        presenter.feedView = FeedViewAdapter(controller: feedController, imageLoader: imageLoader)
+        
         return feedController
     }
-    
-    // NOTE: Adapter
-    private static func adaptFeedToCellControllers(forwardingTo controller: FeedViewControllerMVP,
-                                                   loader: FeedImageDataLoader) -> FeedLoadCompletion {
-        return { [weak controller] feed in
-            controller?.tableModel = feed.map { model in
-                FeedImageCellControllerMVP(viewModel:
-                                     FeedImageViewModelPresenter(model: model,
-                                                        imageLoader: loader,
-                                                        imageTransformer: UIImage.init))
-            }
-        }
-    }
 }
+
+// MARK: - Adapter
+
+/* NOTE Adapter into object
+ 
+ private static func adaptFeedToCellControllers(forwardingTo controller: FeedViewControllerMVP,
+                                                loader: FeedImageDataLoader) -> FeedLoadCompletion {
+     return { [weak controller] feed in
+         controller?.tableModel = feed.map { model in
+             FeedImageCellControllerMVP(viewModel:
+                                  FeedImageViewModelPresenter(model: model,
+                                                     imageLoader: loader,
+                                                     imageTransformer: UIImage.init))
+         }
+     }
+ }
+ 
+ */
+
+private final class FeedViewAdapter: FeedView {
+     private weak var controller: FeedViewControllerMVP?
+     private let imageLoader: FeedImageDataLoader
+
+     init(controller: FeedViewControllerMVP, imageLoader: FeedImageDataLoader) {
+         self.controller = controller
+         self.imageLoader = imageLoader
+     }
+
+     func display(feed: [FeedImage]) {
+         controller?.tableModel = feed.map { model in
+             FeedImageCellControllerMVP(viewModel:
+                 FeedImageViewModelPresenter(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init))
+         }
+     }
+ }

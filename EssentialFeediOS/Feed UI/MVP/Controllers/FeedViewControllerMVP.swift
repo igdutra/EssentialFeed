@@ -30,7 +30,7 @@ public final class FeedViewControllerMVP: UITableViewController {
         super.viewDidLoad()
         
         tableView.prefetchDataSource = self
-        refreshControl = refreshController?.view
+        refreshControl = refreshController?.refreshView
         refreshController?.refresh()
     }
 

@@ -8,30 +8,31 @@
 import UIKit
 import EssentialFeed
 
-final class FeedRefreshViewControllerMVP: NSObject {
+final class FeedRefreshViewControllerMVP: NSObject, FeedLoadingView {
     
-    private(set) lazy var view: UIRefreshControl = binded(UIRefreshControl())
+    private(set) lazy var refreshView: UIRefreshControl = loadView()
     
-    private let viewModel: FeedRefreshViewModelPresenter
+    private let presenter: FeedPresenter
     
-    init(viewModel: FeedRefreshViewModelPresenter) {
-        self.viewModel = viewModel
+    init(presenter: FeedPresenter) {
+        self.presenter = presenter
     }
     
     @objc
     func refresh() {
-        viewModel.loadFeed()
+        presenter.loadFeed()
     }
     
-    private func binded(_ view: UIRefreshControl)  -> UIRefreshControl {
-        // NOTE: By makign the view stateless, there's no need to make self weak
-        viewModel.onLoadingStateChange = { [weak view] isLoading in
-            if isLoading {
-                view?.beginRefreshing()
-            } else {
-                view?.endRefreshing()
-            }
+    func display(isLoading: Bool) {
+        if isLoading {
+            refreshView.beginRefreshing()
+        } else {
+            refreshView.endRefreshing()
         }
+    }
+    
+    private func loadView()  -> UIRefreshControl {
+        let view = UIRefreshControl()
         view.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
     }
