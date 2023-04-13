@@ -18,7 +18,7 @@ public final class FeedViewControllerMVP: UITableViewController {
     var tableModel = [FeedImageCellControllerMVP]() {
         didSet { tableView.reloadData() }
     }
-    private var refreshController: FeedRefreshViewControllerMVP?
+    var refreshController: FeedRefreshViewControllerMVP?
     private var cellControllers = [IndexPath: FeedImageCellControllerMVP]()
     
     convenience init(refreshController: FeedRefreshViewControllerMVP) {
