@@ -52,7 +52,7 @@ public final class FeedViewControllerMVVM: UITableViewController {
     public override func tableView(_ tableView: UITableView,
                                    willDisplay cell: UITableViewCell,
                                    forRowAt indexPath: IndexPath) {
-        <#code#>
+        // Empty
     }
     
     private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellControllerMVVM {
