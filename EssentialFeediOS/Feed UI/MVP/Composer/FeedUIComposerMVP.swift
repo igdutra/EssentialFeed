@@ -13,8 +13,9 @@ public enum FeedUIComposerMVP {
     typealias FeedLoadCompletion = ([FeedImage]) -> Void
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewControllerMVP {
-        let presenter = FeedRefreshPresenter(feedLoader: feedLoader)
-        let refreshController = FeedRefreshViewControllerMVP(loadFeed: presenter.loadFeed)
+        let presenter = FeedRefreshPresenter()
+        let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: feedLoader, presenter: presenter)
+        let refreshController = FeedRefreshViewControllerMVP(loadFeed: presentationAdapter.loadFeed)
         let feedController = FeedViewControllerMVP(refreshController: refreshController)
         
         presenter.loadingView = WeakRefVirtualProxy(refreshController)
@@ -59,18 +60,52 @@ extension WeakRefVirtualProxy: FeedLoadingView where T: FeedLoadingView {
  */
 
 private final class FeedViewAdapter: FeedRefreshView {
-     private weak var controller: FeedViewControllerMVP?
-     private let imageLoader: FeedImageDataLoader
+    private weak var controller: FeedViewControllerMVP?
+    private let imageLoader: FeedImageDataLoader
+    
+    init(controller: FeedViewControllerMVP, imageLoader: FeedImageDataLoader) {
+        self.controller = controller
+        self.imageLoader = imageLoader
+    }
+    
+    func display(_ viewModel: FeedRefreshMVPViewModel) {
+        controller?.tableModel = viewModel.feed.map { model in
+            FeedImageCellControllerMVP(viewModel:
+                                        FeedImageViewModelPresenter(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init))
+        }
+    }
+}
 
-     init(controller: FeedViewControllerMVP, imageLoader: FeedImageDataLoader) {
-         self.controller = controller
-         self.imageLoader = imageLoader
-     }
+// MARK: - The last Adapter -> which could be an Application Service or Infrastructure Service
 
-     func display(_ viewModel: FeedRefreshMVPViewModel) {
-         controller?.tableModel = viewModel.feed.map { model in
-             FeedImageCellControllerMVP(viewModel:
-                 FeedImageViewModelPresenter(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init))
-         }
-     }
- }
+/* NOTE This is what makes it unidirectional
+ 
+ The Presenter does not depend on core Logic (Feed Feature)
+ 
+ Does the presenter is pretty lean and clean
+ 
+ */
+
+private final class FeedLoaderPresentationAdapter {
+    private let feedLoader: FeedLoader
+    private let presenter: FeedRefreshPresenter
+    
+    init(feedLoader: FeedLoader, presenter: FeedRefreshPresenter) {
+        self.feedLoader = feedLoader
+        self.presenter = presenter
+    }
+    
+    func loadFeed() {
+        presenter.didStartLoadingFeed()
+        
+        feedLoader.load { [weak self] result in
+            switch result {
+            case let .success(feed):
+                self?.presenter.didFinishLoadingFeed(with: feed)
+                
+            case let .failure(error):
+                self?.presenter.didFinishLoadingFeed(with: error)
+            }
+        }
+    }
+}
