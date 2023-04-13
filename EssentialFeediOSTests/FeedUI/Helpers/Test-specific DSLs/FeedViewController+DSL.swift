@@ -8,7 +8,7 @@
 import UIKit
 import EssentialFeediOS
  
-extension FeedViewControllerMVVM {
+extension FeedViewControllerMVP {
     func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
     }
