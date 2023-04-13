@@ -14,7 +14,7 @@ public enum FeedUIComposerMVP {
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewControllerMVP {
         let presenter = FeedRefreshPresenter(feedLoader: feedLoader)
-        let refreshController = FeedRefreshViewControllerMVP(presenter: presenter)
+        let refreshController = FeedRefreshViewControllerMVP(loadFeed: presenter.loadFeed)
         let feedController = FeedViewControllerMVP(refreshController: refreshController)
         
         presenter.loadingView = WeakRefVirtualProxy(refreshController)
