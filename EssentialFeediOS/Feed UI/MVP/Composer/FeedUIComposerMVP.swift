@@ -13,7 +13,7 @@ public enum FeedUIComposerMVP {
     typealias FeedLoadCompletion = ([FeedImage]) -> Void
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewControllerMVP {
-        let presenter = FeedPresenter(feedLoader: feedLoader)
+        let presenter = FeedRefreshPresenter(feedLoader: feedLoader)
         let refreshController = FeedRefreshViewControllerMVP(presenter: presenter)
         let feedController = FeedViewControllerMVP(refreshController: refreshController)
         
@@ -58,7 +58,7 @@ extension WeakRefVirtualProxy: FeedLoadingView where T: FeedLoadingView {
  
  */
 
-private final class FeedViewAdapter: FeedView {
+private final class FeedViewAdapter: FeedRefreshView {
      private weak var controller: FeedViewControllerMVP?
      private let imageLoader: FeedImageDataLoader
 
@@ -67,7 +67,7 @@ private final class FeedViewAdapter: FeedView {
          self.imageLoader = imageLoader
      }
 
-     func display(_ viewModel: FeedViewModel) {
+     func display(_ viewModel: FeedRefreshMVPViewModel) {
          controller?.tableModel = viewModel.feed.map { model in
              FeedImageCellControllerMVP(viewModel:
                  FeedImageViewModelPresenter(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init))
