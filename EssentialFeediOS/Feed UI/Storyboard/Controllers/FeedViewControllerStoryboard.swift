@@ -13,15 +13,15 @@ import UIKit
  As you can see, none of its responsibilities is about managing core model state.
  That’s why, at this point, we decided it doesn’t need a View Model.
  */
-public final class FeedViewControllerMVP: UITableViewController {
+public final class FeedViewControllerStoryboard: UITableViewController {
     
-    var tableModel = [FeedImageCellControllerMVP]() {
+    var tableModel = [FeedImageCellControllerStoryboard]() {
         didSet { tableView.reloadData() }
     }
-    @IBOutlet var refreshController: FeedRefreshViewControllerMVP?
-    private var cellControllers = [IndexPath: FeedImageCellControllerMVP]()
+    @IBOutlet var refreshController: FeedRefreshViewControllerStoryboard?
+    private var cellControllers = [IndexPath: FeedImageCellControllerStoryboard]()
     
-    convenience init(refreshController: FeedRefreshViewControllerMVP) {
+    convenience init(refreshController: FeedRefreshViewControllerStoryboard) {
         self.init()
         self.refreshController = refreshController
     }
@@ -54,7 +54,7 @@ public final class FeedViewControllerMVP: UITableViewController {
         // Empty
     }
     
-    private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellControllerMVP {
+    private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellControllerStoryboard {
         return tableModel[indexPath.row]
     }
     
@@ -65,7 +65,7 @@ public final class FeedViewControllerMVP: UITableViewController {
 
 // MARK: - UITableViewDataSourcePrefetching
 
-extension FeedViewControllerMVP: UITableViewDataSourcePrefetching {
+extension FeedViewControllerStoryboard: UITableViewDataSourcePrefetching {
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
             cellController(forRowAt: indexPath).preload()

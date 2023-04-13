@@ -18,7 +18,7 @@ protocol FeedRefreshViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
-final class FeedRefreshViewControllerMVP: NSObject, FeedLoadingView {
+final class FeedRefreshViewControllerStoryboard: NSObject, FeedLoadingView {
     
     @IBOutlet private var refreshView: UIRefreshControl?
     
