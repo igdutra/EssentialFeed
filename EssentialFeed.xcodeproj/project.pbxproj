@@ -349,8 +349,7 @@
 			children = (
 				9215BE3B29E88F2D007817BD /* Composer */,
 				9215BE4329E88F7E007817BD /* Controllers */,
-				9215BE3D29E88F39007817BD /* Models */,
-				9215BE3C29E88F32007817BD /* Presentation */,
+				9215BE3D29E88F39007817BD /* Presentation */,
 			);
 			path = MVP;
 			sourceTree = "<group>";
@@ -363,20 +362,13 @@
 			path = Composer;
 			sourceTree = "<group>";
 		};
-		9215BE3C29E88F32007817BD /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		9215BE3D29E88F39007817BD /* Models */ = {
+		9215BE3D29E88F39007817BD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				9215BE4429E88FB9007817BD /* FeedImageViewModelPresenter.swift */,
 				9215BE4529E88FB9007817BD /* FeedRefreshViewModelPresenter.swift */,
 			);
-			path = Models;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		9215BE4329E88F7E007817BD /* Controllers */ = {
