@@ -20,25 +20,27 @@ protocol FeedRefreshViewControllerDelegate {
 
 final class FeedRefreshViewControllerMVP: NSObject, FeedLoadingView {
     
-    private(set) lazy var refreshView: UIRefreshControl = loadView()
+    @IBOutlet private var refreshView: UIRefreshControl?
     
     // Decouple Controller with the presentation Layer
-    private let delegate: FeedRefreshViewControllerDelegate
+    var delegate: FeedRefreshViewControllerDelegate?
     
-    init(delegate: FeedRefreshViewControllerDelegate) {
-        self.delegate = delegate
-    }
+    /* NOTE Init
+     
+     Init removed since we cannot use constructor injection no longer
+     
+     */
     
-    @objc
+    @IBAction
     func refresh() {
-        delegate.didRequestFeedRefresh()
+        delegate?.didRequestFeedRefresh()
     }
     
     func display(_ viewModel: FeedLoadingViewModel) {
         if viewModel.isLoading {
-            refreshView.beginRefreshing()
+            refreshView?.beginRefreshing()
         } else {
-            refreshView.endRefreshing()
+            refreshView?.endRefreshing()
         }
     }
     

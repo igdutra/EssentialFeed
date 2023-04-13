@@ -18,7 +18,7 @@ public final class FeedViewControllerMVP: UITableViewController {
     var tableModel = [FeedImageCellControllerMVP]() {
         didSet { tableView.reloadData() }
     }
-    var refreshController: FeedRefreshViewControllerMVP?
+    @IBOutlet var refreshController: FeedRefreshViewControllerMVP?
     private var cellControllers = [IndexPath: FeedImageCellControllerMVP]()
     
     convenience init(refreshController: FeedRefreshViewControllerMVP) {
@@ -30,7 +30,6 @@ public final class FeedViewControllerMVP: UITableViewController {
         super.viewDidLoad()
         
         tableView.prefetchDataSource = self
-        refreshControl = refreshController?.refreshView
         refreshController?.refresh()
     }
 
