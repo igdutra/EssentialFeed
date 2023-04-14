@@ -26,7 +26,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="ull-I7-yN1" customClass="FeedImageCell" customModule="UIKitPrototype" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="ull-I7-yN1" customClass="FeedImageCell" customModule="EssentialFeediOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="66" width="393" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ull-I7-yN1" id="PC1-hf-VAX">
@@ -132,19 +132,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
-                            <action selector="refresh" destination="oO2-zx-qVY" eventType="valueChanged" id="LrP-io-7cG"/>
+                            <action selector="refresh" destination="uo9-ac-CVe" eventType="valueChanged" id="j3U-b9-jMT"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <outlet property="refreshController" destination="oO2-zx-qVY" id="DUs-Hm-o9j"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRc-a2-w0w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="oO2-zx-qVY" customClass="FeedRefreshViewControllerStoryboard" customModule="EssentialFeediOS" customModuleProvider="target">
-                    <connections>
-                        <outlet property="refreshView" destination="57V-WK-4by" id="iAo-Jl-ZVu"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="782.44274809160299" y="29.577464788732396"/>
         </scene>

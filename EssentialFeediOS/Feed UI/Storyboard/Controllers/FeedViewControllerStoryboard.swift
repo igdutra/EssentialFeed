@@ -7,32 +7,45 @@
 
 import UIKit
 
+// It is no longer FeedRefreshViewControllerDelegate
+protocol FeedViewControllerDelegate {
+    func didRequestFeedRefresh()
+}
+
 // NOTE: The Controller has no need to do a viewModel
 /*
  The FeedViewControllerdoesn’t communicate with any EssentialFeed core component.
  As you can see, none of its responsibilities is about managing core model state.
  That’s why, at this point, we decided it doesn’t need a View Model.
  */
-public final class FeedViewControllerStoryboard: UITableViewController {
+public final class FeedViewControllerStoryboard: UITableViewController, FeedLoadingView {
+    
+    var delegate: FeedViewControllerDelegate?
     
     var tableModel = [FeedImageCellControllerStoryboard]() {
         didSet { tableView.reloadData() }
-    }
-    @IBOutlet var refreshController: FeedRefreshViewControllerStoryboard?
-    private var cellControllers = [IndexPath: FeedImageCellControllerStoryboard]()
-    
-    convenience init(refreshController: FeedRefreshViewControllerStoryboard) {
-        self.init()
-        self.refreshController = refreshController
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.prefetchDataSource = self
-        refreshController?.refresh()
+        refresh()
     }
-
+    
+    @IBAction private func refresh() {
+        delegate?.didRequestFeedRefresh()
+    }
+    
+    func display(_ viewModel: FeedLoadingViewModel) {
+        if viewModel.isLoading {
+            // UITableViewController reference to refreshControl
+            refreshControl?.beginRefreshing()
+        } else {
+            refreshControl?.endRefreshing()
+        }
+    }
+    
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableModel.count
     }
