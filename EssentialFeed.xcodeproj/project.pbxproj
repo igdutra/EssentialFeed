@@ -548,14 +548,6 @@
 			path = "Test-specific DSLs";
 			sourceTree = "<group>";
 		};
-		927F85CF29DF086D00DEDAE6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				92B2FCD129DB0831004B0C6D /* FeedUIIntegrationTests.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		927F85D029DF087E00DEDAE6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,7 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				927F85C529DF062300DEDAE6 /* Helpers */,
-				927F85CF29DF086D00DEDAE6 /* Controllers */,
+				92B2FCD129DB0831004B0C6D /* FeedUIIntegrationTests.swift */,
 			);
 			path = FeedUI;
 			sourceTree = "<group>";
