@@ -13,11 +13,8 @@ public enum FeedUIComposerStoryboard {
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewControllerStoryboard {
         let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: feedLoader)
         
-        let bundle = Bundle(for: FeedViewControllerStoryboard.self)
-        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
-        let feedController = storyboard.instantiateInitialViewController() as! FeedViewControllerStoryboard
-        feedController.delegate = presentationAdapter
-        feedController.title = FeedRefreshPresenter.title
+        let feedController = makeFeedControllerWith(delegate: presentationAdapter,
+                                                    title: FeedRefreshPresenter.title)
         
         let feedView = FeedViewAdapter(controller: feedController, imageLoader: imageLoader)
         let loadingView = WeakRefVirtualProxy(feedController)
@@ -25,6 +22,15 @@ public enum FeedUIComposerStoryboard {
         
         presentationAdapter.presenter = presenter
         
+        return feedController
+    }
+    
+    static func makeFeedControllerWith(delegate: FeedViewControllerDelegate, title: String) -> FeedViewControllerStoryboard {
+        let bundle = Bundle(for: FeedViewControllerStoryboard.self)
+        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
+        let feedController = storyboard.instantiateInitialViewController() as! FeedViewControllerStoryboard
+        feedController.delegate = delegate
+        feedController.title = title
         return feedController
     }
 }
