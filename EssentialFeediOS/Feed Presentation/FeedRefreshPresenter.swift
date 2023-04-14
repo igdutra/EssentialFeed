@@ -28,6 +28,7 @@ final class FeedRefreshPresenter {
         self.loadingView = loadingView
     }
     
+    // TODO: Add LocalizableStrings protocol, based on the SwiftGen
     static var title: String {
         return NSLocalizedString("FEED_VIEW_TITLE",
                                  tableName: "Feed",
