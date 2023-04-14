@@ -76,7 +76,7 @@ private final class FeedViewAdapter: FeedRefreshView {
     
     func display(_ viewModel: FeedRefreshMVPViewModel) {
         controller?.tableModel = viewModel.feed.map { model in
-            let adapter = FeedImageDataLoaderPresentationAdapter<WeakRefVirtualProxy<FeedImageCellControllerMVP>, UIImage>(model: model, imageLoader: imageLoader)
+            let adapter = FeedImageDataLoaderPresentationAdapterMVP<WeakRefVirtualProxy<FeedImageCellControllerMVP>, UIImage>(model: model, imageLoader: imageLoader)
             let view = FeedImageCellControllerMVP(delegate: adapter)
             
             adapter.presenter = FeedImagePresenter(
@@ -121,7 +121,7 @@ private final class FeedLoaderPresentationAdapter: FeedRefreshViewControllerDele
     }
 }
 
-private final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView, Image>: FeedImageCellControllerDelegateMVP where View.Image == Image {
+private final class FeedImageDataLoaderPresentationAdapterMVP<View: FeedImageView, Image>: FeedImageCellControllerDelegateMVP where View.Image == Image {
     private let model: FeedImage
     private let imageLoader: FeedImageDataLoader
     private var task: FeedImageDataLoaderTask?
