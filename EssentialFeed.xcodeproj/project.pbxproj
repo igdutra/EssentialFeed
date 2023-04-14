@@ -395,9 +395,9 @@
 			isa = PBXGroup;
 			children = (
 				9215BE3E29E88F59007817BD /* FeedUIComposerStoryboard.swift */,
-				929C38F229EA026C00BAC1DE /* FeedViewAdapter.swift */,
-				929C38EC29EA00B100BAC1DE /* WeakRefVirtualProxy.swift */,
 				929C38EA29EA007100BAC1DE /* MainQueueDispatchDecorator.swift */,
+				929C38EC29EA00B100BAC1DE /* WeakRefVirtualProxy.swift */,
+				929C38F229EA026C00BAC1DE /* FeedViewAdapter.swift */,
 				929C38F029EA021000BAC1DE /* FeedLoaderPresentationAdapter.swift */,
 				929C38EE29EA019F00BAC1DE /* FeedImageDataLoaderPresentationAdapter.swift */,
 			);
