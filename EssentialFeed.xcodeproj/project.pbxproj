@@ -423,6 +423,14 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		92384B8629E99A9400C8B71C /* ViewCode */ = {
+			isa = PBXGroup;
+			children = (
+				92413D8C29DDCFC500220418 /* FeedImageCell.swift */,
+			);
+			path = ViewCode;
+			sourceTree = "<group>";
+		};
 		925CE35229701B4D004C6859 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,8 +557,8 @@
 		927F85D129DF088200DEDAE6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				92384B8629E99A9400C8B71C /* ViewCode */,
 				92384B8329E9987900C8B71C /* Storyboard */,
-				92413D8C29DDCFC500220418 /* FeedImageCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
