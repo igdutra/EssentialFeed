@@ -15,7 +15,7 @@ public enum FeedUIComposerMVP {
         let refreshController = FeedRefreshViewControllerMVP(delegate: presentationAdapter)
         let feedController = FeedViewControllerMVP(refreshController: refreshController)
         
-        let feedView = FeedViewAdapter(controller: feedController, imageLoader: imageLoader)
+        let feedView = FeedViewAdapterMVP(controller: feedController, imageLoader: imageLoader)
         let loadingView = WeakRefVirtualProxy(refreshController)
         let presenter = FeedRefreshPresenter(feedView: feedView, loadingView: loadingView)
         
@@ -65,7 +65,7 @@ extension WeakRefVirtualProxy: FeedImageView where T: FeedImageView, T.Image == 
  
  */
 
-private final class FeedViewAdapter: FeedRefreshView {
+private final class FeedViewAdapterMVP: FeedRefreshView {
     private weak var controller: FeedViewControllerMVP?
     private let imageLoader: FeedImageDataLoader
     
