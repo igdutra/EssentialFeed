@@ -51,7 +51,7 @@ public final class FeedViewControllerStoryboard: UITableViewController, FeedLoad
     
     public override func tableView(_ tableView: UITableView,
                                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cellController(forRowAt: indexPath).view()
+        return cellController(forRowAt: indexPath).view(in: tableView)
     }
     
     public override func tableView(_ tableView: UITableView,
