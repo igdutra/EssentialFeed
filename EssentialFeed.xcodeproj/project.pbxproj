@@ -471,7 +471,8 @@
 		926CE4F929D7526C00DF2157 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				927F85DE29DF0C3100DEDAE6 /* FeedUI */,
+				929C38E729E9E26C00BAC1DE /* Feed Presentation */,
+				927F85DE29DF0C3100DEDAE6 /* Feed UI */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -593,13 +594,13 @@
 			path = Spies;
 			sourceTree = "<group>";
 		};
-		927F85DE29DF0C3100DEDAE6 /* FeedUI */ = {
+		927F85DE29DF0C3100DEDAE6 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
 				927F85C529DF062300DEDAE6 /* Helpers */,
 				92B2FCD129DB0831004B0C6D /* FeedUIIntegrationTests.swift */,
 			);
-			path = FeedUI;
+			path = "Feed UI";
 			sourceTree = "<group>";
 		};
 		927F85DF29DF0C3F00DEDAE6 /* Feed UI */ = {
@@ -637,6 +638,13 @@
 				929C38E429E9E01A00BAC1DE /* Feed.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		929C38E729E9E26C00BAC1DE /* Feed Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Feed Presentation";
 			sourceTree = "<group>";
 		};
 		92C0B29329BD1E4200568F69 /* Infrastructure */ = {
