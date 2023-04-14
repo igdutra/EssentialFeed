@@ -22,11 +22,10 @@ final class FeedImageCellControllerStoryboard: FeedImageView {
     }
     
     func view(in tableView: UITableView) -> UITableViewCell {
-        // They said it was safe to force-unwrap here because they have tests covering it.
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedImageCellStoryboard") as! FeedImageCellStoryboard
-        self.cell = cell
+        // Type information is at the property declaration
+        cell = tableView.dequeueReusableCell()
         delegate.didRequestImage()
-        return cell
+        return cell!
     }
     
     func preload() {
