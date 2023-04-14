@@ -26,7 +26,7 @@ public enum FeedUIComposerMVP {
 }
 
 // MARK: - Weak Proxy
-
+/* Proxy was moved to separate files in the Storyboard
 private final class WeakRefVirtualProxy<T: AnyObject> {
     private weak var object: T?
     
@@ -46,7 +46,7 @@ extension WeakRefVirtualProxy: FeedImageView where T: FeedImageView, T.Image == 
          object?.display(model)
      }
  }
-
+ */
 // MARK: - Adapter
 
 /* NOTE Adapter into object
