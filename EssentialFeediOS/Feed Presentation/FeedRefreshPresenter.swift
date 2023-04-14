@@ -5,6 +5,7 @@
 //  Created by Ivo on 13/04/23.
 //
 
+import Foundation
 import EssentialFeed
 
 // MARK: - View Protocols
