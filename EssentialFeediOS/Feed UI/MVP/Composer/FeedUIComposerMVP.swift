@@ -11,7 +11,7 @@ import EssentialFeed
 public enum FeedUIComposerMVP {
 
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewControllerMVP {
-        let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: feedLoader)
+        let presentationAdapter = FeedLoaderPresentationAdapterMVP(feedLoader: feedLoader)
         let refreshController = FeedRefreshViewControllerMVP(delegate: presentationAdapter)
         let feedController = FeedViewControllerMVP(refreshController: refreshController)
         
@@ -98,7 +98,7 @@ private final class FeedViewAdapter: FeedRefreshView {
  
  */
 
-private final class FeedLoaderPresentationAdapter: FeedRefreshViewControllerDelegateMVP {
+private final class FeedLoaderPresentationAdapterMVP: FeedRefreshViewControllerDelegateMVP {
     private let feedLoader: FeedLoader
     var presenter: FeedRefreshPresenter?
     
