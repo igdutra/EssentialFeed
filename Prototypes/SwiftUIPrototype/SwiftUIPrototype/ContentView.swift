@@ -20,7 +20,7 @@ struct ContentView: View {
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
-            .navigationTitle(Feed.test(a: "a", b: "b"))
+            .navigationTitle(FeedLocalized.test(a: "a", b: "b"))
             .task {
                 await service.downloadItems()
             }

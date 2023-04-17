@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Feed: LocalizedStrings {
+final class FeedLocalized: LocalizedStrings {
     private init() { }
     
     static let feed = localized("FEED_VIEW_TITLE")

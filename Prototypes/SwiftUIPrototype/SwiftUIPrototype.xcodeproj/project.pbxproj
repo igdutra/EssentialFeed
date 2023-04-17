@@ -17,7 +17,7 @@
 		92B90AE929D62F2700989EA7 /* FeedImageViewModel+PrototypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B90AE729D62F2700989EA7 /* FeedImageViewModel+PrototypeData.swift */; };
 		92C8DDAB29EDDD4A009E4DA9 /* FeedLocalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C8DDA929EDDD4A009E4DA9 /* FeedLocalized.swift */; };
 		92C8DDAC29EDDD4A009E4DA9 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C8DDAA29EDDD4A009E4DA9 /* LocalizedStrings.swift */; };
-		92C8DDAE29EDDD5B009E4DA9 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92C8DDAD29EDDD5B009E4DA9 /* Feed.strings */; };
+		92C8DDAE29EDDD5B009E4DA9 /* FeedLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92C8DDAD29EDDD5B009E4DA9 /* FeedLocalized.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		92B90AE729D62F2700989EA7 /* FeedImageViewModel+PrototypeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedImageViewModel+PrototypeData.swift"; sourceTree = "<group>"; };
 		92C8DDA929EDDD4A009E4DA9 /* FeedLocalized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLocalized.swift; sourceTree = "<group>"; };
 		92C8DDAA29EDDD4A009E4DA9 /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
-		92C8DDAD29EDDD5B009E4DA9 /* Feed.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Feed.strings; sourceTree = "<group>"; };
+		92C8DDAD29EDDD5B009E4DA9 /* FeedLocalized.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FeedLocalized.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 			children = (
 				92C8DDAA29EDDD4A009E4DA9 /* LocalizedStrings.swift */,
 				92C8DDA929EDDD4A009E4DA9 /* FeedLocalized.swift */,
-				92C8DDAD29EDDD5B009E4DA9 /* Feed.strings */,
+				92C8DDAD29EDDD5B009E4DA9 /* FeedLocalized.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92C8DDAE29EDDD5B009E4DA9 /* Feed.strings in Resources */,
+				92C8DDAE29EDDD5B009E4DA9 /* FeedLocalized.strings in Resources */,
 				92B90ADE29D62EB000989EA7 /* Preview Assets.xcassets in Resources */,
 				92B90AE529D62ED800989EA7 /* Protoype.png in Resources */,
 				92B90ADB29D62EB000989EA7 /* Assets.xcassets in Resources */,

@@ -16,7 +16,7 @@ extension LocalizedStrings {
                           _ args: CVarArg...,
                           fallback value: String = .init(),
                           _ table: String = String(describing: Self.self)) -> String {
-        let bundle = Bundle(for: Feed.self)
+        let bundle = Bundle(for: FeedLocalized.self)
         let format = bundle.localizedString(forKey: key, value: value, table: table)
         return String(format: format, locale: Locale.current, arguments: args)
     }
