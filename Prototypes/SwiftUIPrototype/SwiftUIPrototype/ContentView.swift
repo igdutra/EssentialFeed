@@ -20,7 +20,7 @@ struct ContentView: View {
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
-            .navigationTitle("MY Feed")
+            .navigationTitle(Feed.test(a: "a", b: "b"))
             .task {
                 await service.downloadItems()
             }
