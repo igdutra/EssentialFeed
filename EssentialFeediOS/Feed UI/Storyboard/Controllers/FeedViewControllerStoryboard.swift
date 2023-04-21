@@ -47,7 +47,7 @@ public final class FeedViewControllerStoryboard: UITableViewController, FeedLoad
         }
     }
     
-    func display(_ viewModel: FeedErrorViewModel) {
+    func display(_ viewModel: FeedErrorViewData) {
         errorView?.message = viewModel.message
     }
     
