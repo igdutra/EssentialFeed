@@ -12,10 +12,6 @@ protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
-public final class ErrorView: UIView {
-    public var message: String?
-}
-
 // NOTE: The Controller has no need to do a viewModel
 /*
  The FeedViewControllerdoesn’t communicate with any EssentialFeed core component.
