@@ -7,21 +7,21 @@
 
 import Foundation
 
+// MARK: - View Protocols
+
 public protocol FeedView {
     func display(_ viewModel: FeedViewModel)
 }
-
-
 
 public protocol FeedLoadingView {
     func display(_ viewModel: FeedLoadingViewModel)
 }
 
-
-
 public protocol FeedErrorView {
     func display(_ viewModel: FeedErrorViewModel)
 }
+
+// MARK: - Presenter
 
 public final class FeedPresenter {
     private let feedView: FeedView
