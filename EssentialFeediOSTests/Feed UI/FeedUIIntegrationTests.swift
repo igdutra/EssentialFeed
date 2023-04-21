@@ -94,6 +94,25 @@ final class FeedUIIntegrationTests: XCTestCase {
         XCTAssertEqual(sut.errorMessage, nil)
     }
     
+    /* NOTE simulate tap in UIView
+     
+     Is possible to simulate the tap in the UIView using the same behavior in the UIControl?
+     
+     */
+    
+//    func test_errorView_dismissesErrorMessageOnUserTap() {
+//        let (sut, loader) = makeSUT()
+//
+//        sut.loadViewIfNeeded()
+//        XCTAssertEqual(sut.errorMessage, nil)
+//
+//        loader.completeFeedLoadingWithError()
+//        XCTAssertEqual(sut.errorMessage, localized("FEED_VIEW_CONNECTION_ERROR"))
+//
+//        sut.simulateTapOnErrorMessage()
+//        XCTAssertEqual(sut.errorMessage, nil)
+//    }
+    
     func test_feedImageView_loadsImageURLWhenVisible() {
         let image0 = makeImage(url: anyURL("http://url-0.com"))
         let image1 = makeImage(url: anyURL("http://url-0.com"))
