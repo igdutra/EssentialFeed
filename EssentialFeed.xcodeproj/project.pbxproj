@@ -478,10 +478,26 @@
 		9243E18A29F2E87400CF7616 /* Feed Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				9243E18F29F2EB8000CF7616 /* Localization */,
+				9243E18E29F2EB7500CF7616 /* ViewModels */,
 				9243E18B29F2E88F00CF7616 /* FeedPresenter.swift */,
-				9243E18729F2E80100CF7616 /* Feed.strings */,
 			);
 			path = "Feed Presenter";
+			sourceTree = "<group>";
+		};
+		9243E18E29F2EB7500CF7616 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9243E18F29F2EB8000CF7616 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				9243E18729F2E80100CF7616 /* Feed.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		925CE35229701B4D004C6859 /* DTO */ = {
