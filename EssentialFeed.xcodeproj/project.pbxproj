@@ -70,7 +70,6 @@
 		928F76B229DDE57500E304C0 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928F76B129DDE57500E304C0 /* UIView+Shimmering.swift */; };
 		92982AE629B7BB810042D359 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92982AE529B7BB810042D359 /* CodableFeedStoreTests.swift */; };
 		929C38E129E9DFAF00BAC1DE /* FeedViewControllerTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C38E029E9DFAF00BAC1DE /* FeedViewControllerTests+Localization.swift */; };
-		929C38E229E9E01A00BAC1DE /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 929C38E429E9E01A00BAC1DE /* Feed.strings */; };
 		929C38E929E9E2BE00BAC1DE /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C38E829E9E2BE00BAC1DE /* FeedLocalizationTests.swift */; };
 		929C38EB29EA007100BAC1DE /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C38EA29EA007100BAC1DE /* MainQueueDispatchDecorator.swift */; };
 		929C38ED29EA00B100BAC1DE /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C38EC29EA00B100BAC1DE /* WeakRefVirtualProxy.swift */; };
@@ -226,9 +225,6 @@
 		928F76B129DDE57500E304C0 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		92982AE529B7BB810042D359 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
 		929C38E029E9DFAF00BAC1DE /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
-		929C38E329E9E01A00BAC1DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
-		929C38E529E9E08800BAC1DE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Feed.strings"; sourceTree = "<group>"; };
-		929C38E629E9E17A00BAC1DE /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
 		929C38E829E9E2BE00BAC1DE /* FeedLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLocalizationTests.swift; sourceTree = "<group>"; };
 		929C38EA29EA007100BAC1DE /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		929C38EC29EA00B100BAC1DE /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
@@ -436,7 +432,6 @@
 		9215BE4B29E891FC007817BD /* Feed Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				929C38DD29E9DECA00BAC1DE /* Localization */,
 				9215BE5329E8A201007817BD /* ViewModels */,
 				9215BE4C29E8925A007817BD /* FeedRefreshPresenter.swift */,
 				9215BE5129E89FD2007817BD /* FeedImagePresenter.swift */,
@@ -708,14 +703,6 @@
 				928BC39929BA02380075CF90 /* EssentialFeedCacheIntegrationTests.swift */,
 			);
 			path = EssentialFeedCacheIntegrationTests;
-			sourceTree = "<group>";
-		};
-		929C38DD29E9DECA00BAC1DE /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				929C38E429E9E01A00BAC1DE /* Feed.strings */,
-			);
-			path = Localization;
 			sourceTree = "<group>";
 		};
 		929C38E729E9E26C00BAC1DE /* Feed Presentation */ = {
@@ -1081,7 +1068,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929C38E229E9E01A00BAC1DE /* Feed.strings in Resources */,
 				92CC158D29E8BE0300C7B0FF /* Feed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1288,16 +1274,6 @@
 				9243E18629F2E80100CF7616 /* en */,
 				9243E18829F2E80400CF7616 /* el */,
 				9243E18929F2E80600CF7616 /* pt-BR */,
-			);
-			name = Feed.strings;
-			sourceTree = "<group>";
-		};
-		929C38E429E9E01A00BAC1DE /* Feed.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				929C38E329E9E01A00BAC1DE /* en */,
-				929C38E529E9E08800BAC1DE /* pt-BR */,
-				929C38E629E9E17A00BAC1DE /* el */,
 			);
 			name = Feed.strings;
 			sourceTree = "<group>";
