@@ -38,6 +38,14 @@ class FeedImagePresenter {
                                         isLoading: true,
                                         shouldRetry: false))
     }
+    
+    func didFinishLoadingImageData(with error: Error, for model: FeedImage) {
+        view.display(FeedImageViewModel(description: model.description,
+                                        location: model.location,
+                                        image: nil,
+                                        isLoading: false,
+                                        shouldRetry: true))
+    }
 }
 
 class FeedImagePresenterTests: XCTestCase {
@@ -61,6 +69,20 @@ class FeedImagePresenterTests: XCTestCase {
         XCTAssertEqual(message?.isLoading, true)
         XCTAssertEqual(message?.shouldRetry, false)
     }
+    
+    func test_didFinishLoadingImageData_displaysShouldRetryButton() {
+        let (sut, view) = makeSUT()
+        let image = uniqueImage()
+        
+        sut.didFinishLoadingImageData(with: anyNSError(), for: image)
+        
+        let message = view.messages.first
+        XCTAssertEqual(message?.description, image.description)
+        XCTAssertEqual(message?.location, image.location)
+        XCTAssertNil(message?.image)
+        XCTAssertEqual(message?.isLoading, false)
+        XCTAssertEqual(message?.shouldRetry, true)
+    }
 }
 
 // MARK: - Spy
@@ -69,6 +91,8 @@ private extension FeedImagePresenterTests {
         /* NOTE no silver bullet
          
          Instead of adding extra enum for each method call, just an enum containing the viewModels
+         
+         that's because the ViewControllerSpy implemented 3 protocols at the same time, here there's only one protocol
          
          */
         private(set) var messages = [FeedImageViewModel]()
