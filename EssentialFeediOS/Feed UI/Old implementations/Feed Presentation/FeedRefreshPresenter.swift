@@ -10,25 +10,25 @@ import EssentialFeed
 
 // MARK: - View Protocols
 
-protocol FeedLoadingView {
-    func display(_ viewModel: FeedLoadingViewModel)
+protocol FeedLoadingViewOld {
+    func display(_ viewModel: FeedLoadingMVPViewModel)
 }
 
-protocol FeedRefreshView {
+protocol FeedRefreshViewOld {
     func display(_ viewModel: FeedRefreshMVPViewModel)
 }
 
-protocol FeedErrorView {
+protocol FeedErrorViewOld {
     func display(_ viewModel: FeedErrorViewData)
 }
 
 final class FeedRefreshPresenter {
     
-    private let feedView: FeedRefreshView
-    private let loadingView: FeedLoadingView
-    private let errorView: FeedErrorView
+    private let feedView: FeedRefreshViewOld
+    private let loadingView: FeedLoadingViewOld
+    private let errorView: FeedErrorViewOld
     
-    init(feedView: FeedRefreshView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
+    init(feedView: FeedRefreshViewOld, loadingView: FeedLoadingViewOld, errorView: FeedErrorViewOld) {
         self.feedView = feedView
         self.loadingView = loadingView
         self.errorView = errorView
@@ -51,16 +51,16 @@ final class FeedRefreshPresenter {
     
     func didStartLoadingFeed() {
         errorView.display(.noError)
-        loadingView.display(FeedLoadingViewModel(isLoading: true))
+        loadingView.display(FeedLoadingMVPViewModel(isLoading: true))
     }
     
     func didFinishLoadingFeed(with feed: [FeedImage]) {
         feedView.display(FeedRefreshMVPViewModel(feed: feed))
-        loadingView.display(FeedLoadingViewModel(isLoading: false))
+        loadingView.display(FeedLoadingMVPViewModel(isLoading: false))
     }
     
     func didFinishLoadingFeed(with error: Error) {
         errorView.display(.error(message: feedLoadError))
-        loadingView.display(FeedLoadingViewModel(isLoading: false))
+        loadingView.display(FeedLoadingMVPViewModel(isLoading: false))
     }
 }

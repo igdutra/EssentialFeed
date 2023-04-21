@@ -17,7 +17,7 @@ import EssentialFeed
  
  */
 
-final class FeedLoaderPresentationAdapter: FeedViewControllerDelegate {
+final class FeedLoaderPresentationAdapterStoryboard: FeedViewControllerDelegate {
     private let feedLoader: FeedLoader
     var presenter: FeedRefreshPresenter?
     

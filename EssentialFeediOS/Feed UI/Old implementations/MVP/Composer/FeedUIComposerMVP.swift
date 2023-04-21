@@ -69,7 +69,7 @@ extension WeakRefVirtualProxy: FeedImageView where T: FeedImageView, T.Image == 
  
  */
 
-private final class FeedViewAdapterMVP: FeedRefreshView {
+private final class FeedViewAdapterMVP: FeedRefreshViewOld {
     private weak var controller: FeedViewControllerMVP?
     private let imageLoader: FeedImageDataLoader
     
@@ -80,11 +80,11 @@ private final class FeedViewAdapterMVP: FeedRefreshView {
     
     func display(_ viewModel: FeedRefreshMVPViewModel) {
         controller?.tableModel = viewModel.feed.map { model in
-            let adapter = FeedImageDataLoaderPresentationAdapterMVP<WeakRefVirtualProxy<FeedImageCellControllerMVP>, UIImage>(model: model, imageLoader: imageLoader)
+            let adapter = FeedImageDataLoaderPresentationAdapterMVP<WeakRefVirtualProxyStoryboard<FeedImageCellControllerMVP>, UIImage>(model: model, imageLoader: imageLoader)
             let view = FeedImageCellControllerMVP(delegate: adapter)
             
-            adapter.presenter = FeedImagePresenter(
-                view: WeakRefVirtualProxy(view),
+            adapter.presenter = FeedImagePresenterOld(
+                view: WeakRefVirtualProxyStoryboard(view),
                 imageTransformer: UIImage.init)
             
             return view
@@ -125,12 +125,12 @@ private final class FeedLoaderPresentationAdapterMVP: FeedRefreshViewControllerD
     }
 }
 
-private final class FeedImageDataLoaderPresentationAdapterMVP<View: FeedImageView, Image>: FeedImageCellControllerDelegateMVP where View.Image == Image {
+private final class FeedImageDataLoaderPresentationAdapterMVP<View: FeedImageViewOld, Image>: FeedImageCellControllerDelegateMVP where View.Image == Image {
     private let model: FeedImage
     private let imageLoader: FeedImageDataLoader
     private var task: FeedImageDataLoaderTask?
     
-    var presenter: FeedImagePresenter<View, Image>?
+    var presenter: FeedImagePresenterOld<View, Image>?
     
     init(model: FeedImage, imageLoader: FeedImageDataLoader) {
         self.model = model

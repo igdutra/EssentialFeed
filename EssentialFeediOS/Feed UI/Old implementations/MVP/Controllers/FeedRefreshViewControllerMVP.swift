@@ -18,7 +18,7 @@ protocol FeedRefreshViewControllerDelegateMVP {
     func didRequestFeedRefresh()
 }
 
-final class FeedRefreshViewControllerMVP: NSObject, FeedLoadingView {
+final class FeedRefreshViewControllerMVP: NSObject, FeedLoadingViewOld {
     
     private(set) lazy var refreshView: UIRefreshControl = loadView()
     
@@ -34,7 +34,7 @@ final class FeedRefreshViewControllerMVP: NSObject, FeedLoadingView {
         delegate.didRequestFeedRefresh()
     }
     
-    func display(_ viewModel: FeedLoadingViewModel) {
+    func display(_ viewModel: FeedLoadingMVPViewModel) {
         if viewModel.isLoading {
             refreshView.beginRefreshing()
         } else {

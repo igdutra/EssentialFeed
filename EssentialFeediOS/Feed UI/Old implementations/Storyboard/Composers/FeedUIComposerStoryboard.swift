@@ -11,15 +11,15 @@ import EssentialFeed
 public enum FeedUIComposerStoryboard {
 
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewControllerStoryboard {
-        let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: MainQueueDispatchDecorator(decoratee: feedLoader))
+        let presentationAdapter = FeedLoaderPresentationAdapterStoryboard(feedLoader: MainQueueDispatchDecoratorStoryboard(decoratee: feedLoader))
         
         let feedController = makeFeedViewController(delegate: presentationAdapter,
                                                     title: FeedRefreshPresenter.title)
         
-        let feedView = FeedViewAdapter(controller: feedController,
-                                       imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
-        let loadingView = WeakRefVirtualProxy(feedController)
-        let errorView = WeakRefVirtualProxy(feedController)
+        let feedView = FeedViewAdapterStoryboard(controller: feedController,
+                                       imageLoader: MainQueueDispatchDecoratorStoryboard(decoratee: imageLoader))
+        let loadingView = WeakRefVirtualProxyStoryboard(feedController)
+        let errorView = WeakRefVirtualProxyStoryboard(feedController)
         let presenter = FeedRefreshPresenter(feedView: feedView, loadingView: loadingView, errorView: errorView)
         
         presentationAdapter.presenter = presenter

@@ -18,7 +18,7 @@ protocol FeedViewControllerDelegate {
  As you can see, none of its responsibilities is about managing core model state.
  That’s why, at this point, we decided it doesn’t need a View Model.
  */
-public final class FeedViewControllerStoryboard: UITableViewController, FeedLoadingView, FeedErrorView {
+public final class FeedViewControllerStoryboard: UITableViewController, FeedLoadingViewOld, FeedErrorViewOld {
     
     @IBOutlet private(set) public var errorView: ErrorView?
     
@@ -44,7 +44,7 @@ public final class FeedViewControllerStoryboard: UITableViewController, FeedLoad
      Thus the refreshing logic was moved to an extension
      
      */
-    func display(_ viewModel: FeedLoadingViewModel) {
+    func display(_ viewModel: FeedLoadingMVPViewModel) {
         // UITableViewController reference to refreshControl
         refreshControl?.update(isRefreshing: viewModel.isLoading)
     }

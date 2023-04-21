@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WeakRefVirtualProxy<T: AnyObject> {
+final class WeakRefVirtualProxyStoryboard<T: AnyObject> {
     private weak var object: T?
     
     init(_ object: T) {
@@ -15,19 +15,19 @@ final class WeakRefVirtualProxy<T: AnyObject> {
     }
 }
 
-extension WeakRefVirtualProxy: FeedLoadingView where T: FeedLoadingView {
-    func display(_ viewModel: FeedLoadingViewModel) {
+extension WeakRefVirtualProxyStoryboard: FeedLoadingViewOld where T: FeedLoadingViewOld {
+    func display(_ viewModel: FeedLoadingMVPViewModel) {
         object?.display(viewModel)
     }
 }
 
-extension WeakRefVirtualProxy: FeedImageView where T: FeedImageView, T.Image == UIImage {
+extension WeakRefVirtualProxyStoryboard: FeedImageViewOld where T: FeedImageViewOld, T.Image == UIImage {
     func display(_ model: FeedImageMVPViewModel<UIImage>) {
         object?.display(model)
     }
 }
 
-extension WeakRefVirtualProxy: FeedErrorView where T: FeedErrorView {
+extension WeakRefVirtualProxyStoryboard: FeedErrorViewOld where T: FeedErrorViewOld {
     func display(_ viewModel: FeedErrorViewData) {
         object?.display(viewModel)
     }

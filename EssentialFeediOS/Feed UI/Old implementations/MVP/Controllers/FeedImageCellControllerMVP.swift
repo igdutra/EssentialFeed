@@ -13,7 +13,7 @@ protocol FeedImageCellControllerDelegateMVP {
     func didCancelImageRequest()
 }
 
-final class FeedImageCellControllerMVP: FeedImageView {
+final class FeedImageCellControllerMVP: FeedImageViewOld {
     private let delegate: FeedImageCellControllerDelegateMVP
     private lazy var cell = FeedImageCell()
     

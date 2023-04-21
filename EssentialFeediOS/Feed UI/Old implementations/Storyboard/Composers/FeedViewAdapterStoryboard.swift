@@ -26,7 +26,7 @@ import EssentialFeed
  
  */
 
-final class FeedViewAdapter: FeedRefreshView {
+final class FeedViewAdapterStoryboard: FeedRefreshViewOld {
     private weak var controller: FeedViewControllerStoryboard?
     private let imageLoader: FeedImageDataLoader
     
@@ -37,11 +37,11 @@ final class FeedViewAdapter: FeedRefreshView {
     
     func display(_ viewModel: FeedRefreshMVPViewModel) {
         controller?.tableModel = viewModel.feed.map { model in
-            let adapter = FeedImageDataLoaderPresentationAdapter<WeakRefVirtualProxy<FeedImageCellControllerStoryboard>, UIImage>(model: model, imageLoader: imageLoader)
+            let adapter = FeedImageDataLoaderPresentationAdapterStoryboard<WeakRefVirtualProxyStoryboard<FeedImageCellControllerStoryboard>, UIImage>(model: model, imageLoader: imageLoader)
             let view = FeedImageCellControllerStoryboard(delegate: adapter)
             
-            adapter.presenter = FeedImagePresenter(
-                view: WeakRefVirtualProxy(view),
+            adapter.presenter = FeedImagePresenterOld(
+                view: WeakRefVirtualProxyStoryboard(view),
                 imageTransformer: UIImage.init)
             
             return view

@@ -8,13 +8,13 @@
 import Foundation
 import EssentialFeed
 
-protocol FeedImageView {
+protocol FeedImageViewOld {
     associatedtype Image
     
     func display(_ model: FeedImageMVPViewModel<Image>)
 }
 
-final class FeedImagePresenter<View: FeedImageView, Image> where View.Image == Image {
+final class FeedImagePresenterOld<View: FeedImageViewOld, Image> where View.Image == Image {
     private let view: View
     private let imageTransformer: (Data) -> Image?
     
