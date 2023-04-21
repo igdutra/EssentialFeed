@@ -8,7 +8,7 @@
 import UIKit
 
 // It is no longer FeedRefreshViewControllerDelegate
-protocol FeedViewControllerDelegate {
+protocol FeedViewControllerDelegateStoryboad {
     func didRequestFeedRefresh()
 }
 
@@ -22,7 +22,7 @@ public final class FeedViewControllerStoryboard: UITableViewController, FeedLoad
     
     @IBOutlet private(set) public var errorView: ErrorView?
     
-    var delegate: FeedViewControllerDelegate?
+    var delegate: FeedViewControllerDelegateStoryboad?
     
     var tableModel = [FeedImageCellControllerStoryboard]() {
         didSet { tableView.reloadData() }

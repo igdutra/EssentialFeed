@@ -27,7 +27,7 @@ public enum FeedUIComposerStoryboard {
         return feedController
     }
 
-    static func makeFeedViewController(delegate: FeedViewControllerDelegate,
+    static func makeFeedViewController(delegate: FeedViewControllerDelegateStoryboad,
                                        title: String) -> FeedViewControllerStoryboard {
         let bundle = Bundle(for: FeedViewControllerStoryboard.self)
         let storyboard = UIStoryboard(name: "Feed", bundle: bundle)

@@ -7,7 +7,7 @@
 
 import EssentialFeed
 
-final class FeedImageDataLoaderPresentationAdapterStoryboard<View: FeedImageViewOld, Image>: FeedImageCellControllerDelegate where View.Image == Image {
+final class FeedImageDataLoaderPresentationAdapterStoryboard<View: FeedImageViewOld, Image>: FeedImageCellControllerDelegateStoryboard where View.Image == Image {
     private let model: FeedImage
     private let imageLoader: FeedImageDataLoader
     private var task: FeedImageDataLoaderTask?

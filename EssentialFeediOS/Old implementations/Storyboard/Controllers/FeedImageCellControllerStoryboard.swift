@@ -8,16 +8,16 @@
 import UIKit
 import EssentialFeed
 
-protocol FeedImageCellControllerDelegate {
+protocol FeedImageCellControllerDelegateStoryboard {
     func didRequestImage()
     func didCancelImageRequest()
 }
 
 final class FeedImageCellControllerStoryboard: FeedImageViewOld {
-    private let delegate: FeedImageCellControllerDelegate
+    private let delegate: FeedImageCellControllerDelegateStoryboard
     private var cell: FeedImageCellStoryboard?
     
-    init(delegate: FeedImageCellControllerDelegate) {
+    init(delegate: FeedImageCellControllerDelegateStoryboard) {
         self.delegate = delegate
     }
     
