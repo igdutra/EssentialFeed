@@ -104,8 +104,8 @@
 		92FC852229E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852129E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift */; };
 		92FC852429E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852329E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift */; };
 		92FC852629E04794002CA4A2 /* FeedViewControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852529E04794002CA4A2 /* FeedViewControllerMVVM.swift */; };
-		92FC852829E06F80002CA4A2 /* FeedRefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852729E06F80002CA4A2 /* FeedRefreshViewModel.swift */; };
-		92FC852A29E07285002CA4A2 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852929E07285002CA4A2 /* FeedImageViewModel.swift */; };
+		92FC852829E06F80002CA4A2 /* FeedRefreshMVVMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852729E06F80002CA4A2 /* FeedRefreshMVVMViewModel.swift */; };
+		92FC852A29E07285002CA4A2 /* FeedImageMVVMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC852929E07285002CA4A2 /* FeedImageMVVMViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,8 +256,8 @@
 		92FC852129E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedImageCellControllerMVVM.swift; sourceTree = "<group>"; };
 		92FC852329E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewControllerMVVM.swift; sourceTree = "<group>"; };
 		92FC852529E04794002CA4A2 /* FeedViewControllerMVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewControllerMVVM.swift; sourceTree = "<group>"; };
-		92FC852729E06F80002CA4A2 /* FeedRefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewModel.swift; sourceTree = "<group>"; };
-		92FC852929E07285002CA4A2 /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
+		92FC852729E06F80002CA4A2 /* FeedRefreshMVVMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshMVVMViewModel.swift; sourceTree = "<group>"; };
+		92FC852929E07285002CA4A2 /* FeedImageMVVMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageMVVMViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -876,8 +876,8 @@
 		92FC851D29E0476F002CA4A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				92FC852729E06F80002CA4A2 /* FeedRefreshViewModel.swift */,
-				92FC852929E07285002CA4A2 /* FeedImageViewModel.swift */,
+				92FC852729E06F80002CA4A2 /* FeedRefreshMVVMViewModel.swift */,
+				92FC852929E07285002CA4A2 /* FeedImageMVVMViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1144,7 +1144,7 @@
 				9215BE3F29E88F59007817BD /* FeedUIComposerStoryboard.swift in Sources */,
 				9215BE4829E8905E007817BD /* FeedViewControllerStoryboard.swift in Sources */,
 				92CC159829E8C64700C7B0FF /* FeedViewControllerMVP.swift in Sources */,
-				92FC852829E06F80002CA4A2 /* FeedRefreshViewModel.swift in Sources */,
+				92FC852829E06F80002CA4A2 /* FeedRefreshMVVMViewModel.swift in Sources */,
 				92384B8529E9988A00C8B71C /* FeedImageCellStoryboard.swift in Sources */,
 				929C38EF29EA019F00BAC1DE /* FeedImageDataLoaderPresentationAdapterStoryboard.swift in Sources */,
 				927F85E129DF0C6800DEDAE6 /* FeedImageDataLoader.swift in Sources */,
@@ -1160,7 +1160,7 @@
 				929C38F329EA026C00BAC1DE /* FeedViewAdapterStoryboard.swift in Sources */,
 				928AD91829F2DAA80055D5FF /* FeedErrorViewData.swift in Sources */,
 				92FC852429E04790002CA4A2 /* FeedRefreshViewControllerMVVM.swift in Sources */,
-				92FC852A29E07285002CA4A2 /* FeedImageViewModel.swift in Sources */,
+				92FC852A29E07285002CA4A2 /* FeedImageMVVMViewModel.swift in Sources */,
 				92FC852229E0478C002CA4A2 /* FeedImageCellControllerMVVM.swift in Sources */,
 				9215BE4A29E89065007817BD /* FeedImageCellControllerStoryboard.swift in Sources */,
 				928AD91629F2D82A0055D5FF /* ErrorView.swift in Sources */,

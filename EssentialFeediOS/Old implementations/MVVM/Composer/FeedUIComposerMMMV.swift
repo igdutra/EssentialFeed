@@ -13,7 +13,7 @@ public enum FeedUIComposerMVVM {
     typealias FeedLoadCompletion = ([FeedImage]) -> Void
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewControllerMVVM {
-        let viewModel = FeedRefreshViewModel(feedLoader: feedLoader)
+        let viewModel = FeedRefreshMVVMViewModel(feedLoader: feedLoader)
         let refreshController = FeedRefreshViewControllerMVVM(viewModel: viewModel)
         let feedController = FeedViewControllerMVVM(refreshController: refreshController)
         viewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedController, loader: imageLoader)
@@ -26,7 +26,7 @@ public enum FeedUIComposerMVVM {
         return { [weak controller] feed in
             controller?.tableModel = feed.map { model in
                 FeedImageCellControllerMVVM(viewModel:
-                                     FeedImageViewModel(model: model,
+                                     FeedImageMVVMViewModel(model: model,
                                                         imageLoader: loader,
                                                         imageTransformer: UIImage.init))
             }

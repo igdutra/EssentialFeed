@@ -12,9 +12,9 @@ final class FeedRefreshViewControllerMVVM: NSObject {
     
     private(set) lazy var view: UIRefreshControl = binded(UIRefreshControl())
     
-    private let viewModel: FeedRefreshViewModel
+    private let viewModel: FeedRefreshMVVMViewModel
     
-    init(viewModel: FeedRefreshViewModel) {
+    init(viewModel: FeedRefreshMVVMViewModel) {
         self.viewModel = viewModel
     }
     
