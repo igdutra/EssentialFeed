@@ -22,7 +22,7 @@ public final class ErrorView: UIView {
  As you can see, none of its responsibilities is about managing core model state.
  That’s why, at this point, we decided it doesn’t need a View Model.
  */
-public final class FeedViewControllerStoryboard: UITableViewController, FeedLoadingView {
+public final class FeedViewControllerStoryboard: UITableViewController, FeedLoadingView, FeedErrorView {
     
     var delegate: FeedViewControllerDelegate?
     
@@ -49,6 +49,10 @@ public final class FeedViewControllerStoryboard: UITableViewController, FeedLoad
         } else {
             refreshControl?.endRefreshing()
         }
+    }
+    
+    func display(_ viewModel: FeedErrorViewModel) {
+        errorView.message = viewModel.message
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

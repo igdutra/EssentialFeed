@@ -15,11 +15,15 @@ public enum FeedUIComposerMVP {
         let refreshController = FeedRefreshViewControllerMVP(delegate: presentationAdapter)
         let feedController = FeedViewControllerMVP(refreshController: refreshController)
         
-        let feedView = FeedViewAdapterMVP(controller: feedController, imageLoader: imageLoader)
-        let loadingView = WeakRefVirtualProxy(refreshController)
-        let presenter = FeedRefreshPresenter(feedView: feedView, loadingView: loadingView)
+//        let feedView = FeedViewAdapterMVP(controller: feedController, imageLoader: imageLoader)
+//        let loadingView = WeakRefVirtualProxy(refreshController)
         
-        presentationAdapter.presenter = presenter
+        /*
+         Note: to avoid fixing the errorView and adding it twice, this will be fixed later
+         */
+        
+//        let presenter = FeedPresenter(feedView: feedView, loadingView: loadingView)
+//        presentationAdapter.presenter = presenter
         
         return feedController
     }

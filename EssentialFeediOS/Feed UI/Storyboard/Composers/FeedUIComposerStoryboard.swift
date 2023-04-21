@@ -19,7 +19,8 @@ public enum FeedUIComposerStoryboard {
         let feedView = FeedViewAdapter(controller: feedController,
                                        imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
         let loadingView = WeakRefVirtualProxy(feedController)
-        let presenter = FeedRefreshPresenter(feedView: feedView, loadingView: loadingView)
+        let errorView = WeakRefVirtualProxy(feedController)
+        let presenter = FeedRefreshPresenter(feedView: feedView, loadingView: loadingView, errorView: errorView)
         
         presentationAdapter.presenter = presenter
         
