@@ -523,7 +523,6 @@
 		926CE4EF29D7526C00DF2157 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				9215BE4B29E891FC007817BD /* Feed Presentation */,
 				927F85DF29DF0C3F00DEDAE6 /* Feed UI */,
 				927F85E029DF0C6800DEDAE6 /* FeedImageDataLoader.swift */,
 			);
@@ -671,10 +670,7 @@
 		927F85DF29DF0C3F00DEDAE6 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
-				9215BE3829E88F00007817BD /* Storyboard */,
-				92CC158E29E8C61B00C7B0FF /* MVP */,
-				92FC851B29E04754002CA4A2 /* MVVM */,
-				92FC850E29E045F1002CA4A2 /* MVC */,
+				92C4C9CC29F2F10300C38DE6 /* Old implementations */,
 				927F85D129DF088200DEDAE6 /* Views */,
 				927F85D229DF089100DEDAE6 /* Helpers */,
 			);
@@ -756,6 +752,18 @@
 				92C0B29629BD1F0100568F69 /* CoreDataHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		92C4C9CC29F2F10300C38DE6 /* Old implementations */ = {
+			isa = PBXGroup;
+			children = (
+				9215BE4B29E891FC007817BD /* Feed Presentation */,
+				9215BE3829E88F00007817BD /* Storyboard */,
+				92CC158E29E8C61B00C7B0FF /* MVP */,
+				92FC851B29E04754002CA4A2 /* MVVM */,
+				92FC850E29E045F1002CA4A2 /* MVC */,
+			);
+			path = "Old implementations";
 			sourceTree = "<group>";
 		};
 		92CAF0A829DB4CDC003B09CE /* Frameworks */ = {

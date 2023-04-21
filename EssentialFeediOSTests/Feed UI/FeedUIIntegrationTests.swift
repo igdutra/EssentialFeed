@@ -12,6 +12,12 @@ import EssentialFeediOS
 
 final class FeedUIIntegrationTests: XCTestCase {
     
+    /* NOTE tests failing with localization until files are reorganized
+     
+     
+     
+     */
+    
     func test_feedView_hasTitle() {
         let (sut, _) = makeSUT()
         
