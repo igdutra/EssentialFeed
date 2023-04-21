@@ -117,7 +117,7 @@ class FeedImagePresenterTests: XCTestCase {
         XCTAssertEqual(message?.image, transformedData)
     }
     
-    func test_didFinishLoadingImageData_displaysShouldRetryButton() {
+    func test_didFinishLoadingImageData_displaysRetryButton() {
         let (sut, view) = makeSUT()
         let image = uniqueImage()
         
