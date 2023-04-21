@@ -24,9 +24,9 @@ public final class ErrorView: UIView {
  */
 public final class FeedViewControllerStoryboard: UITableViewController, FeedLoadingView, FeedErrorView {
     
-    var delegate: FeedViewControllerDelegate?
+    @IBOutlet private(set) public var errorView: ErrorView?
     
-    public lazy var errorView = ErrorView()
+    var delegate: FeedViewControllerDelegate?
     
     var tableModel = [FeedImageCellControllerStoryboard]() {
         didSet { tableView.reloadData() }
@@ -52,7 +52,7 @@ public final class FeedViewControllerStoryboard: UITableViewController, FeedLoad
     }
     
     func display(_ viewModel: FeedErrorViewModel) {
-        errorView.message = viewModel.message
+        errorView?.message = viewModel.message
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
