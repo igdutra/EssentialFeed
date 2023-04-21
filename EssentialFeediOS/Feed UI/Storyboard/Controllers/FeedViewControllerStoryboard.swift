@@ -12,6 +12,10 @@ protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
+public final class ErrorView: UIView {
+    public var message: String?
+}
+
 // NOTE: The Controller has no need to do a viewModel
 /*
  The FeedViewControllerdoesn’t communicate with any EssentialFeed core component.
@@ -21,6 +25,8 @@ protocol FeedViewControllerDelegate {
 public final class FeedViewControllerStoryboard: UITableViewController, FeedLoadingView {
     
     var delegate: FeedViewControllerDelegate?
+    
+    public lazy var errorView = ErrorView()
     
     var tableModel = [FeedImageCellControllerStoryboard]() {
         didSet { tableView.reloadData() }
