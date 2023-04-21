@@ -38,13 +38,15 @@ public final class FeedViewControllerStoryboard: UITableViewController, FeedLoad
         delegate?.didRequestFeedRefresh()
     }
     
+    /* NOTE Now this is very good
+     
+     The ideia is to have NO if's inside the controller
+     Thus the refreshing logic was moved to an extension
+     
+     */
     func display(_ viewModel: FeedLoadingViewModel) {
-        if viewModel.isLoading {
-            // UITableViewController reference to refreshControl
-            refreshControl?.beginRefreshing()
-        } else {
-            refreshControl?.endRefreshing()
-        }
+        // UITableViewController reference to refreshControl
+        refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
     
     func display(_ viewModel: FeedErrorViewData) {
