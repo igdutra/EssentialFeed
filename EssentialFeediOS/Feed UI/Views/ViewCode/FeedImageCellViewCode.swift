@@ -7,7 +7,12 @@
 
 import UIKit.UITableViewCell
 
- public final class FeedImageCell: UITableViewCell {
+/* NOTE
+ 
+ this viewCode is missing constraints
+ 
+ */
+ public final class FeedImageCellViewCode: UITableViewCell {
      public let locationContainer = UIView()
      public let locationLabel = UILabel()
      public let descriptionLabel = UILabel()

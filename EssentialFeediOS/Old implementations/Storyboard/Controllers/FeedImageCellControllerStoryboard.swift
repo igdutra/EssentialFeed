@@ -15,7 +15,7 @@ protocol FeedImageCellControllerDelegateStoryboard {
 
 final class FeedImageCellControllerStoryboard: FeedImageViewOld {
     private let delegate: FeedImageCellControllerDelegateStoryboard
-    private var cell: FeedImageCellStoryboard?
+    private var cell: FeedImageCell?
     
     init(delegate: FeedImageCellControllerDelegateStoryboard) {
         self.delegate = delegate

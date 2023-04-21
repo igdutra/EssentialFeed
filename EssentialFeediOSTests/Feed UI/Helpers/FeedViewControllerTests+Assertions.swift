@@ -24,8 +24,8 @@ extension FeedUIIntegrationTests {
     func assertThat(_ sut: FeedViewControllerStoryboard, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #file, line: UInt = #line) {
         let view = sut.feedImageView(at: index)
         
-        guard let cell = view as? FeedImageCellStoryboard else {
-            return XCTFail("Expected \(FeedImageCellStoryboard.self) instance, got \(String(describing: view)) instead", file: file, line: line)
+        guard let cell = view as? FeedImageCell else {
+            return XCTFail("Expected \(FeedImageCell.self) instance, got \(String(describing: view)) instead", file: file, line: line)
         }
         
         let shouldLocationBeVisible = (image.location != nil)

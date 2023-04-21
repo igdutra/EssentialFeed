@@ -7,7 +7,7 @@
 
 import UIKit
 
-public final class FeedImageCellStoryboard: UITableViewCell {
+public final class FeedImageCell: UITableViewCell {
     @IBOutlet private(set) public var locationContainer: UIView!
     @IBOutlet private(set) public var locationLabel: UILabel!
     @IBOutlet private(set) public var feedImageContainer: UIView!

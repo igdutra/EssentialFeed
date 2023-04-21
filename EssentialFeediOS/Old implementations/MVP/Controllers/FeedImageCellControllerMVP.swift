@@ -15,7 +15,7 @@ protocol FeedImageCellControllerDelegateMVP {
 
 final class FeedImageCellControllerMVP: FeedImageViewOld {
     private let delegate: FeedImageCellControllerDelegateMVP
-    private lazy var cell = FeedImageCell()
+    private lazy var cell = FeedImageCellViewCode()
     
     init(delegate: FeedImageCellControllerDelegateMVP) {
         self.delegate = delegate

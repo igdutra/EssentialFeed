@@ -14,12 +14,12 @@ extension FeedViewControllerStoryboard {
     }
     
     @discardableResult
-    func simulateFeedImageViewVisible(at index: Int) -> FeedImageCellStoryboard? {
-        return feedImageView(at: index) as? FeedImageCellStoryboard
+    func simulateFeedImageViewVisible(at index: Int) -> FeedImageCell? {
+        return feedImageView(at: index) as? FeedImageCell
     }
     
     @discardableResult
-    func simulateFeedImageViewNotVisible(at row: Int) -> FeedImageCellStoryboard? {
+    func simulateFeedImageViewNotVisible(at row: Int) -> FeedImageCell? {
         let view = simulateFeedImageViewVisible(at: row)
         
         let delegate = tableView.delegate
