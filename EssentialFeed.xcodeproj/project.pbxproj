@@ -37,6 +37,7 @@
 		92413D8D29DDCFC500220418 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92413D8C29DDCFC500220418 /* FeedImageCell.swift */; };
 		9243E18C29F2E88F00CF7616 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243E18B29F2E88F00CF7616 /* FeedPresenter.swift */; };
 		9243E18D29F2E98800CF7616 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9243E18729F2E80100CF7616 /* Feed.strings */; };
+		9243E19129F2EBA400CF7616 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243E19029F2EBA400CF7616 /* FeedViewModel.swift */; };
 		9252BD5229B9249B003F2306 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252BD5129B9249B003F2306 /* CodableFeedStore.swift */; };
 		925CE35429701B64004C6859 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925CE35329701B64004C6859 /* RemoteFeedItem.swift */; };
 		925CE35729701BD7004C6859 /* LocalFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925CE35629701BD6004C6859 /* LocalFeedImage.swift */; };
@@ -190,6 +191,7 @@
 		9243E18829F2E80400CF7616 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
 		9243E18929F2E80600CF7616 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Feed.strings"; sourceTree = "<group>"; };
 		9243E18B29F2E88F00CF7616 /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
+		9243E19029F2EBA400CF7616 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		9252BD5129B9249B003F2306 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
 		925CE35329701B64004C6859 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
 		925CE35629701BD6004C6859 /* LocalFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImage.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 		9243E18E29F2EB7500CF7616 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9243E19029F2EBA400CF7616 /* FeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1201,6 +1204,7 @@
 				9200439A296F63A000A49070 /* LocalFeedLoader.swift in Sources */,
 				92C0B29A29BD1F5A00568F69 /* ManagedCache.swift in Sources */,
 				92004368296F60A200A49070 /* HTTPClient.swift in Sources */,
+				9243E19129F2EBA400CF7616 /* FeedViewModel.swift in Sources */,
 				92C0B29C29BD1F6300568F69 /* ManagedFeedImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
