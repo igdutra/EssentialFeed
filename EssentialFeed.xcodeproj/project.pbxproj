@@ -492,14 +492,14 @@
 			path = ViewCode;
 			sourceTree = "<group>";
 		};
-		9243E18A29F2E87400CF7616 /* Feed Presenter */ = {
+		9243E18A29F2E87400CF7616 /* Feed Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				9243E18F29F2EB8000CF7616 /* Localization */,
 				9243E18E29F2EB7500CF7616 /* ViewModels */,
 				9243E18B29F2E88F00CF7616 /* FeedPresenter.swift */,
 			);
-			path = "Feed Presenter";
+			path = "Feed Presentation";
 			sourceTree = "<group>";
 		};
 		9243E18E29F2EB7500CF7616 /* ViewModels */ = {
@@ -611,7 +611,7 @@
 				9200435F296F5FE400A49070 /* Feed Feature */,
 				92004364296F607A00A49070 /* Feed API */,
 				92004396296F637D00A49070 /* Feed Cache */,
-				9243E18A29F2E87400CF7616 /* Feed Presenter */,
+				9243E18A29F2E87400CF7616 /* Feed Presentation */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
