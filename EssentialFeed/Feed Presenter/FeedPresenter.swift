@@ -44,6 +44,14 @@ public final class FeedPresenter {
     private let loadingView: FeedLoadingView
     private let errorView: FeedErrorView
     
+    // NOTE use LocalizedStrings protocol
+    public static var title: String {
+        return NSLocalizedString("FEED_VIEW_TITLE",
+                                 tableName: "Feed",
+                                 bundle: Bundle(for: FeedPresenter.self),
+                                 comment: "Title for the feed view")
+    }
+    
     private var feedLoadError: String {
         return NSLocalizedString("FEED_VIEW_CONNECTION_ERROR",
                                  tableName: "Feed",
@@ -55,14 +63,7 @@ public final class FeedPresenter {
         self.feedView = feedView
         self.loadingView = loadingView
         self.errorView = errorView
-    }
-    
-    public static var title: String {
-        return NSLocalizedString("FEED_VIEW_TITLE",
-                                 tableName: "Feed",
-                                 bundle: Bundle(for: FeedPresenter.self),
-                                 comment: "Title for the feed view")
-    }
+    }    
     
     public func didStartLoadingFeed() {
         errorView.display(.noError)
