@@ -18,7 +18,24 @@
                         <view key="tableHeaderView" contentMode="scaleToFill" id="S2p-XQ-eup" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPu-Um-znd">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="jPu-Um-znd" firstAttribute="leading" secondItem="S2p-XQ-eup" secondAttribute="leading" id="11G-Yb-coD"/>
+                                <constraint firstItem="jPu-Um-znd" firstAttribute="top" secondItem="S2p-XQ-eup" secondAttribute="top" id="2cl-LU-9Mq"/>
+                                <constraint firstAttribute="bottom" secondItem="jPu-Um-znd" secondAttribute="bottom" id="MIo-jU-5oa"/>
+                                <constraint firstAttribute="trailing" secondItem="jPu-Um-znd" secondAttribute="trailing" id="gJv-J6-jwU"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="jPu-Um-znd" id="lG5-xn-gzk"/>
+                            </connections>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="h1L-vP-Hrg">
                             <rect key="frame" x="0.0" y="674" width="393" height="16"/>
