@@ -19,6 +19,10 @@ public extension XCTestCase {
     func anyNSError() -> NSError {
         NSError(domain: "any error", code: 1)
     }
+    
+    func anyData() -> Data {
+         return Data("any data".utf8)
+     }
 }
 
 // URL had to be moved out in order to be used in uniqueItems()

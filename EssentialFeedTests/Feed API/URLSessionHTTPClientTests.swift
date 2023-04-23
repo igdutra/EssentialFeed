@@ -165,10 +165,6 @@ private extension URLSessionHTTPClientTests {
     
     // MARK: Stubs
     
-    func anyData() -> Data {
-        return Data("any data".utf8)
-    }
-    
     func anyHTTPURLResponse() -> HTTPURLResponse {
         return HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
     }
