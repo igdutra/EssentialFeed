@@ -40,23 +40,23 @@ final class URLSessionHTTPClientTests: XCTestCase {
     /* NOTE old cancelTask test and refactor with taskHanlder
      
      func test_cancelGetFromURLTask_cancelsURLRequest() {
-          let url = anyURL()
-          let exp = expectation(description: "Wait for request")
-
-          let task = makeSUT().get(from: url) { result in
-              switch result {
-              case let .failure(error as NSError) where error.code == URLError.cancelled.rawValue:
-                  break
-
-              default:
-                  XCTFail("Expected cancelled result, got \(result) instead")
-              }
-              exp.fulfill()
-          }
-
-          task.cancel()
-          wait(for: [exp], timeout: 1.0)
-      }
+     let url = anyURL()
+     let exp = expectation(description: "Wait for request")
+     
+     let task = makeSUT().get(from: url) { result in
+     switch result {
+     case let .failure(error as NSError) where error.code == URLError.cancelled.rawValue:
+     break
+     
+     default:
+     XCTFail("Expected cancelled result, got \(result) instead")
+     }
+     exp.fulfill()
+     }
+     
+     task.cancel()
+     wait(for: [exp], timeout: 1.0)
+     }
      
      */
     func test_cancelGetFromURLTask_cancelsURLRequest() {
@@ -178,21 +178,27 @@ final class URLSessionHTTPClientTests: XCTestCase {
      */
     
     private class URLProtocolStub: URLProtocol {
-        private static var stub: Stub?
-        private static var requestObserver: ((URLRequest) -> Void)?
-        
         private struct Stub {
             let data: Data?
             let response: URLResponse?
             let error: Error?
+            let requestObserver: ((URLRequest) -> Void)?
         }
         
+        private static var _stub: Stub?
+        private static var stub: Stub? {
+            get { return queue.sync { _stub } }
+            set { queue.sync { _stub = newValue } }
+        }
+        
+        private static let queue = DispatchQueue(label: "URLProtocolStub.queue")
+        
         static func stub(data: Data?, response: URLResponse?, error: Error?) {
-            stub = Stub(data: data, response: response, error: error)
+            stub = Stub(data: data, response: response, error: error, requestObserver: nil)
         }
         
         static func observeRequests(observer: @escaping (URLRequest) -> Void) {
-            requestObserver = observer
+            stub = Stub(data: nil, response: nil, error: nil, requestObserver: observer)
         }
         
         static func startInterceptingRequests() {
@@ -202,7 +208,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
         static func stopInterceptingRequests() {
             URLProtocol.unregisterClass(URLProtocolStub.self)
             stub = nil
-            requestObserver = nil
         }
         
         // MARK: Abstract Class Methods
@@ -218,10 +223,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
         // The startLoading() method will be called when we need to do our loading, and is where we’ll return some test data immediately.
         override func startLoading() {
             // When the 2nd test start running, case there is already a closure set, finish the request before starting a new one
-            if let requestObserver = URLProtocolStub.requestObserver {
-                client?.urlProtocolDidFinishLoading(self)
-                return requestObserver(request)
-            }
             
             guard let stub = URLProtocolStub.stub else { return }
             
@@ -238,6 +239,8 @@ final class URLSessionHTTPClientTests: XCTestCase {
             } else {
                 client?.urlProtocolDidFinishLoading(self)
             }
+            
+            stub.requestObserver?(request)
         }
         
         override func stopLoading() {}
