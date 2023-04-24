@@ -108,7 +108,14 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
     }
     
     // MARK: - Helpers
-
+    
+    
+    /* NOTE conforming to protocol
+     
+     Right after the commit turing RemoteFeedImageDataLoader into FeedImageDataLoader protocol, we could change the tests to make it return a sut using the protocol
+    That means, testing the component through public APIs
+     
+     */
     private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedImageDataLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedImageDataLoader(client: client)
