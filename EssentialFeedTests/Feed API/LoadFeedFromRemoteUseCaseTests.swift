@@ -122,6 +122,10 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 // MARK: - Spy
 private extension LoadFeedFromRemoteUseCaseTests {
     class HTTPClientSpy: HTTPClient {
+        private struct Task: HTTPClientTask {
+            func cancel() {}
+        }
+        
         var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
         
         // This way you don't break the current tests
@@ -129,8 +133,9 @@ private extension LoadFeedFromRemoteUseCaseTests {
             messages.map { $0.url }
         }
         
-        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
+        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
             messages.append((url, completion))
+            return Task()
         }
         
         func complete(with error: Error, at index: Int = 0) {
