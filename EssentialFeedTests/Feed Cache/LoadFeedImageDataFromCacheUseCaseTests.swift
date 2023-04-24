@@ -5,6 +5,7 @@
 import XCTest
 import EssentialFeed
 
+// Retrival interactions
 class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
     
     func test_init_doesNotMessageStoreUponCreation() {
