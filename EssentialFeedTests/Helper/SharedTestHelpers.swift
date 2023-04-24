@@ -21,8 +21,8 @@ public extension XCTestCase {
     }
     
     func anyData() -> Data {
-         return Data("any data".utf8)
-     }
+        return Data("any data".utf8)
+    }
 }
 
 // URL had to be moved out in order to be used in uniqueItems()
