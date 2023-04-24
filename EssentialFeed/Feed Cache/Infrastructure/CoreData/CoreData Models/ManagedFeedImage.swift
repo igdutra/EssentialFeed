@@ -22,6 +22,11 @@ final class ManagedFeedImage: NSManagedObject {
 }
 
 extension ManagedFeedImage {
+    /* NOTE study
+     
+     study predicates, %k
+     
+     */
     static func first(with url: URL, in context: NSManagedObjectContext) throws -> ManagedFeedImage? {
         let request = NSFetchRequest<ManagedFeedImage>(entityName: entity().name!)
         request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(ManagedFeedImage.url), url])
