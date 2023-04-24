@@ -37,6 +37,28 @@ final class URLSessionHTTPClientTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    /* NOTE old cancelTask test and refactor with taskHanlder
+     
+     func test_cancelGetFromURLTask_cancelsURLRequest() {
+          let url = anyURL()
+          let exp = expectation(description: "Wait for request")
+
+          let task = makeSUT().get(from: url) { result in
+              switch result {
+              case let .failure(error as NSError) where error.code == URLError.cancelled.rawValue:
+                  break
+
+              default:
+                  XCTFail("Expected cancelled result, got \(result) instead")
+              }
+              exp.fulfill()
+          }
+
+          task.cancel()
+          wait(for: [exp], timeout: 1.0)
+      }
+     
+     */
     func test_cancelGetFromURLTask_cancelsURLRequest() {
         let receivedError = resultErrorFor(taskHandler: { $0.cancel() }) as NSError?
         
@@ -108,6 +130,8 @@ final class URLSessionHTTPClientTests: XCTestCase {
         }
     }
     
+    // Note
+    // The new task Handler is being used only at the cancel method.
     private func resultErrorFor(_ values: (data: Data?, response: URLResponse?, error: Error?)? = nil, taskHandler: (HTTPClientTask) -> Void = { _ in }, file: StaticString = #file, line: UInt = #line) -> Error? {
         let result = resultFor(values, taskHandler: taskHandler, file: file, line: line)
         
