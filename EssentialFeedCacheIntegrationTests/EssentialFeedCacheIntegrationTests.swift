@@ -11,10 +11,8 @@ import EssentialFeed
 // TODO: The CoreData implementation will be done in the challenge.
 // I'll first read a bit about CoreData, read the challenge, only then copy the coreData implementation to this project.
 
-final class EssentialFeedCacheIntegrationTests: XCTestCase {
-    
-    // MARK: - Setup
-    
+class EssentialFeedCacheIntegrationTests: XCTestCase {
+
     override func setUp() {
         super.setUp()
         
@@ -27,58 +25,57 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         undoStoreSideEffects()
     }
     
-    // MARK: - Methods
-    
-    func test_load_deliversNoItemsOnEmptyCache() {
-        let sut = makeFeedLoader()
-        
-        expect(sut, toLoad: [])
+    // MARK: - LocalFeedLoader Tests
+
+    func test_loadFeed_deliversNoItemsOnEmptyCache() {
+        let feedLoader = makeFeedLoader()
+
+        expect(feedLoader, toLoad: [])
     }
     
-    func test_load_deliversItemsSavedOnASeparateInstance() {
-        let sutToPerformSave = makeFeedLoader()
-        let sutToPerformLoad = makeFeedLoader()
+    func test_loadFeed_deliversItemsSavedOnASeparateInstance() {
+        let feedLoaderToPerformSave = makeFeedLoader()
+        let feedLoaderToPerformLoad = makeFeedLoader()
         let feed = uniqueImageFeed().models
         
-        save(feed, with: sutToPerformSave)
-        
-        expect(sutToPerformLoad, toLoad: feed)
+        save(feed, with: feedLoaderToPerformSave)
+
+        expect(feedLoaderToPerformLoad, toLoad: feed)
     }
     
-    func test_save_overridesItemsSavedOnASeparateInstance() {
-        let sutToPerformFirstSave = makeFeedLoader()
-        let sutToPerformLastSave = makeFeedLoader()
-        let sutToPerformLoad = makeFeedLoader()
+    func test_saveFeed_overridesItemsSavedOnASeparateInstance() {
+        let feedLoaderToPerformFirstSave = makeFeedLoader()
+        let feedLoaderToPerformLastSave = makeFeedLoader()
+        let feedLoaderToPerformLoad = makeFeedLoader()
         let firstFeed = uniqueImageFeed().models
         let latestFeed = uniqueImageFeed().models
         
-        save(firstFeed, with: sutToPerformFirstSave)
-        save(latestFeed, with: sutToPerformLastSave)
-        
-        expect(sutToPerformLoad, toLoad: latestFeed)
+        save(firstFeed, with: feedLoaderToPerformFirstSave)
+        save(latestFeed, with: feedLoaderToPerformLastSave)
+
+        expect(feedLoaderToPerformLoad, toLoad: latestFeed)
     }
     
+    // MARK: - LocalFeedImageDataLoader Tests
+    
     func test_loadImageData_deliversSavedDataOnASeparateInstance() {
-         let imageLoaderToPerformSave = makeImageLoader()
-         let imageLoaderToPerformLoad = makeImageLoader()
-         let feedLoader = makeFeedLoader()
-         let image = uniqueImage()
-         let dataToSave = anyData()
-
-         save([image], with: feedLoader)
-         save(dataToSave, for: image.url, with: imageLoaderToPerformSave)
-
-         expect(imageLoaderToPerformLoad, toLoad: dataToSave, for: image.url)
-     }
-}
-
-// MARK: - Helpers
-
-private extension EssentialFeedCacheIntegrationTests {
-    func makeFeedLoader(file: StaticString = #file, line: UInt = #line) -> LocalFeedLoader {
+        let imageLoaderToPerformSave = makeImageLoader()
+        let imageLoaderToPerformLoad = makeImageLoader()
+        let feedLoader = makeFeedLoader()
+        let image = uniqueImage()
+        let dataToSave = anyData()
+        
+        save([image], with: feedLoader)
+        save(dataToSave, for: image.url, with: imageLoaderToPerformSave)
+        
+        expect(imageLoaderToPerformLoad, toLoad: dataToSave, for: image.url)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeFeedLoader(file: StaticString = #file, line: UInt = #line) -> LocalFeedLoader {
         let storeURL = testSpecificStoreURL()
         let store = try! CoreDataFeedStore(storeURL: storeURL)
-        //        let store = CodableFeedStore(storeURL: storeURL)
         let sut = LocalFeedLoader(store: store, currentDate: Date.init)
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
@@ -94,7 +91,7 @@ private extension EssentialFeedCacheIntegrationTests {
         return sut
     }
     
-    func save(_ feed: [FeedImage], with loader: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
+    private func save(_ feed: [FeedImage], with loader: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
         let saveExp = expectation(description: "Wait for save completion")
         loader.save(feed) { result in
             if case let Result.failure(error) = result {
@@ -105,7 +102,7 @@ private extension EssentialFeedCacheIntegrationTests {
         wait(for: [saveExp], timeout: 1.0)
     }
     
-    func expect(_ sut: LocalFeedLoader, toLoad expectedFeed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: LocalFeedLoader, toLoad expectedFeed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         sut.load { result in
             switch result {
@@ -148,23 +145,23 @@ private extension EssentialFeedCacheIntegrationTests {
         wait(for: [exp], timeout: 1.0)
     }
     
-    func setupEmptyStoreState() {
+    private func setupEmptyStoreState() {
         deleteStoreArtifacts()
     }
     
-    func undoStoreSideEffects() {
+    private func undoStoreSideEffects() {
         deleteStoreArtifacts()
     }
     
-    func deleteStoreArtifacts() {
+    private func deleteStoreArtifacts() {
         try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
     
-    func testSpecificStoreURL() -> URL {
+    private func testSpecificStoreURL() -> URL {
         return cachesDirectory().appendingPathComponent("\(type(of: self)).store")
     }
     
-    func cachesDirectory() -> URL {
+    private func cachesDirectory() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     }
 }
