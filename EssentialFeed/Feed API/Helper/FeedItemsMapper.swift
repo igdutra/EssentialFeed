@@ -20,7 +20,7 @@ final class FeedItemsMapper {
     /// This is done in order to: the API DETAILS ARE PRIVATE, separated from the FeedLoader protocol
     
     static func map(_ data: Data, from response: HTTPURLResponse) throws -> [RemoteFeedItem] {
-        guard response.statusCode == OK_200,
+        guard response.isOK,
               let root = try? JSONDecoder().decode(Root.self, from: data) else {
             throw RemoteFeedLoader.Error.invalidData
         }

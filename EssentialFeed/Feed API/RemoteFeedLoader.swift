@@ -33,7 +33,7 @@ public final class RemoteFeedLoader: FeedLoader {
             
             switch result {
             case .success((let data, let response)):
-                // OBS: the method is static to avoid retain cycle
+                // NOTE: the method is static to avoid retain cycle
                 completion(RemoteFeedLoader.map(data, from: response))
             case .failure:
                 completion(.failure(RemoteFeedLoader.Error.connectivity))
