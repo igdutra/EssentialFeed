@@ -72,6 +72,7 @@ extension LocalFeedLoader {
             
             switch result {
             case .failure:
+                // Note: revisit this commit decisions and understand why/how the validateUseCase uses now a completion
                 self.store.deleteCachedFeed(completion: completion)
                 
             case let .success(.some(cache)) where !FeedCachePolicy.validate(cache.timestamp, against: self.currentDate()):

@@ -8,6 +8,11 @@
 import CoreData
 
 public final class CoreDataFeedStore  {
+    /* NOTE why to make the bundle static, commit message
+     
+     Load NSManagedObjectModel instance lazily and cache it to prevent multiple `NSEntityDescriptions` claiming the same `NSManagedObject` model subclasses (This problem just generates warnings but could lead to undefined behavior in the future).
+     
+     */
     private static let modelName = "FeedStore"
     private static let model = NSManagedObjectModel.with(name: modelName, in: Bundle(for: CoreDataFeedStore.self))
     
