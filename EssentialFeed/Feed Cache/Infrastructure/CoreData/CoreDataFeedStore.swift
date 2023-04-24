@@ -65,7 +65,7 @@ public final class CoreDataFeedStore: FeedStore {
     }
     
     // I think capturing the context is so much cleaner.
-    private func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
+    func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
         let context = self.context
         context.perform { action(context) }
     }
