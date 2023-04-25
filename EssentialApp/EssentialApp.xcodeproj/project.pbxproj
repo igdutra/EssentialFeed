@@ -20,6 +20,7 @@
 		92A81B4729F7F99600C625EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A81B4529F7F99600C625EF /* Main.storyboard */; };
 		92A81B4929F7F99600C625EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A81B4829F7F99600C625EF /* Assets.xcassets */; };
 		92A81B4C29F7F99600C625EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A81B4A29F7F99600C625EF /* LaunchScreen.storyboard */; };
+		92FE9B0029F85CF5007D01E9 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9AFF29F85CF5007D01E9 /* FeedImageDataLoaderWithFallbackComposite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		92A81B4829F7F99600C625EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92A81B4B29F7F99600C625EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92A81B4D29F7F99600C625EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92FE9AFF29F85CF5007D01E9 /* FeedImageDataLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				92A81B4A29F7F99600C625EF /* LaunchScreen.storyboard */,
 				92A81B4D29F7F99600C625EF /* Info.plist */,
 				9256EEC529F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift */,
+				92FE9AFF29F85CF5007D01E9 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				92A81B4029F7F99600C625EF /* AppDelegate.swift in Sources */,
 				9256EEC629F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				92A81B4229F7F99600C625EF /* SceneDelegate.swift in Sources */,
+				92FE9B0029F85CF5007D01E9 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
