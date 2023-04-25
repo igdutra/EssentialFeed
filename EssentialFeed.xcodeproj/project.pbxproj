@@ -809,9 +809,9 @@
 				92C0B29D29BD1FAE00568F69 /* Helpers */,
 				92C0B29829BD1F4F00568F69 /* CoreData Models */,
 				92F6E23E29BA5D8C000BCEE3 /* CoreDataFeedStore.swift */,
+				929381A329F7297B00FDE18D /* CoreDataFeedStore+FeedStore.swift */,
 				929381A129F7263C00FDE18D /* CoreDataFeedStore+FeedImageDataLoader.swift */,
 				92F6E23A29BA57E0000BCEE3 /* FeedStore.xcdatamodeld */,
-				929381A329F7297B00FDE18D /* CoreDataFeedStore+FeedStore.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
