@@ -7,6 +7,11 @@
 
 import UIKit
 
+/* NOTE Delete
+ 
+ all not relevant files from this project and remove the storyboard
+ 
+ */
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
