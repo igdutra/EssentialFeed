@@ -48,6 +48,13 @@ class FeedLoaderWithFallbackCompositeTests: XCTestCase {
         expect(sut, toCompleteWith: .success(fallbackFeed))
     }
     
+    func test_load_deliversErrorOnBothPrimaryAndFallbackLoaderFailure() {
+        let sut = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .failure(anyNSError()))
+        
+        expect(sut, toCompleteWith: .failure(anyNSError()))
+    }
+    
+    
     // MARK: - Helpers
     
     private func makeSUT(primaryResult: FeedLoader.Result, fallbackResult: FeedLoader.Result, file: StaticString = #file, line: UInt = #line) -> FeedLoader {
@@ -61,25 +68,25 @@ class FeedLoaderWithFallbackCompositeTests: XCTestCase {
     }
     
     private func expect(_ sut: FeedLoader, toCompleteWith expectedResult: FeedLoader.Result, file: StaticString = #file, line: UInt = #line) {
-             let exp = expectation(description: "Wait for load completion")
-
-             sut.load { receivedResult in
-                 switch (receivedResult, expectedResult) {
-                 case let (.success(receivedFeed), .success(expectedFeed)):
-                     XCTAssertEqual(receivedFeed, expectedFeed, file: file, line: line)
-
-                 case (.failure, .failure):
-                     break
-
-                 default:
-                     XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-                 }
-
-                 exp.fulfill()
-             }
-
-             wait(for: [exp], timeout: 1.0)
-         }
+        let exp = expectation(description: "Wait for load completion")
+        
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedFeed), .success(expectedFeed)):
+                XCTAssertEqual(receivedFeed, expectedFeed, file: file, line: line)
+                
+            case (.failure, .failure):
+                break
+                
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
     
     private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
         addTeardownBlock { [weak instance] in
