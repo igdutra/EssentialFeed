@@ -140,17 +140,25 @@
 		92A81B3E29F7F99600C625EF /* EssentialApp */ = {
 			isa = PBXGroup;
 			children = (
-				92A81B3F29F7F99600C625EF /* AppDelegate.swift */,
+				92B91DD829F94F61007A79F5 /* App */,
 				92A81B4129F7F99600C625EF /* SceneDelegate.swift */,
-				92A81B4329F7F99600C625EF /* ViewController.swift */,
-				92A81B4529F7F99600C625EF /* Main.storyboard */,
-				92A81B4829F7F99600C625EF /* Assets.xcassets */,
-				92A81B4A29F7F99600C625EF /* LaunchScreen.storyboard */,
-				92A81B4D29F7F99600C625EF /* Info.plist */,
 				9256EEC529F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift */,
 				92FE9AFF29F85CF5007D01E9 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 			);
 			path = EssentialApp;
+			sourceTree = "<group>";
+		};
+		92B91DD829F94F61007A79F5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				92A81B4D29F7F99600C625EF /* Info.plist */,
+				92A81B4A29F7F99600C625EF /* LaunchScreen.storyboard */,
+				92A81B4829F7F99600C625EF /* Assets.xcassets */,
+				92A81B4529F7F99600C625EF /* Main.storyboard */,
+				92A81B4329F7F99600C625EF /* ViewController.swift */,
+				92A81B3F29F7F99600C625EF /* AppDelegate.swift */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 		92FE9B0129F85D5A007D01E9 /* Helpers */ = {
