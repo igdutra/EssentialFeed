@@ -63,8 +63,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                                                                                                cache: localImageLoader))
         
         window?.rootViewController = UINavigationController(rootViewController:
-                                                                FeedUIComposer.feedComposedWith(feedLoader: feedLoader,
-                                                                                                imageLoader: imageLoader))
+            FeedUIComposer.feedComposedWith(feedLoader: feedLoader,
+                                            imageLoader: imageLoader))
     }
     
     func makeRemoteClient() -> HTTPClient {
