@@ -72,7 +72,6 @@
 		921AE8EC29F84E800047FA6F /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9235A83129F97C75002C2BFE /* EssentialAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9235A83329F97C75002C2BFE /* EssentialAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppUITests.swift; sourceTree = "<group>"; };
-		9235A83C29F97D6F002C2BFE /* EssentialAppUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = EssentialAppUITests.xctestplan; path = /Users/ivo/Desktop/EssentialFeed/EssentialApp/EssentialAppUITests/EssentialAppUITests.xctestplan; sourceTree = "<absolute>"; };
 		92460AAA29F95CD600BFA5CD /* FeedImageDataLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		9256EEC329F8519A001049B0 /* FeedLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		9256EEC529F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		92A81B4829F7F99600C625EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92A81B4B29F7F99600C625EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92A81B4D29F7F99600C625EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92A9E04129F9807300D3B048 /* EssentialAppUITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = EssentialAppUITests.xctestplan; sourceTree = SOURCE_ROOT; };
 		92B91DD029F949E6007A79F5 /* FeedLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
 		92B91DD229F94A6B007A79F5 /* FeedLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
 		92B91DD429F94AFF007A79F5 /* XCTestCase+FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedLoader.swift"; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		9235A83229F97C75002C2BFE /* EssentialAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				9235A83C29F97D6F002C2BFE /* EssentialAppUITests.xctestplan */,
+				92A9E04129F9807300D3B048 /* EssentialAppUITests.xctestplan */,
 				9235A83329F97C75002C2BFE /* EssentialAppUITests.swift */,
 			);
 			path = EssentialAppUITests;
