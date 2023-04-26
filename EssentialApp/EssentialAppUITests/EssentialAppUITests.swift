@@ -18,7 +18,7 @@ import XCTest
 final class EssentialAppUIAcceptanceTests: XCTestCase {
     
     func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
-        fatalError("Need to configure using both SceneDelegate + AppDelegate for UItesting")
+        XCTFail("Need to configure using both SceneDelegate + AppDelegate for UItesting")
         
         let app = XCUIApplication()
         app.launchArguments = ["-reset", "-connectivity", "online"]

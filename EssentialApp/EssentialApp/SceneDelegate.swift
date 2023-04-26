@@ -21,16 +21,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      This way, you only run expensive operations when really needed.
      
      */
-    
     private lazy var httpClient: HTTPClient = {
         URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }()
     
     private lazy var store: FeedStore & FeedImageDataStore = {
         try! CoreDataFeedStore(storeURL:
-            NSPersistentContainer
-                .defaultDirectoryURL()
-                .appendingPathComponent("feed-store.sqlite"))
+                                NSPersistentContainer
+            .defaultDirectoryURL()
+            .appendingPathComponent("feed-store.sqlite"))
+    }()
+    
+    private lazy var localFeedLoader: LocalFeedLoader = {
+        LocalFeedLoader(store: store, currentDate: Date.init)
     }()
     
     convenience init(httpClient: HTTPClient, store: FeedStore & FeedImageDataStore) {
@@ -61,7 +64,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                                                                                                cache: localImageLoader))
         
         window?.rootViewController = UINavigationController(rootViewController:
-            FeedUIComposer.feedComposedWith(feedLoader: feedLoader,
-                                            imageLoader: imageLoader))
+                                                                FeedUIComposer.feedComposedWith(feedLoader: feedLoader,
+                                                                                                imageLoader: imageLoader))
+    }
+    
+    func sceneWillResignActive(_ scene: UIScene) {
+        localFeedLoader.validateCache { _ in }
     }
 }
