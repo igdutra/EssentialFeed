@@ -20,4 +20,11 @@ public final class FeedImageCell: UITableViewCell {
     @IBAction private func retryButtonTapped() {
         onRetry?()
     }
+    
+    // Note: adding it to Storyboard direclty was not working.
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        accessibilityIdentifier = "feed-image-cell"
+        feedImageView.accessibilityIdentifier = "feed-image-view"
+    }
 }
