@@ -9,7 +9,7 @@
 import UIKit
 import EssentialFeed
 
-class DebuggingSceneDelegate: SceneDelegate {
+class DebuggingSceneDelegate: SceneDelegateForUITesting {
     override func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
