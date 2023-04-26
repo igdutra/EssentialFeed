@@ -21,7 +21,7 @@ public final class FeedImageCell: UITableViewCell {
         onRetry?()
     }
     
-    // Note: adding it to Storyboard direclty was not working.
+    // Note: adding it to Storyboard directly was not working.
     public override func awakeFromNib() {
         super.awakeFromNib()
         accessibilityIdentifier = "feed-image-cell"
