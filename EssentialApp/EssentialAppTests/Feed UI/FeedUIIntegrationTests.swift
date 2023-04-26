@@ -9,6 +9,7 @@ import XCTest
 import UIKit
 import EssentialFeed
 import EssentialFeediOS
+import EssentialApp
 
 final class FeedUIIntegrationTests: XCTestCase {
     
@@ -120,8 +121,8 @@ final class FeedUIIntegrationTests: XCTestCase {
 //    }
     
     func test_feedImageView_loadsImageURLWhenVisible() {
-        let image0 = makeImage(url: anyURL("http://url-0.com"))
-        let image1 = makeImage(url: anyURL("http://url-0.com"))
+        let image0 = makeImage(url: URL(string: "http://url-0.com")!)
+        let image1 = makeImage(url: URL(string: "http://url-1.com")!)
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
@@ -250,8 +251,8 @@ final class FeedUIIntegrationTests: XCTestCase {
     }
     
     func test_feedImageViewRetryAction_retriesImageLoad() {
-        let image0 = makeImage(url: anyURL("http://url-0.com"))
-        let image1 = makeImage(url:  anyURL("http://url-1.com"))
+        let image0 = makeImage(url: URL(string: "http://url-0.com")!)
+        let image1 = makeImage(url: URL(string: "http://url-1.com")!)
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
@@ -277,8 +278,8 @@ final class FeedUIIntegrationTests: XCTestCase {
     }
     
     func test_feedImageView_preloadsImageURLWhenNearVisible() {
-        let image0 = makeImage(url: anyURL("http://url-0.com"))
-        let image1 = makeImage(url:  anyURL("http://url-1.com"))
+        let image0 = makeImage(url: URL(string: "http://url-0.com")!)
+        let image1 = makeImage(url: URL(string: "http://url-1.com")!)
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
@@ -296,8 +297,8 @@ final class FeedUIIntegrationTests: XCTestCase {
     }
     
     func test_feedImageView_cancelsImageURLPreloadingWhenNotNearVisibleAnymore() {
-        let image0 = makeImage(url: anyURL("http://url-0.com"))
-        let image1 = makeImage(url:  anyURL("http://url-1.com"))
+        let image0 = makeImage(url: URL(string: "http://url-0.com")!)
+        let image1 = makeImage(url: URL(string: "http://url-1.com")!)
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
