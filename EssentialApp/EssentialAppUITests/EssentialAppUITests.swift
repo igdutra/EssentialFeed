@@ -9,13 +9,13 @@ import XCTest
 
 final class EssentialAppUIAcceptanceTests: XCTestCase {
     
-    // Failing Test
     func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
         let app = XCUIApplication()
 
         app.launch()
 
         XCTAssertEqual(app.cells.count, 22)
+        // Failing Test, 0 Images. Let's move on
         XCTAssertEqual(app.cells.firstMatch.images.count, 1)
     }
 }
