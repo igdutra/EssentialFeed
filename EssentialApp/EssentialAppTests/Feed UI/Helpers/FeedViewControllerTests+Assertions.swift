@@ -10,8 +10,17 @@ import EssentialFeed
 import EssentialFeediOS
 
 extension FeedUIIntegrationTests {
-    
+    /* NOTE
+     
+     You can call layoutIfNeeded on the table view under test to enforce the layout changes immediately and trigger the didEndDisplayingCell delegate event. It's also important to run the current RunLoop to avoid memory leaks during the test:
+     If you don't run the RunLoop, some instances might be retained in memory even after the test finishes, which is considered a "test leak".
+     
+     */
     func assertThat(_ sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
+        // Note:
+        sut.tableView.layoutIfNeeded()
+        RunLoop.main.run(until: Date())
+        
         guard sut.numberOfRenderedFeedImageViews() == feed.count else {
             return XCTFail("Expected \(feed.count) images, got \(sut.numberOfRenderedFeedImageViews()) instead.", file: file, line: line)
         }
