@@ -43,7 +43,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
         
         configureWindow()
     }
@@ -62,10 +63,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let imageLoader = FeedImageDataLoaderWithFallbackComposite(primary: localImageLoader,
                                                                    fallback: FeedImageDataLoaderCacheDecorator(decoratee: remoteImageLoader,
                                                                                                                cache: localImageLoader))
-        
         window?.rootViewController = UINavigationController(rootViewController:
                                                                 FeedUIComposer.feedComposedWith(feedLoader: feedLoader,
                                                                                                 imageLoader: imageLoader))
+        window?.makeKeyAndVisible()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
