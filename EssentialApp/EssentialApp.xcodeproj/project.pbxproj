@@ -184,16 +184,36 @@
 			isa = PBXGroup;
 			children = (
 				929B20AB29F85066008A46CE /* EssentialApp.xctestplan */,
+				922B3AF52A01A8FA00D134BF /* Old Desing Patterns substituted by Combine */,
 				9276E30B29F9B7BB0052CE8C /* Feed UI */,
 				92FE9B0129F85D5A007D01E9 /* Helpers */,
-				9256EEC329F8519A001049B0 /* FeedLoaderWithFallbackCompositeTests.swift */,
-				9256EEC729F8549E001049B0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
-				92B91DD029F949E6007A79F5 /* FeedLoaderCacheDecoratorTests.swift */,
-				92B91DDB29F95056007A79F5 /* FeedImageDataLoaderCacheDecoratorTests.swift */,
 				9276E2EC29F9B2B00052CE8C /* SceneDelegateTests.swift */,
 				9276E32829F9B9F10052CE8C /* FeedAcceptanceTests.swift */,
 			);
 			path = EssentialAppTests;
+			sourceTree = "<group>";
+		};
+		922B3AF42A01A74A00D134BF /* Old Desing Patterns substituted by Combine */ = {
+			isa = PBXGroup;
+			children = (
+				92B91DD929F94F8F007A79F5 /* FeedLoaderCacheDecorator.swift */,
+				9256EEC529F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift */,
+				92FE9AFF29F85CF5007D01E9 /* FeedImageDataLoaderWithFallbackComposite.swift */,
+				92460AAA29F95CD600BFA5CD /* FeedImageDataLoaderCacheDecorator.swift */,
+				9276E2F429F9B4160052CE8C /* MainQueueDispatchDecorator.swift */,
+			);
+			path = "Old Desing Patterns substituted by Combine";
+			sourceTree = "<group>";
+		};
+		922B3AF52A01A8FA00D134BF /* Old Desing Patterns substituted by Combine */ = {
+			isa = PBXGroup;
+			children = (
+				9256EEC329F8519A001049B0 /* FeedLoaderWithFallbackCompositeTests.swift */,
+				9256EEC729F8549E001049B0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
+				92B91DD029F949E6007A79F5 /* FeedLoaderCacheDecoratorTests.swift */,
+				92B91DDB29F95056007A79F5 /* FeedImageDataLoaderCacheDecoratorTests.swift */,
+			);
+			path = "Old Desing Patterns substituted by Combine";
 			sourceTree = "<group>";
 		};
 		9235A83229F97C75002C2BFE /* EssentialAppUITests */ = {
@@ -212,7 +232,6 @@
 				9276E2F229F9B4160052CE8C /* FeedImageDataLoaderPresentationAdapter.swift */,
 				9276E2F529F9B4160052CE8C /* FeedLoaderPresentationAdapter.swift */,
 				9276E2F629F9B4170052CE8C /* FeedViewAdapter.swift */,
-				9276E2F429F9B4160052CE8C /* MainQueueDispatchDecorator.swift */,
 				9276E2F129F9B4160052CE8C /* WekRefVirtualProxy.swift */,
 			);
 			path = FeedUIComposer;
@@ -294,15 +313,12 @@
 		92A81B3E29F7F99600C625EF /* EssentialApp */ = {
 			isa = PBXGroup;
 			children = (
+				922B3AF42A01A74A00D134BF /* Old Desing Patterns substituted by Combine */,
 				9276E32529F9B8FC0052CE8C /* UI Testing Files */,
 				92B91DD829F94F61007A79F5 /* App */,
 				9276E2F029F9B3FD0052CE8C /* FeedUIComposer */,
 				92A81B3F29F7F99600C625EF /* AppDelegate.swift */,
 				92A81B4129F7F99600C625EF /* SceneDelegate.swift */,
-				92B91DD929F94F8F007A79F5 /* FeedLoaderCacheDecorator.swift */,
-				9256EEC529F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift */,
-				92FE9AFF29F85CF5007D01E9 /* FeedImageDataLoaderWithFallbackComposite.swift */,
-				92460AAA29F95CD600BFA5CD /* FeedImageDataLoaderCacheDecorator.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
