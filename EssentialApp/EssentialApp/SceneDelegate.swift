@@ -36,6 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
    
     // Since iOS 14, if we don't explicitly hold a reference to the RemoteFeedLoader instance, it'll be deallocated before it completes the operation - so the feed will never load.
     // That's because the Combine publisher won't hold a reference to it anymore (it used to hold the reference in iOS 13).
+    // Tests did not catch that!
     private let remoteURL = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
     private lazy var remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: httpClient)
     
