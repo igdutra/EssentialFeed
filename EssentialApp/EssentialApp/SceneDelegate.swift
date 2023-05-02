@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Combine
 import EssentialFeed
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -32,6 +33,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .appendingPathComponent("feed-store.sqlite"))
     }()
     
+   
+    // Since iOS 14, if we don't explicitly hold a reference to the RemoteFeedLoader instance, it'll be deallocated before it completes the operation - so the feed will never load.
+    // That's because the Combine publisher won't hold a reference to it anymore (it used to hold the reference in iOS 13).
+    private let remoteURL = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
+    private lazy var remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: httpClient)
+    
     private lazy var localFeedLoader: LocalFeedLoader = {
         LocalFeedLoader(store: store, currentDate: Date.init)
     }()
@@ -50,26 +57,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func configureWindow() {
-        let remoteURL = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
-        let remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: httpClient)
         let remoteImageLoader = RemoteFeedImageDataLoader(client: httpClient)
-        
-        let localFeedLoader = LocalFeedLoader(store: store, currentDate: Date.init)
         let localImageLoader = LocalFeedImageDataLoader(store: store)
         
-        let feedLoader = FeedLoaderWithFallbackComposite(primary: FeedLoaderCacheDecorator(decoratee: remoteFeedLoader,
-                                                                                           cache: localFeedLoader),
-                                                         fallback: localFeedLoader)
         let imageLoader = FeedImageDataLoaderWithFallbackComposite(primary: localImageLoader,
                                                                    fallback: FeedImageDataLoaderCacheDecorator(decoratee: remoteImageLoader,
                                                                                                                cache: localImageLoader))
         window?.rootViewController = UINavigationController(rootViewController:
-                                                                FeedUIComposer.feedComposedWith(feedLoader: feedLoader,
+                                                                FeedUIComposer.feedComposedWith(feedLoader: makeRemoteFeedLoaderWithLocalFallback,
                                                                                                 imageLoader: imageLoader))
         window?.makeKeyAndVisible()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
         localFeedLoader.validateCache { _ in }
+    }
+    
+    // MARK: - Factories
+    
+    private func makeRemoteFeedLoaderWithLocalFallback() -> FeedLoader.Publisher {
+        return remoteFeedLoader
+            .loadPublisher()
+            .caching(to: localFeedLoader)
+            .fallback(to: localFeedLoader.loadPublisher)
     }
 }

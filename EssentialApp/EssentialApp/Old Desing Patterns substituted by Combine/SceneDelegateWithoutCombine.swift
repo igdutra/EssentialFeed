@@ -64,7 +64,7 @@ class SceneDelegateWithoutCombine: UIResponder, UIWindowSceneDelegate {
                                                                    fallback: FeedImageDataLoaderCacheDecorator(decoratee: remoteImageLoader,
                                                                                                                cache: localImageLoader))
         window?.rootViewController = UINavigationController(rootViewController:
-                                                                FeedUIComposer.feedComposedWith(feedLoader: feedLoader,
+                                                                FeedUIComposerWithoutCombine.feedComposedWith(feedLoader: feedLoader,
                                                                                                 imageLoader: imageLoader))
         window?.makeKeyAndVisible()
     }

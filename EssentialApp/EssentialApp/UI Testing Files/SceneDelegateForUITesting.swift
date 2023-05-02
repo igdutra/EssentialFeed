@@ -41,7 +41,7 @@ class SceneDelegateForUITesting: UIResponder, UIWindowSceneDelegate {
                                                                                                                cache: localImageLoader))
         
         window?.rootViewController = UINavigationController(rootViewController:
-                                                                FeedUIComposer.feedComposedWith(feedLoader: feedLoader,
+                                                                FeedUIComposerWithoutCombine.feedComposedWith(feedLoader: feedLoader,
                                                                                                 imageLoader: imageLoader))
     }
     
