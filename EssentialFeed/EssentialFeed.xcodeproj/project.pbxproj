@@ -25,6 +25,7 @@
 		9201A9BD2A164647005A06E6 /* ImageCommentsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201A9BC2A164647005A06E6 /* ImageCommentsMapper.swift */; };
 		9201A9BF2A16467C005A06E6 /* RemoteImageCommentsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201A9BE2A16467C005A06E6 /* RemoteImageCommentsLoader.swift */; };
 		9201A9C12A164735005A06E6 /* LoadImageCommentsFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201A9C02A164735005A06E6 /* LoadImageCommentsFromRemoteUseCaseTests.swift */; };
+		9201A9C42A164A76005A06E6 /* ImageComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201A9C32A164A76005A06E6 /* ImageComment.swift */; };
 		9215BE3F29E88F59007817BD /* FeedUIComposerStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BE3E29E88F59007817BD /* FeedUIComposerStoryboard.swift */; };
 		9215BE4629E88FB9007817BD /* FeedImageMVPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BE4429E88FB9007817BD /* FeedImageMVPViewModel.swift */; };
 		9215BE4829E8905E007817BD /* FeedViewControllerStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215BE4029E88F6F007817BD /* FeedViewControllerStoryboard.swift */; };
@@ -196,6 +197,7 @@
 		9201A9BC2A164647005A06E6 /* ImageCommentsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsMapper.swift; sourceTree = "<group>"; };
 		9201A9BE2A16467C005A06E6 /* RemoteImageCommentsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageCommentsLoader.swift; sourceTree = "<group>"; };
 		9201A9C02A164735005A06E6 /* LoadImageCommentsFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageCommentsFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
+		9201A9C32A164A76005A06E6 /* ImageComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComment.swift; sourceTree = "<group>"; };
 		9215BE3E29E88F59007817BD /* FeedUIComposerStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedUIComposerStoryboard.swift; sourceTree = "<group>"; };
 		9215BE4029E88F6F007817BD /* FeedViewControllerStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerStoryboard.swift; sourceTree = "<group>"; };
 		9215BE4229E88F6F007817BD /* FeedImageCellControllerStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellControllerStoryboard.swift; sourceTree = "<group>"; };
@@ -450,6 +452,14 @@
 			path = "Feed Cache";
 			sourceTree = "<group>";
 		};
+		9201A9C22A164A53005A06E6 /* Image Comments Feature */ = {
+			isa = PBXGroup;
+			children = (
+				9201A9C32A164A76005A06E6 /* ImageComment.swift */,
+			);
+			path = "Image Comments Feature";
+			sourceTree = "<group>";
+		};
 		9215BE3829E88F00007817BD /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -632,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				9200435E296F5FD900A49070 /* App */,
+				9201A9C22A164A53005A06E6 /* Image Comments Feature */,
 				9200435F296F5FE400A49070 /* Feed Feature */,
 				92004364296F607A00A49070 /* Feed API */,
 				92004396296F637D00A49070 /* Feed Cache */,
@@ -1221,6 +1232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9201A9C42A164A76005A06E6 /* ImageComment.swift in Sources */,
 				92C0B29729BD1F0100568F69 /* CoreDataHelpers.swift in Sources */,
 				92F6E23F29BA5D8C000BCEE3 /* CoreDataFeedStore.swift in Sources */,
 				9201A9BF2A16467C005A06E6 /* RemoteImageCommentsLoader.swift in Sources */,
