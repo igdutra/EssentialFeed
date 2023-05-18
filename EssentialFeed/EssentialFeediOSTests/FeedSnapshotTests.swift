@@ -44,8 +44,9 @@ class FeedSnapshotTests: XCTestCase {
      Disabling this test since is the only snapshot failing, even when i'm using
      Xcode14.2 + Iphone 14 - iOS 16.2
      
+     THE SNAPSHOT WILL PASS ONLY when activated the tolerance! if !match(snapshotData, storedSnapshotData, tolerance: 0.00001)
      */
-    func disabled_test_feedWithErrorMessage() {
+    func test_feedWithErrorMessage() {
         let sut = makeSUT()
         
         sut.display(.error(message: "This is a\nmulti-line\nerror message"))
