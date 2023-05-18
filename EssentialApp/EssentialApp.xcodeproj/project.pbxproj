@@ -96,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9201A9BB2A1645ED005A06E6 /* Composition with Functional Approach.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Composition with Functional Approach.md"; sourceTree = "<group>"; };
 		921AE8CD29F7FD7F0047FA6F /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		921AE8D129F7FD820047FA6F /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		921AE8EC29F84E800047FA6F /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +346,7 @@
 				92A81B3F29F7F99600C625EF /* AppDelegate.swift */,
 				92A81B4129F7F99600C625EF /* SceneDelegate.swift */,
 				922B3AF72A01A96700D134BF /* CombineHelpers.swift */,
+				9201A9BB2A1645ED005A06E6 /* Composition with Functional Approach.md */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
