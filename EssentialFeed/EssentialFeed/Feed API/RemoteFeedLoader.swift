@@ -7,6 +7,11 @@
 
 import Foundation
 
+/* NOTE FeedLoader conformance
+ 
+ The conformance to FeedLoader protocol will now be done ONLY AT THE COMPOSITION ROOT!
+ 
+ */
 public typealias RemoteFeedLoader = RemoteLoader<[FeedImage]>
 
 public extension RemoteFeedLoader {

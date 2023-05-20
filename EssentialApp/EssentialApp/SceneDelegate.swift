@@ -92,3 +92,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             })
     }
 }
+
+// MARK: - Conformances
+
+extension RemoteLoader: FeedLoader where Resource == [FeedImage] { }
