@@ -65,6 +65,9 @@ class RemoteLoaderTests: XCTestCase {
         })
     }
     
+    // NOTE:
+    // Instances are deallocated and some strange behavior starts to happen.
+    // This test is to documment the guard self != nil else { return }
     func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
         let url = URL(string: "http://any-url.com")!
         let client = HTTPClientSpy()

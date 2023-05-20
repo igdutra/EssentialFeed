@@ -9,42 +9,6 @@ import XCTest
 import EssentialFeed
 
 final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
-
-    func test_init_doesNotRequestDataFromURL() {
-        let (_, client) = makeSUT()
-        
-        XCTAssertTrue(client.requestedURLs.isEmpty)
-    }
-    
-    func test_load_requestsDataFromURL() {
-        let url = URL(string: "a-different-url.com")!
-        let (sut, client) = makeSUT(url: url)
-        
-        sut.load { _ in }
-        
-        XCTAssertEqual(client.requestedURLs, [url])
-    }
-    
-    func test_load_requestsDataFromURLTwice() {
-        let url = URL(string: "a-different-url.com")!
-        let (sut, client) = makeSUT(url: url)
-        
-        sut.load { _ in }
-        sut.load { _ in }
-        
-        XCTAssertEqual(client.requestedURLs, [url, url])
-    }
-    
-    func test_load_deliversErrorOnClientError() {
-        let (sut, client) = makeSUT()
-        
-        expect(sut,
-               toCompleteWithResut: failure(.connectivity),
-               when: {
-            let clientError = NSError(domain: "Test", code: 0)
-            client.complete(with: clientError)
-        })
-    }
     
     // This was a request in the user story
     func test_load_deliversErrorOnNon200HTTPResponse() {
@@ -97,25 +61,6 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
             let finalJSON = makeFeed(items: [item1.json, item2.json])
             client.complete(withStatusCode: 200, data: finalJSON)
         })
-    }
-    
-    // Instances are deallocated and some strange behavior starts to happen.
-    // This test is to documment the guard self != nil else { return }
-    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
-        let url = anyURL()
-        // Make SUT has teardown block and sut is not optional
-        let client = HTTPClientSpy()
-        var sut: RemoteFeedLoader? = RemoteFeedLoader(url: url, client: client)
-        
-        var capturedResults: [RemoteFeedLoader.Result?] = []
-        sut?.load { capturedResults.append($0) }
-        
-        sut = nil
-        client.complete(withStatusCode: 20, data: emptyJSON())
-        
-        print(capturedResults)
-        
-        XCTAssertTrue(capturedResults.isEmpty)
     }
 }
 
@@ -176,7 +121,7 @@ private extension LoadFeedFromRemoteUseCaseTests {
             "location": item.location,
             "image": item.url.absoluteString
         ].compactMapValues { $0 }
-        // Before swift 5
+        // Note: Before swift 5
         /*
          reduce(into: [String: Any]()) { (acc, e) in
                       if let value = e.value { acc[e.key] = value }
