@@ -377,8 +377,6 @@
 				925CE35229701B4D004C6859 /* DTO */,
 				92004366296F60A200A49070 /* RemoteFeedLoader.swift */,
 				92D6EB2329F70404002D9369 /* RemoteFeedImageDataLoader.swift */,
-				9201A9BC2A164647005A06E6 /* ImageCommentsMapper.swift */,
-				9201A9BE2A16467C005A06E6 /* RemoteImageCommentsLoader.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -397,7 +395,6 @@
 			children = (
 				9200436F296F615C00A49070 /* LoadFeedFromRemoteUseCaseTests.swift */,
 				925FAB2729F5F8B400DAE8AB /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
-				9201A9C02A164735005A06E6 /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -622,6 +619,23 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		925EFA182A18FC82005A08DD /* Image Comments API */ = {
+			isa = PBXGroup;
+			children = (
+				9201A9BE2A16467C005A06E6 /* RemoteImageCommentsLoader.swift */,
+				9201A9BC2A164647005A06E6 /* ImageCommentsMapper.swift */,
+			);
+			path = "Image Comments API";
+			sourceTree = "<group>";
+		};
+		925EFA192A18FCB2005A08DD /* Image Comments API */ = {
+			isa = PBXGroup;
+			children = (
+				9201A9C02A164735005A06E6 /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
+			);
+			path = "Image Comments API";
+			sourceTree = "<group>";
+		};
 		926CE4EF29D7526C00DF2157 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +688,7 @@
 				9201A9C52A164CA8005A06E6 /* Shared API */,
 				9201A9C62A164CAE005A06E6 /* Shared API Infra */,
 				9201A9C22A164A53005A06E6 /* Image Comments Feature */,
+				925EFA182A18FC82005A08DD /* Image Comments API */,
 				9200435F296F5FE400A49070 /* Feed Feature */,
 				92004364296F607A00A49070 /* Feed API */,
 				92004396296F637D00A49070 /* Feed Cache */,
@@ -688,6 +703,7 @@
 				92004373296F618800A49070 /* Helper */,
 				9201A9C72A164D14005A06E6 /* Shared API */,
 				9201A9C82A164D1A005A06E6 /* Shared API Infra */,
+				925EFA192A18FCB2005A08DD /* Image Comments API */,
 				9200436E296F614800A49070 /* Feed API */,
 				9200439B296F63CA00A49070 /* Feed Cache */,
 				928AD91E29F2E2670055D5FF /* Feed Presentation */,
