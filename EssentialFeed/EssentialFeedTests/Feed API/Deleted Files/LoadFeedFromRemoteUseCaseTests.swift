@@ -8,6 +8,13 @@
 import XCTest
 import EssentialFeed
 
+/* NOTE Deleted File
+
+The Loader Tests are testing the Mapping through the Loaders!
+So they are testing it in integration from the loader and the mapper, which is not needed since the Generic loader is being tested already in isolation
+ 
+ So LoadFeedFromRemoteUseCaseTests was renamed to contain only the Mapper tests, testing Pure Functions only!
+*/
 final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
     // This was a request in the user story
