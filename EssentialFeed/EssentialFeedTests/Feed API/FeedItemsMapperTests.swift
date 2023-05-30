@@ -30,7 +30,7 @@ final class FeedItemsMapperTests: XCTestCase {
     }
     
     func test_map_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() throws {
-        let emptyJSON = makeFeed(items: [])
+        let emptyJSON = makeFeedJSON(items: [])
         
         let result = try FeedItemsMapper.map(emptyJSON, from: HTTPURLResponse(statusCode: 200))
         
@@ -40,7 +40,7 @@ final class FeedItemsMapperTests: XCTestCase {
     func test_map_whenHTTPResponseIs200_deliversItemsArray() throws {
         let item1 = makeItem(id: UUID(), description: "A description", location: "A location", url: anyURL())
         let item2 = makeItem(id:  UUID(), url: anyURL("anotherURL"))
-        let finalJSON = makeFeed(items: [item1.json, item2.json])
+        let finalJSON = makeFeedJSON(items: [item1.json, item2.json])
         let expectedItems = [item1.model, item2.model]
        
         
@@ -74,11 +74,6 @@ private extension FeedItemsMapperTests {
         
         return (item, itemJSON)
     }
-    
-    func makeFeed(items: [[String: Any]]) -> Data {
-        let feed = ["items": items]
-        return try! JSONSerialization.data(withJSONObject: feed)
-    }
         
     func invalidJSON() -> Data {
         Data("invalid json".utf8)
@@ -86,11 +81,5 @@ private extension FeedItemsMapperTests {
     
     func emptyJSON() -> Data {
         Data("{[]}".utf8)
-    }
-}
-
-private extension HTTPURLResponse {
-    convenience init(statusCode: Int) {
-        self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
     }
 }

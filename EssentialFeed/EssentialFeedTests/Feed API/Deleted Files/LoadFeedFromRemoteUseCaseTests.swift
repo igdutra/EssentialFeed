@@ -50,7 +50,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         expect(sut,
                toCompleteWithResut: .success([]),
                when: {
-            let emptyJSON = makeFeed(items: [])
+            let emptyJSON = makeFeedJSON(items: [])
             client.complete(withStatusCode: 200, data: emptyJSON)
         })
     }
@@ -65,7 +65,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         expect(sut,
                toCompleteWithResut: .success(items),
                when: {
-            let finalJSON = makeFeed(items: [item1.json, item2.json])
+            let finalJSON = makeFeedJSON(items: [item1.json, item2.json])
             client.complete(withStatusCode: 200, data: finalJSON)
         })
     }
@@ -137,11 +137,6 @@ private extension LoadFeedFromRemoteUseCaseTests {
          */
         
         return (item, itemJSON)
-    }
-    
-    func makeFeed(items: [[String: Any]]) -> Data {
-        let feed = ["items": items]
-        return try! JSONSerialization.data(withJSONObject: feed)
     }
         
     func invalidJSON() -> Data {
