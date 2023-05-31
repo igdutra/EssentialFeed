@@ -14,6 +14,8 @@ The Loader Tests are testing the Mapping through the Loaders!
 So they are testing it in integration from the loader and the mapper, which is not needed since the Generic loader is being tested already in isolation
  
  So LoadFeedFromRemoteUseCaseTests was renamed to contain only the Mapper tests, testing Pure Functions only!
+ 
+ the LoadImageCommentsFromRemoteUseCaseTests was renamed to ImageCommentsMapperTests
 */
 final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
