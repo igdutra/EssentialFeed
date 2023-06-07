@@ -7,6 +7,12 @@
 
 import Foundation
 
+/* NOTE how remote loader was deleted
+ 
+ Remote Loader composition, extension RemoteLoader: FeedLoader where Resource == [FeedImage] {} in the scene delegate, was replaced by a functional way of composing dependencies
+ 
+ Hum! But this way we loose the Connectivity Error Type.
+ */
 public final class RemoteLoader<Resource> {
     private let url: URL
     private let client: HTTPClient
