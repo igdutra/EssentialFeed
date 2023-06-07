@@ -7,6 +7,13 @@
 
 import Foundation
 
+
+/* NOTE
+ 
+ RemoteImageCommentsLoader is now Generic, all the Image Commnets API needs is: RemoteLoader<[ImageComment]>
+ No conformance to protocol is desired.
+ 
+*/
 public final class RemoteImageCommentsLoader {
     private let url: URL
     private let client: HTTPClient

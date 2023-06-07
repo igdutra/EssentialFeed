@@ -377,8 +377,8 @@
 		92004364296F607A00A49070 /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
+				928E919A2A2815C800EDE71B /* Deleted Files */,
 				9200436B296F60A600A49070 /* Helper */,
-				92004366296F60A200A49070 /* RemoteFeedLoader.swift */,
 				92D6EB2329F70404002D9369 /* RemoteFeedImageDataLoader.swift */,
 			);
 			path = "Feed API";
@@ -620,7 +620,7 @@
 		925EFA182A18FC82005A08DD /* Image Comments API */ = {
 			isa = PBXGroup;
 			children = (
-				9201A9BE2A16467C005A06E6 /* RemoteImageCommentsLoader.swift */,
+				92EE933B2A30A4DB00EC3FEA /* Deleted Files */,
 				9201A9BC2A164647005A06E6 /* ImageCommentsMapper.swift */,
 			);
 			path = "Image Comments API";
@@ -784,6 +784,14 @@
 			path = EssentialFeedCacheIntegrationTests;
 			sourceTree = "<group>";
 		};
+		928E919A2A2815C800EDE71B /* Deleted Files */ = {
+			isa = PBXGroup;
+			children = (
+				92004366296F60A200A49070 /* RemoteFeedLoader.swift */,
+			);
+			path = "Deleted Files";
+			sourceTree = "<group>";
+		};
 		92C0B29329BD1E4200568F69 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -923,6 +931,14 @@
 				92EB192429B947980078676A /* XCTestCase+FailableInsertFeedStoreSpecs.swift */,
 			);
 			path = FeedStoreSpecs;
+			sourceTree = "<group>";
+		};
+		92EE933B2A30A4DB00EC3FEA /* Deleted Files */ = {
+			isa = PBXGroup;
+			children = (
+				9201A9BE2A16467C005A06E6 /* RemoteImageCommentsLoader.swift */,
+			);
+			path = "Deleted Files";
 			sourceTree = "<group>";
 		};
 		92F6E23729BA55DA000BCEE3 /* FeedStores */ = {
