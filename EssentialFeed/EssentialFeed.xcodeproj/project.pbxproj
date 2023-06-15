@@ -460,8 +460,8 @@
 		9201A9C52A164CA8005A06E6 /* Shared API */ = {
 			isa = PBXGroup;
 			children = (
+				92415C4D2A3B1BF3002E58EA /* Deleted Files */,
 				92004365296F60A200A49070 /* HTTPClient.swift */,
-				925EFA1A2A18FF35005A08DD /* RemoteLoader.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -477,8 +477,8 @@
 		9201A9C72A164D14005A06E6 /* Shared API */ = {
 			isa = PBXGroup;
 			children = (
+				92415C4E2A3B1C75002E58EA /* Deleted Files */,
 				92D6EB2129F70361002D9369 /* HTTPClientSpy.swift */,
-				925EFA1C2A18FF46005A08DD /* RemoteLoaderTests.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -568,6 +568,22 @@
 				92413D8C29DDCFC500220418 /* FeedImageCellViewCode.swift */,
 			);
 			path = ViewCode;
+			sourceTree = "<group>";
+		};
+		92415C4D2A3B1BF3002E58EA /* Deleted Files */ = {
+			isa = PBXGroup;
+			children = (
+				925EFA1A2A18FF35005A08DD /* RemoteLoader.swift */,
+			);
+			path = "Deleted Files";
+			sourceTree = "<group>";
+		};
+		92415C4E2A3B1C75002E58EA /* Deleted Files */ = {
+			isa = PBXGroup;
+			children = (
+				925EFA1C2A18FF46005A08DD /* RemoteLoaderTests.swift */,
+			);
+			path = "Deleted Files";
 			sourceTree = "<group>";
 		};
 		9243E18A29F2E87400CF7616 /* Feed Presentation */ = {

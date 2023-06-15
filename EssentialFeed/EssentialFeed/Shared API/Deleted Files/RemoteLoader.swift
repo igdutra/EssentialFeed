@@ -13,6 +13,11 @@ import Foundation
  
  Hum! But this way we loose the Connectivity Error Type.
  */
+
+// MARK: - Conformances in the Composition Root
+
+extension RemoteLoader: FeedLoader where Resource == [FeedImage] { }
+
 public final class RemoteLoader<Resource> {
     private let url: URL
     private let client: HTTPClient

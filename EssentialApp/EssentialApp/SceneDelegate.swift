@@ -77,6 +77,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .tryMap(FeedItemsMapper.map)
             .caching(to: localFeedLoader)
             .fallback(to: localFeedLoader.loadPublisher)
+        
+        //  [ side-effect ]
+        //  [ pure function ]
+        //  [ side-effect ]
     }
     
     
@@ -93,7 +97,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             })
     }
 }
-
-// MARK: - Conformances
-
-extension RemoteLoader: FeedLoader where Resource == [FeedImage] { }

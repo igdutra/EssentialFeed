@@ -49,24 +49,23 @@ final class Essentials_NetworkEndToEndTests: XCTestCase {
 
 // MARK: - Helpers
 private extension Essentials_NetworkEndToEndTests {
-    func getFeedResult(file: StaticString = #file, line: UInt = #line) -> FeedLoader.Result? {
-        // Changed the URL since the old one was returning 301 from the server
-        let testServerURL = URL(string: "https://static1.squarespace.com/static/5891c5b8d1758ec68ef5dbc2/t/5c52cdd0b8a045df091d2fff/1548930512083/feed-case-study-test-api-feed.json")!
-        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        let loader = RemoteFeedLoader(url: testServerURL, client: client)
-        
-        trackForMemoryLeaks(client, file: file, line: line)
-        trackForMemoryLeaks(loader, file: file, line: line)
-        
+    private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> FeedLoader.Result? {
+        // Withouth the RemoteLoader, we should call client.get + map the response, which was the loader's job
+        let client = ephemeralClient()
         let exp = expectation(description: "Wait for load completion")
         
         var receivedResult: FeedLoader.Result?
-        loader.load { result in
-            receivedResult = result
+        client.get(from: feedTestServerURL) { result in
+            receivedResult = result.flatMap { (data, response) in
+                do {
+                    return .success(try FeedItemsMapper.map(data, from: response))
+                } catch {
+                    return .failure(error)
+                }
+            }
             exp.fulfill()
         }
-        
-        wait(for: [exp], timeout: 10.0)
+        wait(for: [exp], timeout: 5.0)
         
         return receivedResult
     }
@@ -91,6 +90,7 @@ private extension Essentials_NetworkEndToEndTests {
      and should be used also in getFeedResult, but the old URL was returning 301 so they changed it.
      */
     private var feedTestServerURL: URL {
+        // let testServerURL = URL(string: "https://static1.squarespace.com/static/5891c5b8d1758ec68ef5dbc2/t/5c52cdd0b8a045df091d2fff/1548930512083/feed-case-study-test-api-feed.json")!
         return URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
     }
     
