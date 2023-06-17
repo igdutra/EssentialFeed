@@ -42,6 +42,12 @@ extension LocalFeedLoader: FeedCache {
     }
 }
 
+/* NOTE This conformance should be deleted
+ 
+ The FeedLoader Protocol was deleted, thus this conformance is no longer possible.
+ Keeping the conformance for the other old files, such as SceneDelegateForUITesting
+ 
+ */
 extension LocalFeedLoader: FeedLoader {
     public typealias LoadResult = FeedLoader.Result
 

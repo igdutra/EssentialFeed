@@ -16,6 +16,8 @@ import Foundation
 
 // MARK: - Conformances in the Composition Root
 
+// NOTE: this conformance should be deleted since the FeedLoader was deleted
+// Keeping the conformance for the other old files, such as SceneDelegateForUITesting
 extension RemoteLoader: FeedLoader where Resource == [FeedImage] { }
 
 public final class RemoteLoader<Resource> {

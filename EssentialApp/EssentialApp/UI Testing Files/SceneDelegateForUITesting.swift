@@ -49,4 +49,3 @@ class SceneDelegateForUITesting: UIResponder, UIWindowSceneDelegate {
         return URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }
 }
-
