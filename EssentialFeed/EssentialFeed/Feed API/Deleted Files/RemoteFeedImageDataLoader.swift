@@ -7,6 +7,14 @@
 
 import Foundation
 
+/* NOTE
+ HTTP Publisher + Mapper that will deal with the RemoteFeedImageDataLoader.
+ 
+ As of the HTTPClientTaskWrapper, THIS WILL BE HANDLED BY THE HTTPCLIENT GET PUBLISHER
+ ` .handleEvents(receiveCancel: { task?.cancel() })`
+ 
+ No functionality was lost! With amazing less code!
+ */
 public final class RemoteFeedImageDataLoader: FeedImageDataLoader {
     private let client: HTTPClient
     

@@ -20,6 +20,10 @@ return httpClient
 So the file could be deleted.
 Note: You change the behavior but you loose the custom error case for Connectivity from the RemoteLoader.
 
+### RemoteFeedImageDataLoader
+FeedImageDataMapper has no HTTPClientTaskWrapper, however no functionality was lost becase the cancel event is handled by the HTTPClient Publisher!
+`.handleEvents(receiveCancel: { task?.cancel() })`
+
 
 # Combine in Tests
 * FeedProtocol was deleted because the only UseCase implementing it was the LocalFeedLoader.

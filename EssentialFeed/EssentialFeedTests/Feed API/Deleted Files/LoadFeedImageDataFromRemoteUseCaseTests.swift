@@ -1,6 +1,13 @@
 import XCTest
 import EssentialFeed
 
+/* NOTE
+ 
+ This RemoteUseCase was deleted in favor of Combine Composition in the SceneDelegate
+SO it is the
+ HTTP Publisher + Mapper that will deal with the RemoteFeedImageDataLoader.
+ 
+ */
 class LoadFeedImageDataFromRemoteUseCaseTests: XCTestCase {
 
     func test_init_doesNotPerformAnyURLRequest() {

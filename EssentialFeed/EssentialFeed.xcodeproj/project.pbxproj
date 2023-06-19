@@ -383,7 +383,6 @@
 			children = (
 				928E919A2A2815C800EDE71B /* Deleted Files */,
 				9200436B296F60A600A49070 /* Helper */,
-				92D6EB2329F70404002D9369 /* RemoteFeedImageDataLoader.swift */,
 				9200436C296F60AF00A49070 /* FeedItemsMapper.swift */,
 				927206542A40F67C00B690EB /* FeedImageDataMapper.swift */,
 			);
@@ -403,7 +402,6 @@
 			children = (
 				92C2E1382A19209900FD665A /* Deleted Files */,
 				92D80A832A25603C00833094 /* FeedItemsMapperTests.swift */,
-				925FAB2729F5F8B400DAE8AB /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
 				927206522A40E4D400B690EB /* FeedImageDataMapperTests.swift */,
 			);
 			path = "Feed API";
@@ -818,6 +816,7 @@
 			isa = PBXGroup;
 			children = (
 				92004366296F60A200A49070 /* RemoteFeedLoader.swift */,
+				92D6EB2329F70404002D9369 /* RemoteFeedImageDataLoader.swift */,
 			);
 			path = "Deleted Files";
 			sourceTree = "<group>";
@@ -873,6 +872,7 @@
 			isa = PBXGroup;
 			children = (
 				9200436F296F615C00A49070 /* LoadFeedFromRemoteUseCaseTests.swift */,
+				925FAB2729F5F8B400DAE8AB /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
 			);
 			path = "Deleted Files";
 			sourceTree = "<group>";
