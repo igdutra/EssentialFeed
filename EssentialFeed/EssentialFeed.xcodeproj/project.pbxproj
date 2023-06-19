@@ -56,6 +56,7 @@
 		926CE4F629D7526C00DF2157 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926CE4EE29D7526C00DF2157 /* EssentialFeediOS.framework */; };
 		927019EF296F5F6800AE7B38 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927019E6296F5F6800AE7B38 /* EssentialFeed.framework */; };
 		927019F5296F5F6900AE7B38 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 927019E9296F5F6800AE7B38 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		927206532A40E4D400B690EB /* FeedImageDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927206522A40E4D400B690EB /* FeedImageDataMapperTests.swift */; };
 		927F85E329DF0CAF00DEDAE6 /* FeedRefreshViewControllerMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927F85E229DF0CAF00DEDAE6 /* FeedRefreshViewControllerMVC.swift */; };
 		927F85E529DF0D2400DEDAE6 /* FeedImageCellControllerMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927F85E429DF0D2400DEDAE6 /* FeedImageCellControllerMVC.swift */; };
 		927F85E829DF0DE700DEDAE6 /* FeedUIComposerMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927F85E729DF0DE700DEDAE6 /* FeedUIComposerMVC.swift */; };
@@ -233,6 +234,7 @@
 		927019E6296F5F6800AE7B38 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927019E9296F5F6800AE7B38 /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		927019EE296F5F6800AE7B38 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		927206522A40E4D400B690EB /* FeedImageDataMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataMapperTests.swift; sourceTree = "<group>"; };
 		927F85E029DF0C6800DEDAE6 /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
 		927F85E229DF0CAF00DEDAE6 /* FeedRefreshViewControllerMVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewControllerMVC.swift; sourceTree = "<group>"; };
 		927F85E429DF0D2400DEDAE6 /* FeedImageCellControllerMVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellControllerMVC.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				928E919A2A2815C800EDE71B /* Deleted Files */,
 				9200436B296F60A600A49070 /* Helper */,
 				92D6EB2329F70404002D9369 /* RemoteFeedImageDataLoader.swift */,
+				9200436C296F60AF00A49070 /* FeedItemsMapper.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -387,7 +390,6 @@
 		9200436B296F60A600A49070 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				9200436C296F60AF00A49070 /* FeedItemsMapper.swift */,
 				92D6EB2529F70D44002D9369 /* HTTPURLResponse+StatusCode.swift */,
 			);
 			path = Helper;
@@ -399,6 +401,7 @@
 				92C2E1382A19209900FD665A /* Deleted Files */,
 				92D80A832A25603C00833094 /* FeedItemsMapperTests.swift */,
 				925FAB2729F5F8B400DAE8AB /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
+				927206522A40E4D400B690EB /* FeedImageDataMapperTests.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -1373,6 +1376,7 @@
 				92EB192329B947680078676A /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */,
 				92D80A842A25603C00833094 /* FeedItemsMapperTests.swift in Sources */,
 				928AD92029F2E2830055D5FF /* FeedPresenterTests.swift in Sources */,
+				927206532A40E4D400B690EB /* FeedImageDataMapperTests.swift in Sources */,
 				925FAB2829F5F8B400DAE8AB /* LoadFeedImageDataFromRemoteUseCaseTests.swift in Sources */,
 				92D5854F29772381001F4158 /* FeedStoreSpy.swift in Sources */,
 				92B9841729F30D9D00C9B8FE /* FeedImagePresenterTests.swift in Sources */,
