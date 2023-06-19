@@ -8,20 +8,6 @@
 import XCTest
 import EssentialFeed
 
-public enum FeedImageDataMapper {
-    public enum Error: Swift.Error {
-        case invalidData
-    }
-    
-    public static func map(_ data: Data, from response: HTTPURLResponse) throws -> Data {
-        guard response.isOK, !data.isEmpty else {
-            throw Error.invalidData
-        }
-        
-        return data
-    }
-}
-
 final class FeedImageDataMapperTests: XCTestCase {
 
     func test_map_deliversInvalidDataErrorOnNon200HTTPResponse() throws {
