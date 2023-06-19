@@ -482,7 +482,6 @@
 			isa = PBXGroup;
 			children = (
 				92415C4E2A3B1C75002E58EA /* Deleted Files */,
-				92D6EB2129F70361002D9369 /* HTTPClientSpy.swift */,
 			);
 			path = "Shared API";
 			sourceTree = "<group>";
@@ -585,6 +584,7 @@
 		92415C4E2A3B1C75002E58EA /* Deleted Files */ = {
 			isa = PBXGroup;
 			children = (
+				92D6EB2129F70361002D9369 /* HTTPClientSpy.swift */,
 				925EFA1C2A18FF46005A08DD /* RemoteLoaderTests.swift */,
 			);
 			path = "Deleted Files";

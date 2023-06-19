@@ -8,6 +8,7 @@
 import Foundation
 import EssentialFeed
 
+// Note: Deleted since it is used only by RemoteLoader and Local and Remote FeedUsecase tests
 class HTTPClientSpy: HTTPClient {
     private struct Task: HTTPClientTask {
         let callback: () -> Void
