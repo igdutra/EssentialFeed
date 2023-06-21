@@ -16,10 +16,10 @@ final class LoadResourcePresenterTests: XCTestCase {
         XCTAssertTrue(view.messages.isEmpty, "Expected no view messages")
     }
     
-    func test_didStartLoadingFeed_displaysNoErrorMessage() {
+    func test_didStartLoading_displaysNoErrorMessageAndStartsLoading() {
         let (sut, view) = makeSUT()
         
-        sut.didStartLoadingFeed()
+        sut.didStartLoading()
         
         XCTAssertEqual(view.messages, [.display(errorMessage: .none),
                                        .display(isLoading: true)])
@@ -81,9 +81,9 @@ final class LoadResourcePresenterTests: XCTestCase {
 
 // MARK: - Helpers
 private extension LoadResourcePresenterTests {
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedPresenter, view: ViewSpy) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LoadResourcePresenter, view: ViewSpy) {
         let view = ViewSpy()
-        let sut = FeedPresenter(feedView: view, loadingView: view, errorView: view)
+        let sut = LoadResourcePresenter(feedView: view, loadingView: view, errorView: view)
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, view)
