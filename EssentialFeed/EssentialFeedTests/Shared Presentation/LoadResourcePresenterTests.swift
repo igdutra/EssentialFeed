@@ -52,6 +52,8 @@ final class LoadResourcePresenterTests: XCTestCase {
     // MARK: - Helpers
     
     private class ViewSpy: FeedErrorView, FeedLoadingView, ResourceView {
+        typealias ResourceViewModel = String
+        
         /* NOTE Message Array
          
          So use it but to avoid confromance with Equatable, just use the elements inside the viewModel not
@@ -82,11 +84,13 @@ final class LoadResourcePresenterTests: XCTestCase {
 
 // MARK: - Helpers
 private extension LoadResourcePresenterTests {
-    private func makeSUT(mapper: @escaping LoadResourcePresenter.Mapper = { _ in "any" },
+    private typealias SUT = LoadResourcePresenter<String, ViewSpy>
+    
+    private func makeSUT(mapper: @escaping SUT.Mapper = { _ in "any" },
                          file: StaticString = #file,
-                         line: UInt = #line) -> (sut: LoadResourcePresenter, view: ViewSpy) {
+                         line: UInt = #line) -> (sut: SUT, view: ViewSpy) {
         let view = ViewSpy()
-        let sut = LoadResourcePresenter(resourceView: view, loadingView: view, errorView: view, mapper: mapper)
+        let sut = SUT(resourceView: view, loadingView: view, errorView: view, mapper: mapper)
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, view)
@@ -94,7 +98,7 @@ private extension LoadResourcePresenterTests {
     
     func localized(_ key: String, file: StaticString = #file, line: UInt = #line) -> String {
         let table = "Feed"
-        let bundle = Bundle(for: FeedPresenter.self)
+        let bundle = Bundle(for: SUT.self)
         let value = bundle.localizedString(forKey: key, value: nil, table: table)
         if value == key {
             XCTFail("Missing localized string for key: \(key) in table: \(table)", file: file, line: line)
