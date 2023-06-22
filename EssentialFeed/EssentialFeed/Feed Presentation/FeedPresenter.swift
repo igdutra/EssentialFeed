@@ -18,16 +18,17 @@ public protocol FeedView {
 //    func display(_ viewModel: FeedLoadingViewModel)
 //}
 
-public protocol FeedErrorView {
-    func display(_ viewModel: FeedErrorViewModel)
-}
+// Note: Replaced by ResourceErrorView
+//public protocol FeedErrorView {
+//    func display(_ viewModel: FeedErrorViewModel)
+//}
 
 // MARK: - Presenter
 
 public final class FeedPresenter {
     private let feedView: FeedView
     private let loadingView: ResourceLoadingView
-    private let errorView: FeedErrorView
+    private let errorView: ResourceErrorView
     
     // NOTE use LocalizedStrings protocol
     public static var title: String {
@@ -44,7 +45,7 @@ public final class FeedPresenter {
                                  comment: "Error message displayed when we can't load the image feed from the server")
     }
     
-    public init(feedView: FeedView, loadingView: ResourceLoadingView, errorView: FeedErrorView) {
+    public init(feedView: FeedView, loadingView: ResourceLoadingView, errorView: ResourceErrorView) {
         self.feedView = feedView
         self.loadingView = loadingView
         self.errorView = errorView

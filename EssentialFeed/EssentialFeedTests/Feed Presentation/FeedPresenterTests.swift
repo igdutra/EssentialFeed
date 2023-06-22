@@ -54,7 +54,7 @@ class FeedPresenterTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private class ViewSpy: FeedErrorView, ResourceLoadingView, FeedView {
+    private class ViewSpy: ResourceErrorView, ResourceLoadingView, FeedView {
         /* NOTE Message Array
          
          So use it but to avoid confromance with Equatable, just use the elements inside the viewModel not
@@ -69,7 +69,7 @@ class FeedPresenterTests: XCTestCase {
         
         private(set) var messages = Set<Message>()
         
-        func display(_ viewModel: FeedErrorViewModel) {
+        func display(_ viewModel: ResourceErrorViewModel) {
             messages.insert(.display(errorMessage: viewModel.message))
         }
         
