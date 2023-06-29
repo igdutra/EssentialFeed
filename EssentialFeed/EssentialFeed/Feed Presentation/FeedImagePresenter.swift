@@ -12,6 +12,16 @@ public protocol FeedImageView {
 }
 
 public final class FeedImagePresenter<View: FeedImageView, Image> where View.Image == Image {
+    
+    public static func map(_ image: FeedImage) -> FeedImageViewModel<Image> {
+         FeedImageViewModel(
+             description: image.description,
+             location: image.location,
+             image: nil,
+             isLoading: false,
+             shouldRetry: false)
+     }
+    
     private let view: View
     private let imageTransformer: (Data) -> Image?
     
