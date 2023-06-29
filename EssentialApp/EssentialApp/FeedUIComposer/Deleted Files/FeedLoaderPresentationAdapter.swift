@@ -9,6 +9,8 @@ import Combine
 import EssentialFeed
 import EssentialFeediOS
 
+// NOTE:
+// Deleted to become LoadResourcePresentationAdapter
 final class FeedLoaderPresentationAdapter: FeedViewControllerDelegate {
     private let feedLoader: () -> AnyPublisher<[FeedImage], Error>
     private var cancellable: Cancellable?

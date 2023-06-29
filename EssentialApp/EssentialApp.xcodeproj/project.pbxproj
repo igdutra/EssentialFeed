@@ -23,6 +23,7 @@
 		9256EEC429F8519A001049B0 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9256EEC329F8519A001049B0 /* FeedLoaderWithFallbackCompositeTests.swift */; };
 		9256EEC629F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9256EEC529F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift */; };
 		9256EEC829F8549E001049B0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9256EEC729F8549E001049B0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */; };
+		9270F4552A4E3D5F009024AC /* LoadResourcePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9270F4542A4E3D5F009024AC /* LoadResourcePresentationAdapter.swift */; };
 		9276E2ED29F9B2B00052CE8C /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E2EC29F9B2B00052CE8C /* SceneDelegateTests.swift */; };
 		9276E2F729F9B4170052CE8C /* WekRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E2F129F9B4160052CE8C /* WekRefVirtualProxy.swift */; };
 		9276E2F829F9B4170052CE8C /* FeedImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E2F229F9B4160052CE8C /* FeedImageDataLoaderPresentationAdapter.swift */; };
@@ -113,6 +114,7 @@
 		9256EEC329F8519A001049B0 /* FeedLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		9256EEC529F853A8001049B0 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		9256EEC729F8549E001049B0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
+		9270F4542A4E3D5F009024AC /* LoadResourcePresentationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadResourcePresentationAdapter.swift; sourceTree = "<group>"; };
 		9276E2EC29F9B2B00052CE8C /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 		9276E2F129F9B4160052CE8C /* WekRefVirtualProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WekRefVirtualProxy.swift; sourceTree = "<group>"; };
 		9276E2F229F9B4160052CE8C /* FeedImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
@@ -251,12 +253,21 @@
 			path = EssentialAppUITests;
 			sourceTree = "<group>";
 		};
+		9270F4532A4E3D2E009024AC /* Deleted Files */ = {
+			isa = PBXGroup;
+			children = (
+				9276E2F529F9B4160052CE8C /* FeedLoaderPresentationAdapter.swift */,
+			);
+			path = "Deleted Files";
+			sourceTree = "<group>";
+		};
 		9276E2F029F9B3FD0052CE8C /* FeedUIComposer */ = {
 			isa = PBXGroup;
 			children = (
+				9270F4532A4E3D2E009024AC /* Deleted Files */,
 				9276E2F329F9B4160052CE8C /* FeedUIComposer.swift */,
 				9276E2F229F9B4160052CE8C /* FeedImageDataLoaderPresentationAdapter.swift */,
-				9276E2F529F9B4160052CE8C /* FeedLoaderPresentationAdapter.swift */,
+				9270F4542A4E3D5F009024AC /* LoadResourcePresentationAdapter.swift */,
 				9276E2F629F9B4170052CE8C /* FeedViewAdapter.swift */,
 				9276E2F129F9B4160052CE8C /* WekRefVirtualProxy.swift */,
 			);
@@ -561,6 +572,7 @@
 				922B3B062A01ADF000D134BF /* SceneDelegateWithoutCombine.swift in Sources */,
 				922B3B012A01AD3200D134BF /* FeedViewAdapterWithoutCombine.swift in Sources */,
 				92B91DDA29F94F8F007A79F5 /* FeedLoaderCacheDecorator.swift in Sources */,
+				9270F4552A4E3D5F009024AC /* LoadResourcePresentationAdapter.swift in Sources */,
 				92A9E04329F993D600D3B048 /* DebuggingSceneDelegate.swift in Sources */,
 				92A81B4229F7F99600C625EF /* SceneDelegate.swift in Sources */,
 				922B3AF82A01A96700D134BF /* CombineHelpers.swift in Sources */,
