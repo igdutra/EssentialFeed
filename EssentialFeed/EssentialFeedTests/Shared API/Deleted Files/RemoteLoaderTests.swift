@@ -46,7 +46,7 @@ class RemoteLoaderTests: XCTestCase {
     
     func test_load_deliversErrorOnMapperError() {
         let (sut, client) = makeSUT(mapper: { _, _ in
-            throw self.anyNSError()
+            throw anyNSError()
         })
         
         expect(sut, toCompleteWith: failure(.invalidData), when: {
