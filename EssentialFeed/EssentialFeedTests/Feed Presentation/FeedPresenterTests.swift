@@ -26,8 +26,8 @@ class FeedPresenterTests: XCTestCase {
 // MARK: - Helpers
 private extension FeedPresenterTests {
     func localized(_ key: String,
-                   table: String = "Feed",
                    file: StaticString = #file, line: UInt = #line) -> String {
+        let table = "Feed"
         let bundle = Bundle(for: FeedPresenter.self)
         let value = bundle.localizedString(forKey: key, value: nil, table: table)
         if value == key {
