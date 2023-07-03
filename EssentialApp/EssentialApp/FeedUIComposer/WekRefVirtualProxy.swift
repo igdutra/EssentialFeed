@@ -31,7 +31,7 @@ extension WeakRefVirtualProxy: ResourceLoadingView where T: ResourceLoadingView 
 
 // Note: Replaced by conformance to ResourceView
 extension WeakRefVirtualProxy: FeedImageView where T: FeedImageView, T.Image == UIImage {
-    func display(_ model: FeedImageViewModel<UIImage>) {
+    func display(_ model: FeedImageViewModelBeforeImageFeature<UIImage>) {
         object?.display(model)
     }
 }

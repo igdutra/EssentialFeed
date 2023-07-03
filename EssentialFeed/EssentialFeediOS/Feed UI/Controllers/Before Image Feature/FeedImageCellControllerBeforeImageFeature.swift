@@ -36,7 +36,7 @@ public final class FeedImageCellControllerBeforeImageFeature: FeedImageView {
         delegate.didCancelImageRequest()
     }
     
-    public func display(_ viewModel: FeedImageViewModel<UIImage>) {
+    public func display(_ viewModel: FeedImageViewModelBeforeImageFeature<UIImage>) {
         cell?.locationContainer.isHidden = !viewModel.hasLocation
         cell?.locationLabel.text = viewModel.location
         cell?.descriptionLabel.text = viewModel.description

@@ -15,7 +15,7 @@ final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView, Image>: 
     private let imageLoader: (URL) -> FeedImageDataLoader.Publisher
     private var cancellable: Cancellable?
     
-    var presenter: FeedImagePresenter<View, Image>?
+    var presenter: FeedImagePresenterBeforeImageFeature<View, Image>?
     
     init(model: FeedImage, imageLoader: @escaping (URL) -> FeedImageDataLoader.Publisher) {
         self.model = model

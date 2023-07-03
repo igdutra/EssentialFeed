@@ -13,7 +13,7 @@ final class FeedImageDataLoaderPresentationAdapterWithoutCombine<View: FeedImage
     private let imageLoader: FeedImageDataLoader
     private var task: FeedImageDataLoaderTask?
     
-    var presenter: FeedImagePresenter<View, Image>?
+    var presenter: FeedImagePresenterBeforeImageFeature<View, Image>?
     
     init(model: FeedImage, imageLoader: FeedImageDataLoader) {
         self.model = model

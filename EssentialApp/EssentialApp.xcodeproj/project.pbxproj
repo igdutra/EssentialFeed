@@ -257,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				9276E2F529F9B4160052CE8C /* FeedLoaderPresentationAdapter.swift */,
+				9276E2F229F9B4160052CE8C /* FeedImageDataLoaderPresentationAdapter.swift */,
 			);
 			path = "Deleted Files";
 			sourceTree = "<group>";
@@ -266,7 +267,6 @@
 			children = (
 				9270F4532A4E3D2E009024AC /* Deleted Files */,
 				9276E2F329F9B4160052CE8C /* FeedUIComposer.swift */,
-				9276E2F229F9B4160052CE8C /* FeedImageDataLoaderPresentationAdapter.swift */,
 				9270F4542A4E3D5F009024AC /* LoadResourcePresentationAdapter.swift */,
 				9276E2F629F9B4170052CE8C /* FeedViewAdapter.swift */,
 				9276E2F129F9B4160052CE8C /* WekRefVirtualProxy.swift */,

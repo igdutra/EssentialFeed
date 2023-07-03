@@ -23,7 +23,7 @@ final class FeedViewAdapterWithoutCombine: FeedView {
             let adapter = FeedImageDataLoaderPresentationAdapterWithoutCombine<WeakRefVirtualProxy<FeedImageCellControllerBeforeImageFeature>, UIImage>(model: model, imageLoader: imageLoader)
             let view = FeedImageCellControllerBeforeImageFeature(delegate: adapter)
             
-            adapter.presenter = FeedImagePresenter(
+            adapter.presenter = FeedImagePresenterBeforeImageFeature(
                 view: WeakRefVirtualProxy(view),
                 imageTransformer: UIImage.init)
             
