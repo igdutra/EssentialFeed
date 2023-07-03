@@ -8,7 +8,7 @@
 import EssentialFeed
 import EssentialFeediOS
 
-final class FeedLoaderPresentationAdapterWithoutCombine: FeedViewControllerDelegate {
+final class FeedLoaderPresentationAdapterWithoutCombine: FeedViewControllerBeforeImageFeatureDelegate {
     private let feedLoader: FeedLoader
     var presenter: FeedPresenter?
     
