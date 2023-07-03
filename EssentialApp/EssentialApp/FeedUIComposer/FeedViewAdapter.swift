@@ -36,19 +36,20 @@ final class FeedViewAdapter: ResourceView {
             adapter.presenter = LoadResourcePresenter(resourceView: WeakRefVirtualProxy(view),
                                                       loadingView: WeakRefVirtualProxy(view),
                                                       errorView: WeakRefVirtualProxy(view),
-                                                      mapper: map)
+                                                      mapper: UIImage.tryMake)
             
             return view
         })
     }
-    
-    func map(_ data: Data) throws -> UIImage {
-        guard let image = UIImage(data: data) else {
-            throw InvalidImageData()
-        }
-        return image
-    }
 }
 
+extension UIImage {
+     struct InvalidImageData: Error {}
 
-private struct InvalidImageData: Error {}
+     static func tryMake(data: Data) throws -> UIImage {
+         guard let image = UIImage(data: data) else {
+             throw InvalidImageData()
+         }
+         return image
+     }
+ }
