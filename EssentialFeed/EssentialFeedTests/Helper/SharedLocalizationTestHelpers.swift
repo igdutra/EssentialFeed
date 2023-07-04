@@ -7,7 +7,7 @@
 
 import XCTest
 
-func assertLocalizedKeyAndValuesExistsInBundle(in presentationBundle: Bundle, _ table: String,  file: StaticString = #file, line: UInt = #line) {
+func assertLocalizedKeyAndValuesExists(in presentationBundle: Bundle, _ table: String,  file: StaticString = #file, line: UInt = #line) {
     let localizationBundles = allLocalizationBundles(in: presentationBundle, file: file, line: line)
     let localizedStringKeys = allLocalizedStringKeys(in: localizationBundles, table: table, file: file, line: line)
     

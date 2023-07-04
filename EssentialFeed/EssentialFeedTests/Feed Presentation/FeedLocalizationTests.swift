@@ -14,6 +14,6 @@ final class FeedLocalizationTests: XCTestCase {
         let table = "Feed"
         let bundle = Bundle(for: FeedPresenter.self)
         
-        assertLocalizedKeyAndValuesExistsInBundle(in: bundle, table)
+        assertLocalizedKeyAndValuesExists(in: bundle, table)
     }
 }
