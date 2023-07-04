@@ -647,6 +647,31 @@
 			path = snapshots;
 			sourceTree = "<group>";
 		};
+		922047FD2A54ACC6000429CF /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				922047FE2A54AD2A000429CF /* Controllers */,
+				922047FF2A54AD2F000429CF /* Views */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
+		922047FE2A54AD2A000429CF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				926204D129F307F900457C2F /* ListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		922047FF2A54AD2F000429CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				928AD91529F2D82A0055D5FF /* ErrorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9228A34729919DB8000502A7 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,7 +685,6 @@
 			children = (
 				92CC158C29E8BE0300C7B0FF /* Feed.storyboard */,
 				92384B8429E9988A00C8B71C /* FeedImageCell.swift */,
-				928AD91529F2D82A0055D5FF /* ErrorView.swift */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -734,7 +758,6 @@
 			children = (
 				92EB38412A53688C0095942C /* Before Image Feature */,
 				922047E52A549BAF000429CF /* Deleted Files */,
-				926204D129F307F900457C2F /* ListViewController.swift */,
 				926204CF29F307D200457C2F /* FeedImageCellController.swift */,
 			);
 			path = Controllers;
@@ -768,6 +791,8 @@
 		926CE4EF29D7526C00DF2157 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				927F85D229DF089100DEDAE6 /* Helpers */,
+				922047FD2A54ACC6000429CF /* Shared UI */,
 				927F85DF29DF0C3F00DEDAE6 /* Feed UI */,
 				92C4C9CC29F2F10300C38DE6 /* Old implementations */,
 			);
@@ -889,7 +914,6 @@
 			children = (
 				92484D5D29F2F63700A8D9E1 /* Controllers */,
 				927F85D129DF088200DEDAE6 /* Views */,
-				927F85D229DF089100DEDAE6 /* Helpers */,
 			);
 			path = "Feed UI";
 			sourceTree = "<group>";
