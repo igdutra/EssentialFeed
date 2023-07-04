@@ -21,7 +21,7 @@ public final class FeedViewControllerNotShared: UITableViewController, UITableVi
         didSet { tableView.reloadData() }
     }
     
-    public var delegate: FeedViewControllerDelegate?
+    public var delegate: FeedViewControllerDelegateNotShared?
     
     public override func viewDidLoad() {
         super.viewDidLoad()

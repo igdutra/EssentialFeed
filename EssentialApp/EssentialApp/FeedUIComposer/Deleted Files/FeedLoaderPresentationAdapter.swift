@@ -11,7 +11,7 @@ import EssentialFeediOS
 
 // NOTE:
 // Deleted to become LoadResourcePresentationAdapter
-final class FeedLoaderPresentationAdapter: FeedViewControllerDelegate {
+final class FeedLoaderPresentationAdapter: FeedViewControllerDelegateNotShared {
     private let feedLoader: () -> AnyPublisher<[FeedImage], Error>
     private var cancellable: Cancellable?
     var presenter: LoadResourcePresenter<[FeedImage], FeedViewAdapter>?
