@@ -14,4 +14,15 @@ public final class ImageCommentsPresenter {
                           bundle: Bundle(for: Self.self),
                           comment: "Title for the image comments view")
     }
+    
+    public static func map(_ imageComments: [ImageComment]) -> ImageCommentsViewModel {
+        let formatter = RelativeDateTimeFormatter()
+        let comments = imageComments.map { comment in
+            ImageCommentViewModel(message: comment.message,
+                                  date: formatter.localizedString(for: comment.createdAt, relativeTo: Date()),
+                                  username: comment.username)
+        }
+        
+        return ImageCommentsViewModel(comments: comments)
+    }
 }
