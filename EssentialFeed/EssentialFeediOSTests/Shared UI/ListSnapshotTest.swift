@@ -36,7 +36,7 @@ final class ListSnapshotTest: XCTestCase {
      
      THE SNAPSHOT WILL PASS ONLY when activated the tolerance! if !match(snapshotData, storedSnapshotData, tolerance: 0.00001)
      */
-    func test_feedWithErrorMessage() {
+    func test_listWithErrorMessage() {
         let sut = makeSUT()
         
         sut.display(.error(message: "This is a\nmulti-line\nerror message"))
