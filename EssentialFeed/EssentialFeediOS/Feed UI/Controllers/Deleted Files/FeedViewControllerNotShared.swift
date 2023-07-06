@@ -15,9 +15,9 @@ public protocol FeedViewControllerDelegateNotShared {
 public final class FeedViewControllerNotShared: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
     @IBOutlet private(set) public var errorView: ErrorView?
     
-    private var loadingControllers = [IndexPath: FeedImageCellController]()
+    private var loadingControllers = [IndexPath: FeedImageCellControllerNotShared]()
     
-    private var tableModel = [FeedImageCellController]() {
+    private var tableModel = [FeedImageCellControllerNotShared]() {
         didSet { tableView.reloadData() }
     }
     
@@ -39,7 +39,7 @@ public final class FeedViewControllerNotShared: UITableViewController, UITableVi
         delegate?.didRequestFeedRefresh()
     }
     
-    public func display(_ cellControllers: [FeedImageCellController]) {
+    public func display(_ cellControllers: [FeedImageCellControllerNotShared]) {
         loadingControllers = [:]
         tableModel = cellControllers
     }
@@ -74,7 +74,7 @@ public final class FeedViewControllerNotShared: UITableViewController, UITableVi
         indexPaths.forEach(cancelCellControllerLoad)
     }
     
-    private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
+    private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellControllerNotShared {
         let controller = tableModel[indexPath.row]
         loadingControllers[indexPath] = controller
         return controller
