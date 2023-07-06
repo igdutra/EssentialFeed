@@ -14,6 +14,12 @@ public protocol CellController {
     func cancelLoad()
 }
 
+// Note: These 2 methods are made optional so that ImageCommnetsCellController does not violate the ISP
+public extension CellController {
+    func preload() { }
+    func cancelLoad() { }
+}
+
 public final class ListViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
     @IBOutlet private(set) public var errorView: ErrorView?
     
