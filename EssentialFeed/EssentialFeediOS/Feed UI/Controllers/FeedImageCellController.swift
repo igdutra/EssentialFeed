@@ -27,7 +27,7 @@ public final class FeedImageCellController: NSObject {
 }
 
 // MARK: - Table View Methods
-extension FeedImageCellController: CellController {
+extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
