@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uo9-ac-CVe">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,41 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="S2p-XQ-eup" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPu-Um-znd">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
-                                    <gestureRecognizers/>
-                                    <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="HAh-sd-PBt" appends="YES" id="3ux-6t-J6f"/>
-                                    </connections>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="1" green="0.41599999999999998" blue="0.41599999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstItem="jPu-Um-znd" firstAttribute="leading" secondItem="S2p-XQ-eup" secondAttribute="leading" id="11G-Yb-coD"/>
-                                <constraint firstItem="jPu-Um-znd" firstAttribute="top" secondItem="S2p-XQ-eup" secondAttribute="top" id="2cl-LU-9Mq"/>
-                                <constraint firstAttribute="bottom" secondItem="jPu-Um-znd" secondAttribute="bottom" id="MIo-jU-5oa"/>
-                                <constraint firstAttribute="trailing" secondItem="jPu-Um-znd" secondAttribute="trailing" id="gJv-J6-jwU"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="label" destination="jPu-Um-znd" id="lG5-xn-gzk"/>
-                            </connections>
-                        </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="h1L-vP-Hrg">
-                            <rect key="frame" x="0.0" y="674" width="393" height="16"/>
+                            <rect key="frame" x="0.0" y="658" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="ull-I7-yN1" customClass="FeedImageCell" customModule="EssentialFeediOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66" width="393" height="580"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ull-I7-yN1" id="PC1-hf-VAX">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="580"/>
@@ -169,16 +143,9 @@
                             <action selector="refresh" destination="uo9-ac-CVe" eventType="valueChanged" id="j3U-b9-jMT"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <outlet property="errorView" destination="S2p-XQ-eup" id="rQa-g3-JOw"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRc-a2-w0w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="HAh-sd-PBt">
-                    <connections>
-                        <action selector="hideMessageAnimated" destination="S2p-XQ-eup" id="gKU-nW-dWc"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HAh-sd-PBt"/>
             </objects>
             <point key="canvasLocation" x="782.44274809160299" y="29.577464788732396"/>
         </scene>
