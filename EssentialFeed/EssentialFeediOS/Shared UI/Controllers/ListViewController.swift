@@ -61,9 +61,14 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         tableView.tableHeaderView = container
         
         errorView.onHide = { [weak self] in
-            self?.tableView.beginUpdates()
-            self?.tableView.sizeTableHeaderToFit()
-            self?.tableView.endUpdates()
+            self?.tableView.performBatchUpdates {
+                self?.tableView.tableHeaderView = UIView(frame: .zero)
+            }
+        }
+        errorView.onError = { [weak self] in
+            self?.tableView.performBatchUpdates {
+                self?.tableView.tableHeaderView = container
+            }
         }
     }
     

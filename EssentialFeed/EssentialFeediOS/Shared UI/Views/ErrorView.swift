@@ -13,6 +13,7 @@ public final class ErrorView: UIButton {
         set { setMessageAnimated(newValue) }
     }
     
+    public var onError: (() -> Void)?
     public var onHide: (() -> Void)?
     
     public override init(frame: CGRect) {
@@ -58,6 +59,7 @@ public final class ErrorView: UIButton {
         UIView.animate(withDuration: 0.25) {
             self.alpha = 1
         }
+        onError?()
     }
     
     @objc private func hideMessageAnimated() {
