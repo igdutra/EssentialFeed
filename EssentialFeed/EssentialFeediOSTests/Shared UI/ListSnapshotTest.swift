@@ -29,31 +29,33 @@ final class ListSnapshotTest: XCTestCase {
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "EMPTY_LIST_dark")
     }
     
-    /* NOTE temporarily disbling this test
+    /* NOTE why I temporarily disabled this test
      
      Disabling this test since is the only snapshot failing, even when i'm using
      Xcode14.2 + Iphone 14 - iOS 16.2
      
      THE SNAPSHOT WILL PASS ONLY when activated the tolerance! if !match(snapshotData, storedSnapshotData, tolerance: 0.00001)
+     
+     NOTE 2: Why I disabled this test for 2nd time
+     Error view is now acting as it should but tests are still failing.
+      - Background error color was wrong
+      - Label was not set to white.
+      - There was not top/bottom space
+     Fixed when implemented contentSize feature.
      */
-    
-    // NOTE:
-    // Deactivate snapshot tests until further investigation.
-    // Error view is now acting as it should but tests are still failing.
-    // - Background error color was wrong
-    // - Label was not set to white.
-    // - There was not top/bottom space
-    
-    
-//    func test_listWithErrorMessage() {
-//        let sut = makeSUT()
-//
-//        sut.display(.error(message: "This is a\nmulti-line\nerror message"))
-//
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "LIST_WITH_ERROR_MESSAGE_light")
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "LIST_WITH_ERROR_MESSAGE_dark")
-//    }
-//
+
+    func test_listWithErrorMessage() {
+        let sut = makeSUT()
+
+        sut.display(.error(message: "This is a\nmulti-line\nerror message"))
+
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "LIST_WITH_ERROR_MESSAGE_light")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "LIST_WITH_ERROR_MESSAGE_dark")
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light,
+                                                    contentSize: .extraExtraExtraLarge)),
+               named: "LIST_WITH_ERROR_MESSAGE_light_extraExtraExtraLarge")
+    }
     
     // MARK: - Helpers
     
