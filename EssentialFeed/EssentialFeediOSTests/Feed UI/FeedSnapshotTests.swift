@@ -21,12 +21,14 @@ class FeedSnapshotTests: XCTestCase {
      
      */
     
-    // NOTE:
-    // Deactivate snapshot tests until further investigation.
-    // Error view is now acting as it should but tests are still failing.
-    // - Background error color was wrong
-    // - Label was not set to white.
-    // - There was not top/bottom space
+    /* NOTE: why I disbled these tests
+     // Deactivate snapshot tests until further investigation.
+     // Error view is now acting as it should but tests are still failing.
+       - For feed this is causing a LARGE empty space and pushing content further down.
+       - but the app runs fine
+       - see extra large snapshot test. the frame might be updating after the test
+     ErrorView tests are now running fine
+     */
     
 //    func test_feedWithContent() {
 //        let sut = makeSUT()
@@ -35,6 +37,10 @@ class FeedSnapshotTests: XCTestCase {
 //
 //        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_CONTENT_light")
 //        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_CONTENT_dark")
+//        
+//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light,
+//                                                    contentSize: .extraExtraLarge)),
+//               named: "FEED_WITH_CONTENT_light_extraExtraLarge")
 //    }
 //
 //    func test_feedWithFailedImageLoading() {
@@ -44,8 +50,11 @@ class FeedSnapshotTests: XCTestCase {
 //
 //        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_FAILED_IMAGE_LOADING_light")
 //        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_FAILED_IMAGE_LOADING_dark")
+//        
+//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light,
+//                                                    contentSize: .extraExtraLarge)),
+//               named: "FEED_WITH_FAILED_IMAGE_LOADING_light_extraExtraLarge")
 //    }
-    
     
     // MARK: - Helpers
     
