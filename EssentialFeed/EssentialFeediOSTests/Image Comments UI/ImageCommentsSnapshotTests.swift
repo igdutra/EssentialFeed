@@ -11,23 +11,30 @@ import EssentialFeediOS
 
 final class ImageCommentsSnapshotTests: XCTestCase {
     
-    // NOTE:
-    // Deactivate snapshot tests until further investigation.
-    // Error view is now acting as it should but tests are still failing.
-    // - Background error color was wrong
-    // - Label was not set to white.
-    // - There was not top/bottom space
+    /* NOTE: why I disabled ImageCommnets snapshot tests
+     
+     // NOTE:
+     // Deactivate snapshot tests until further investigation.
+     // Error view is now acting as it should but tests are still failing.
+     //  - For imagecommnets this is causing a LARGE empty space and pushing content further down.
+        - but the app runs fine
+        - see extra large snapshot test. the frame might be updating after the test.
+     
+     */
     
-    
-//    func test_listWithComments() {
-//        let sut = makeSUT()
-//        
-//        sut.display(comments())
-//        
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "IMAGE_COMMENTS_light")
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "IMAGE_COMMENTS_dark")
-//    }
-//    
+    func test_listWithComments() {
+        let sut = makeSUT()
+        
+        sut.display(comments())
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "IMAGE_COMMENTS_light")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "IMAGE_COMMENTS_dark")
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light,
+                                                    contentSize: .extraExtraExtraLarge)),
+               named: "IMAGE_COMMENTS_light_extraExtraExtraLarge")
+    }
+
     // MARK: - Helpers
     private func makeSUT() -> ListViewController {
         let bundle = Bundle(for: ListViewController.self)
