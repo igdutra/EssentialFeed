@@ -22,10 +22,14 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTableView()
+        refresh()
+    }
+    
+    private func configureTableView() {
         dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
-        configureErrorView()
-        refresh()
+        tableView.tableHeaderView = errorView.makeContainer()
     }
     
     private func configureErrorView() {
