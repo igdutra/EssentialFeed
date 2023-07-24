@@ -69,20 +69,20 @@ class FeedAcceptanceTests: XCTestCase {
         return nav?.topViewController as! ListViewController
     }
     
-
+    
     /* NOTE Fixing flaky FeedAcceptanceTests.test_onEnteringBackground_deletesExpiredFeedCache
      
      IMO, the test_onEnterinaBackaround_keepsExpiredFeedCache runs too early and the scene was not loaded properly yet, so there is no connectedScenes. first. By the time test_onEnteringBackaround_deletesNonExpiredFeedCacheruns, the scene is loaded. I would try running the build a few more times on Cl, see if it still fails in the same way (I see just 2 runs), just to make sure it's not a Cl machine load that caused this.
      
      This is how to instantiate the UIScene so you don't need to force-unwrap the optional connectScenes.first
      */
-//    private func enterBackground(with store: InMemoryFeedStore) {
-//        let sut = SceneDelegate(httpClient: HTTPClientStub.offline, store: store)
-//        sut.sceneWillResignActive(UIApplication.shared.connectedScenes.first!)
-//    }
+    //    private func enterBackground(with store: InMemoryFeedStore) {
+    //        let sut = SceneDelegate(httpClient: HTTPClientStub.offline, store: store)
+    //        sut.sceneWillResignActive(UIApplication.shared.connectedScenes.first!)
+    //    }
     private func enterBackground(with store: InMemoryFeedStore) throws {
         let sut = SceneDelegate(httpClient: HTTPClientStub.offline, store: store)
-
+        
         let sceneClass = NSClassFromString("UIScene") as? NSObject.Type
         let scene = try XCTUnwrap(sceneClass?.init() as? UIScene)
         sut.sceneWillResignActive(scene)
@@ -94,12 +94,15 @@ class FeedAcceptanceTests: XCTestCase {
     }
     
     private func makeData(for url: URL) -> Data {
-        switch url.absoluteString {
-        case "http://image.com":
+        switch url.path {
+        case "/image-1", "/image-2":
             return makeImageData()
             
-        default:
+        case "/essential-feed/v1/feed":
             return makeFeedData()
+            
+        default:
+            return Data()
         }
     }
     
@@ -109,8 +112,8 @@ class FeedAcceptanceTests: XCTestCase {
     
     private func makeFeedData() -> Data {
         return try! JSONSerialization.data(withJSONObject: ["items": [
-            ["id": UUID().uuidString, "image": "http://image.com"],
-            ["id": UUID().uuidString, "image": "http://image.com"]
+            ["id": "2AB2AE66-A4B7-4A16-B374-51BBAC8DB086", "image": "http://feed.com/image-1"],
+            ["id": "A28F5FE3-27A7-44E9-8DF5-53742D0E4A5A", "image": "http://feed.com/image-2"]
         ]])
     }
 }
