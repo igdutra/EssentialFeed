@@ -10,8 +10,8 @@ import UIKit
 import EssentialFeed
 import EssentialFeediOS
 import EssentialApp
-
-final class FeedUIIntegrationTests: XCTestCase {
+ 
+class FeedUIIntegrationTests: XCTestCase {
     
     /* NOTE tests failing with localization until files are reorganized
      
@@ -146,6 +146,8 @@ final class FeedUIIntegrationTests: XCTestCase {
         sut.simulateErrorViewTap()
         XCTAssertEqual(sut.errorMessage, nil)
     }
+    
+    // MARK: - Image View Tests
     
     func test_feedImageView_loadsImageURLWhenVisible() {
         let image0 = makeImage(url: URL(string: "http://url-0.com")!)
