@@ -1,5 +1,5 @@
 //
-//  FeedViewController+DSL.swift
+//  ListViewController+DSL.swift
 //  EssentialFeediOSTests
 //
 //  Created by Ivo on 06/04/23.
@@ -14,6 +14,10 @@ extension ListViewController {
 
          tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
      }
+    
+    func simulateErrorViewTap() {
+        errorView.simulateTap()
+    }
     
     func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
@@ -52,11 +56,7 @@ extension ListViewController {
     func renderedFeedImageData(at index: Int) -> Data? {
         return simulateFeedImageViewVisible(at: index)?.renderedImage
     }
-    
-    func simulateErrorViewTap() {
-        errorView.simulateTap()
-    }
-    
+
     var errorMessage: String? {
         return errorView.message
     }
