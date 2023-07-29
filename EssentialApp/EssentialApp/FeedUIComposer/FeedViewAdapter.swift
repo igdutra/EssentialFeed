@@ -32,6 +32,7 @@ final class FeedViewAdapter: ResourceView {
                 imageLoader(model.url)
             })
             
+            // Note: combined with the adapter closure, the Presentation module protects the UI from domain modules.
             let viewModel = FeedImagePresenter.map(model)
             let view = FeedImageCellController(viewModel: viewModel,
                                                delegate: adapter,

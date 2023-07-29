@@ -37,8 +37,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Since iOS 14, if we don't explicitly hold a reference to the RemoteFeedLoader instance, it'll be deallocated before it completes the operation - so the feed will never load.
     // That's because the Combine publisher won't hold a reference to it anymore (it used to hold the reference in iOS 13).
     // Tests did not catch that!
-    private let remoteURL = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1/feed")!
+    private let baseURL = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed")!
 //    private lazy var remoteFeedLoader = RemoteLoader(url: remoteURL, client: httpClient, mapper: FeedItemsMapper.map)
+    
+    private lazy var navigationController = UINavigationController(rootViewController:
+        FeedUIComposer.feedComposedWith(feedLoader: makeRemoteFeedLoaderWithLocalFallback,
+                                        imageLoader: makeLocalImageLoaderWithRemoteFallback,
+                                        selection: showComments)
+    )
     
     private lazy var localFeedLoader: LocalFeedLoader = {
         LocalFeedLoader(store: store, currentDate: Date.init)
@@ -58,9 +64,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func configureWindow() {
-        let rootController = FeedUIComposer.feedComposedWith(feedLoader: makeRemoteFeedLoaderWithLocalFallback,
-                                                             imageLoader: makeLocalImageLoaderWithRemoteFallback)
-        window?.rootViewController = UINavigationController(rootViewController: rootController)
+        window?.rootViewController = navigationController
         
         window?.makeKeyAndVisible()
     }
@@ -69,9 +73,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         localFeedLoader.validateCache { _ in }
     }
     
+    // Note: it is safe to append image.id because it is an UUID, only uses URL valid characters.
+    private func showComments(for image: FeedImage) {
+        let url = baseURL.appendingPathComponent("/v1/image/\(image.id)/comments")
+        let comments = CommentsUIComposer.commentsComposedWith(commentsLoader: makeRemoteCommentsLoader(url: url))
+        navigationController.pushViewController(comments, animated: true)
+    }
+    
+    // Note: helper function that's why return a closure that returns
+    private func makeRemoteCommentsLoader(url: URL) -> () -> AnyPublisher<[ImageComment], Error> {
+        return { [httpClient] in
+            return httpClient
+                .getPublisher(url: url)
+                .tryMap(ImageCommentsMapper.map)
+                .eraseToAnyPublisher()
+        }
+    }
+    
     // MARK: - Factories
     
     private func makeRemoteFeedLoaderWithLocalFallback() -> AnyPublisher<[FeedImage], Error> {
+        let remoteURL = baseURL.appendingPathComponent("/v1/feed")
         return httpClient
             .getPublisher(url: remoteURL)
             .tryMap(FeedItemsMapper.map)
