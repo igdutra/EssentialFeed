@@ -76,7 +76,7 @@ public final class ErrorView: UIButton {
         setTitle(nil, for: .normal)
         alpha = 0
         // Note: 2.5 was BY EYE, just testing it, manual fix.
-        configuration?.contentInsets = .init(top: -2.5, leading: 0, bottom: -2.5, trailing: 0)
+//        configuration?.contentInsets = .init(top: -2.5, leading: 0, bottom: -2.5, trailing: 0)
         onHide?()
     }
 }

@@ -22,6 +22,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureErrorView()
         configureTableView()
         refresh()
     }
@@ -29,7 +30,6 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     private func configureTableView() {
         dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
-        tableView.tableHeaderView = errorView.makeContainer()
     }
     
     private func configureErrorView() {
@@ -48,12 +48,19 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         tableView.tableHeaderView = container
         
         errorView.onHide = { [weak self] in
-            self?.tableView.beginUpdates()
-            self?.tableView.sizeTableHeaderToFit()
-            self?.tableView.endUpdates()
+            self?.tableView.performBatchUpdates {
+                self?.tableView.tableHeaderView = UIView(frame: .zero)
+            }
+        }
+        // Note: on MVVM challenge -> the ViewModel should decide when to show/hide errors.
+        // It is a view, but same principle to remove this from the controller.
+        errorView.onError = { [weak self, container] in
+            self?.tableView.performBatchUpdates {
+                self?.tableView.tableHeaderView = container
+            }
         }
     }
-    
+  
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         

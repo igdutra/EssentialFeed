@@ -14,6 +14,8 @@ extension UITableView {
      When moved the ErrorView from storyboard to code, this function would return always height = 33 for errorView, even when the title was nil and it should not be visible.
      
      Solution was to add a new closure to ErrorView, one to hide, the other to force the tableview header back to ErrorView.
+     
+     last update: snapshot tests were failing because sizeTableHeaderToFit was still being called. Finally removed this from layoutSubviews and the tests started to pass. 
      */
     func sizeTableHeaderToFit() {
         guard let header = tableHeaderView else { return }
