@@ -73,6 +73,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         localFeedLoader.validateCache { _ in }
     }
     
+    // TODO: use the ImageCommentsFlow created in the challenge
     // Note: it is safe to append image.id because it is an UUID, only uses URL valid characters.
     private func showComments(for image: FeedImage) {
         let url = ImageCommentsEndpoint.get(image.id).url(baseURL: baseURL)
