@@ -27,34 +27,37 @@ class FeedSnapshotTests: XCTestCase {
        - For feed this is causing a LARGE empty space and pushing content further down.
        - but the app runs fine
        - see extra large snapshot test. the frame might be updating after the test
-     ErrorView tests are now running fine
+     
+     Solution:
+     - ErrorView tests are now running fine
+     - This LARGE empty space is acceptable at the snapshot since I compared them with the ones provided by the ImageCommentsChallenge. So I'll be recording new ones and asserting them against it.
      */
     
-//    func test_feedWithContent() {
-//        let sut = makeSUT()
-//
-//        sut.display(feedWithContent())
-//
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_CONTENT_light")
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_CONTENT_dark")
-//        
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light,
-//                                                    contentSize: .extraExtraLarge)),
-//               named: "FEED_WITH_CONTENT_light_extraExtraLarge")
-//    }
-//
-//    func test_feedWithFailedImageLoading() {
-//        let sut = makeSUT()
-//
-//        sut.display(feedWithFailedImageLoading())
-//
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_FAILED_IMAGE_LOADING_light")
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_FAILED_IMAGE_LOADING_dark")
-//        
-//        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light,
-//                                                    contentSize: .extraExtraLarge)),
-//               named: "FEED_WITH_FAILED_IMAGE_LOADING_light_extraExtraLarge")
-//    }
+    func test_feedWithContent() {
+        let sut = makeSUT()
+
+        sut.display(feedWithContent())
+
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_CONTENT_light")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_CONTENT_dark")
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light,
+                                                    contentSize: .extraExtraLarge)),
+               named: "FEED_WITH_CONTENT_light_extraExtraLarge")
+    }
+
+    func test_feedWithFailedImageLoading() {
+        let sut = makeSUT()
+
+        sut.display(feedWithFailedImageLoading())
+
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_FAILED_IMAGE_LOADING_light")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_FAILED_IMAGE_LOADING_dark")
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light,
+                                                    contentSize: .extraExtraLarge)),
+               named: "FEED_WITH_FAILED_IMAGE_LOADING_light_extraExtraLarge")
+    }
     
     // MARK: - Helpers
     
