@@ -19,6 +19,8 @@ class FeedSnapshotTests: XCTestCase {
      2- Once recorded, assert it
      assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "EMPTY_FEED_dark")
      
+     3 - Recorded using iPhone 14 iOS 16.4 Simulator
+     
      */
     
     /* NOTE: why I disbled these tests
