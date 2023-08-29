@@ -26,9 +26,9 @@ class FeedSnapshotTests: XCTestCase {
     /* NOTE: why I disbled these tests
      // Deactivate snapshot tests until further investigation.
      // Error view is now acting as it should but tests are still failing.
-       - For feed this is causing a LARGE empty space and pushing content further down.
-       - but the app runs fine
-       - see extra large snapshot test. the frame might be updating after the test
+     - For feed this is causing a LARGE empty space and pushing content further down.
+     - but the app runs fine
+     - see extra large snapshot test. the frame might be updating after the test
      
      Solution:
      - ErrorView tests are now running fine
@@ -37,9 +37,9 @@ class FeedSnapshotTests: XCTestCase {
     
     func test_feedWithContent() {
         let sut = makeSUT()
-
+        
         sut.display(feedWithContent())
-
+        
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_CONTENT_light")
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_CONTENT_dark")
         
@@ -47,12 +47,12 @@ class FeedSnapshotTests: XCTestCase {
                                                     contentSize: .extraExtraLarge)),
                named: "FEED_WITH_CONTENT_light_extraExtraLarge")
     }
-
+    
     func test_feedWithFailedImageLoading() {
         let sut = makeSUT()
-
+        
         sut.display(feedWithFailedImageLoading())
-
+        
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_FAILED_IMAGE_LOADING_light")
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_FAILED_IMAGE_LOADING_dark")
         
@@ -61,7 +61,6 @@ class FeedSnapshotTests: XCTestCase {
                named: "FEED_WITH_FAILED_IMAGE_LOADING_light_extraExtraLarge")
     }
     
-    
     func test_feedWithLoadMoreIndicator() {
         let sut = makeSUT()
         
@@ -69,6 +68,16 @@ class FeedSnapshotTests: XCTestCase {
         
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_LOAD_MORE_INDICATOR_light")
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_LOAD_MORE_INDICATOR_dark")
+    }
+    
+    func test_feedWithLoadMoreError() {
+        let sut = makeSUT()
+        
+        sut.display(feedWithLoadMoreError())
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_LOAD_MORE_ERROR_light")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_LOAD_MORE_ERROR_dark")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light, contentSize: .extraExtraExtraLarge)), named: "FEED_WITH_LOAD_MORE_ERROR_extraExtraExtraLarge")
     }
     
     // MARK: - Helpers
@@ -82,7 +91,7 @@ class FeedSnapshotTests: XCTestCase {
         controller.tableView.showsHorizontalScrollIndicator = false
         return controller
     }
-        
+    
     private func feedWithContent() -> [ImageStub] {
         return [
             ImageStub(
@@ -112,14 +121,24 @@ class FeedSnapshotTests: XCTestCase {
             )
         ]
     }
-
+    
     private func feedWithLoadMoreIndicator() -> [CellController] {
+        let loadMore = LoadMoreCellController()
+        loadMore.display(ResourceLoadingViewModel(isLoading: true))
+        return feedWith(loadMore: loadMore)
+    }
+    
+    private func feedWithLoadMoreError() -> [CellController] {
+        let loadMore = LoadMoreCellController()
+        loadMore.display(ResourceErrorViewModel(message: "This is a multiline\nerror message"))
+        return feedWith(loadMore: loadMore)
+    }
+    
+    private func feedWith(loadMore: LoadMoreCellController) -> [CellController] {
         let stub = feedWithContent().last!
         let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub, selection: {})
         stub.controller = cellController
-
-        let loadMore = LoadMoreCellController()
-        loadMore.display(ResourceLoadingViewModel(isLoading: true))
+        
         return [
             CellController(id: UUID(), cellController),
             CellController(id: UUID(), loadMore)
