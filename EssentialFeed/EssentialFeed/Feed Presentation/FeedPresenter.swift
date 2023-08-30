@@ -26,10 +26,6 @@ public final class FeedPresenter {
                                  comment: "Error message displayed when we can't load the image feed from the server")
     }
     
-    public static func map(_ feed: [FeedImage]) -> FeedViewModel {
-        FeedViewModel(feed: feed)
-    }
-    
     // MARK: - Deleted methods since all it is now needed from Presenter is the Mapper and Localization
     
     private let feedView: FeedView
@@ -45,6 +41,11 @@ public final class FeedPresenter {
     public func didStartLoadingFeed() {
         errorView.display(.noError)
         loadingView.display(ResourceLoadingViewModel(isLoading: true))
+    }
+    
+   // Note: replaced by the Paginated
+    public static func map(_ feed: [FeedImage]) -> FeedViewModel {
+        FeedViewModel(feed: feed)
     }
     
     public func didFinishLoadingFeed(with feed: [FeedImage]) {
