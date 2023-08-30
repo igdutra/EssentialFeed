@@ -33,8 +33,7 @@ public final class FeedUIComposer {
         
         presentationAdapter.presenter = LoadResourcePresenter(resourceView: feedView,
                                                               loadingView: loadingView,
-                                                              errorView: errorView,
-                                                              mapper: { $0 }) // Used to be FeedPresenter.map
+                                                              errorView: errorView) // Mapper Used to be FeedPresenter.map
         
         return feedController
     }
