@@ -27,31 +27,33 @@ final class FeedViewAdapter: ResourceView {
     }
     
     func display(_ viewModel: Paginated<FeedImage>) {
-        controller?.display(viewModel.items.map { model in
+        let feed: [CellController] = viewModel.items.map { model in
             let adapter = ImageDataPresentationAdapter(loader: { [imageLoader] in
                 imageLoader(model.url)
             })
             
-            // Note: combined with the adapter closure, the Presentation module protects the UI from domain modules.
-            let viewModel = FeedImagePresenter.map(model)
-            let view = FeedImageCellController(viewModel: viewModel,
-                                               delegate: adapter,
-                                               selection: { [selection] in
-                /* NOTE: power of adapters
-                 coverting selection closure (FeedImage) -> Void into () -> Void!
-                 so that the cell does not care about domain models
-                 */
-                selection(model)
-            })
+            let view = FeedImageCellController(
+                viewModel: FeedImagePresenter.map(model),
+                delegate: adapter,
+                selection: { [selection] in
+                    selection(model)
+                })
             
-           
-            adapter.presenter = LoadResourcePresenter(resourceView: WeakRefVirtualProxy(view),
-                                                      loadingView: WeakRefVirtualProxy(view),
-                                                      errorView: WeakRefVirtualProxy(view),
-                                                      mapper: UIImage.tryMake)
+            adapter.presenter = LoadResourcePresenter(
+                resourceView: WeakRefVirtualProxy(view),
+                loadingView: WeakRefVirtualProxy(view),
+                errorView: WeakRefVirtualProxy(view),
+                mapper: UIImage.tryMake)
             
             return CellController(id: model, view)
-        })
+        }
+        
+        let loadMore = LoadMoreCellController { // Why no need to weakyfy or capture here?
+            viewModel.loadMore?({ _ in })
+        }
+        let loadMoreSection = [CellController(id: UUID(), loadMore)]
+        
+        controller?.display(feed, loadMoreSection)
     }
 }
 

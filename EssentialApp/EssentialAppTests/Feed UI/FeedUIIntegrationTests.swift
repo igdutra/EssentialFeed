@@ -13,12 +13,6 @@ import EssentialApp
 
 class FeedUIIntegrationTests: XCTestCase {
     
-    /* NOTE tests failing with localization until files are reorganized
-     
-     
-     
-     */
-    
     func test_feedView_hasTitle() {
         let (sut, _) = makeSUT()
         
@@ -55,6 +49,17 @@ class FeedUIIntegrationTests: XCTestCase {
         
         sut.simulateUserInitiatedReload()
         XCTAssertEqual(loader.loadFeedCallCount, 3, "Expected yet another loading request once user initiates another reload")
+    }
+    
+    func test_loadMoreActions_requestMoreFromLoader() {
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading()
+        
+        XCTAssertEqual(loader.loadMoreCallCount, 0, "Expected no requests before until load more action")
+        
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected load more request")
     }
     
     func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
