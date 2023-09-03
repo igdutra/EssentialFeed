@@ -103,10 +103,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func makeRemoteLoadMoreLoader(last: FeedImage?) -> AnyPublisher<Paginated<FeedImage>, Error> {
         localFeedLoader.loadPublisher()
-            .zip(makeRemoteFeedLoader(after: last))
+            .zip(makeRemoteFeedLoader(after: last)) // Load from cash only when needed
             .map { (cachedItems, newItems) in
                 (cachedItems + newItems, newItems.last)
             }.map(makePage)
+            // Mock Behavior
+            // .delay(for: 2, scheduler: DispatchQueue .main)
+            // .flatMap { _ in
+            //    Fail(error: NSError())
+            // }
             .caching(to: localFeedLoader)
     }
     
