@@ -35,7 +35,7 @@ extension CoreDataFeedStore: FeedStore {
         // or
         context.perform { [context] in
             completion(Result {
-                try ManagedCache.find(in: context).map(context.delete).map(context.save)
+                try ManagedCache.deleteCache(in: context)
             })
         }
     }
