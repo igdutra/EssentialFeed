@@ -13,6 +13,7 @@ import EssentialFeediOS
 class FeedAcceptanceTests: XCTestCase {
     
     // Note: Investigate why the feed.renderedFeedImageData(at: 0) is failing (nil) although numberOfRenderedFeedImageViews is correct
+    // Prefetch too maybe?
     func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
         let feed = launch(httpClient: .online(response), store: .empty)
         
