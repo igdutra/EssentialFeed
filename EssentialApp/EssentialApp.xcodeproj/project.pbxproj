@@ -34,7 +34,7 @@
 		9276E2FB29F9B4170052CE8C /* FeedLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E2F529F9B4160052CE8C /* FeedLoaderPresentationAdapter.swift */; };
 		9276E2FC29F9B4170052CE8C /* FeedViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E2F629F9B4170052CE8C /* FeedViewAdapter.swift */; };
 		9276E30E29F9B7D20052CE8C /* FeedUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E30D29F9B7D20052CE8C /* FeedUIIntegrationTests.swift */; };
-		9276E31229F9B7F20052CE8C /* LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E31129F9B7F20052CE8C /* LoaderSpy.swift */; };
+		9276E31229F9B7F20052CE8C /* FeedUIIntegrationTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E31129F9B7F20052CE8C /* FeedUIIntegrationTests+LoaderSpy.swift */; };
 		9276E31829F9B7F90052CE8C /* UIRefreshControl+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E31329F9B7F90052CE8C /* UIRefreshControl+DSL.swift */; };
 		9276E31929F9B7F90052CE8C /* ListViewController+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E31429F9B7F90052CE8C /* ListViewController+DSL.swift */; };
 		9276E31A29F9B7F90052CE8C /* UIButton+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276E31529F9B7F90052CE8C /* UIButton+DSL.swift */; };
@@ -129,7 +129,7 @@
 		9276E2F529F9B4160052CE8C /* FeedLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		9276E2F629F9B4170052CE8C /* FeedViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewAdapter.swift; sourceTree = "<group>"; };
 		9276E30D29F9B7D20052CE8C /* FeedUIIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedUIIntegrationTests.swift; sourceTree = "<group>"; };
-		9276E31129F9B7F20052CE8C /* LoaderSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderSpy.swift; sourceTree = "<group>"; };
+		9276E31129F9B7F20052CE8C /* FeedUIIntegrationTests+LoaderSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FeedUIIntegrationTests+LoaderSpy.swift"; sourceTree = "<group>"; };
 		9276E31329F9B7F90052CE8C /* UIRefreshControl+DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+DSL.swift"; sourceTree = "<group>"; };
 		9276E31429F9B7F90052CE8C /* ListViewController+DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListViewController+DSL.swift"; sourceTree = "<group>"; };
 		9276E31529F9B7F90052CE8C /* UIButton+DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+DSL.swift"; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		9276E30F29F9B7DE0052CE8C /* Spies */ = {
 			isa = PBXGroup;
 			children = (
-				9276E31129F9B7F20052CE8C /* LoaderSpy.swift */,
+				9276E31129F9B7F20052CE8C /* FeedUIIntegrationTests+LoaderSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -551,7 +551,7 @@
 				9256EEC829F8549E001049B0 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				9276E32D29F9BF520052CE8C /* InMemoryFeedStore.swift in Sources */,
 				926E5BD72A6F008B00C385E8 /* CommentsUIIntegrationTests.swift in Sources */,
-				9276E31229F9B7F20052CE8C /* LoaderSpy.swift in Sources */,
+				9276E31229F9B7F20052CE8C /* FeedUIIntegrationTests+LoaderSpy.swift in Sources */,
 				92B91DDE29F9597E007A79F5 /* FeedImageDataLoaderSpy.swift in Sources */,
 				9256EEC429F8519A001049B0 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
 				9276E31F29F9B8050052CE8C /* FeedViewControllerTests+Assertions.swift in Sources */,
