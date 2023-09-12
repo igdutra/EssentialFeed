@@ -49,8 +49,9 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
         })
     }
     
-    /*  Note: tests were deleted, since now the infrastructure is sincronous
-        cannot cancel a task
+    /*  Note: tests were deleted, since now the infrastructure is synchronous
+        cannot cancel a task.
+        cancelation will be for free when composing in the composition root
      
     func test_loadImageDataFromURL_doesNotDeliverResultAfterCancellingTask() {
         let (sut, store) = makeSUT()

@@ -96,6 +96,8 @@ final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoa
     }
     
     private class CacheSpy: FeedImageDataCache {
+        func save(_ data: Data, for url: URL) throws { } // New Sync API
+        
         private(set) var messages = [Message]()
         
         enum Message: Equatable {

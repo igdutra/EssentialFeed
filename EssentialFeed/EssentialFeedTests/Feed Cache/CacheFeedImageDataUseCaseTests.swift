@@ -22,7 +22,7 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
         let url = anyURL()
         let data = anyData()
         
-        sut.save(data, for: url) { _ in }
+        try? sut.save(data, for: url)
         
         XCTAssertEqual(store.receivedMessages, [.insert(data: data, for: url)])
     }
@@ -45,7 +45,7 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
     }
     
     // Note: test_saveImageDataFromURL_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated()
-    // was deleted, since now the infrastructure is sincronous 
+    // was deleted, since now the infrastructure is synchronous
 //    func test_saveImageDataFromURL_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
 //        let store = FeedImageDataStoreSpy()
 //        var sut: LocalFeedImageDataLoader? = LocalFeedImageDataLoader(store: store)
@@ -69,32 +69,56 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
         return (sut, store)
     }
     
-    private func failed() -> LocalFeedImageDataLoader.SaveResult {
+    private func failed() -> Result<Void, Error> {
         return .failure(LocalFeedImageDataLoader.SaveError.failed)
     }
     
-    private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWith expectedResult: LocalFeedImageDataLoader.SaveResult, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
-        
-        // action is now sincronous
+    private func expect(_ sut: LocalFeedImageDataLoader,
+                        toCompleteWith expectedResult: Result<Void, Error>,
+                        when action: () -> Void,
+                        file: StaticString = #filePath, line: UInt = #line) {
         action()
         
-        sut.save(anyData(), for: anyURL()) { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case (.success, .success):
-                break
-                
-            case (.failure(let receivedError as LocalFeedImageDataLoader.SaveError),
-                  .failure(let expectedError as LocalFeedImageDataLoader.SaveError)):
-                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
-                
-            default:
-                XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            }
-            
-            exp.fulfill()
-        }
+        let receivedResult = Result { try sut.save(anyData(), for: anyURL()) }
         
-        wait(for: [exp], timeout: 1.0)
+        switch (receivedResult, expectedResult) {
+        case (.success, .success):
+            break
+            
+        case (.failure(let receivedError as LocalFeedImageDataLoader.SaveError),
+              .failure(let expectedError as LocalFeedImageDataLoader.SaveError)):
+            XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            
+        default:
+            XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+        }
     }
+    
+    /* Note: old expect func, using Use Case async (with store already sync)
+     
+     private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWith expectedResult: LocalFeedImageDataLoader.SaveResult, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+         let exp = expectation(description: "Wait for load completion")
+         
+         // action is now sincronous
+         action()
+         
+         sut.save(anyData(), for: anyURL()) { receivedResult in
+             switch (receivedResult, expectedResult) {
+             case (.success, .success):
+                 break
+                 
+             case (.failure(let receivedError as LocalFeedImageDataLoader.SaveError),
+                   .failure(let expectedError as LocalFeedImageDataLoader.SaveError)):
+                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+                 
+             default:
+                 XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+             }
+             
+             exp.fulfill()
+         }
+         
+         wait(for: [exp], timeout: 1.0)
+     }
+     */
 }
