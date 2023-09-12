@@ -9,6 +9,8 @@ import Foundation
 import EssentialFeed
 
 public final class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
+    public func loadImageData(from url: URL) throws -> Data { Data() } // New API
+    
     private let decoratee: FeedImageDataLoader
     private let cache: FeedImageDataCache
     

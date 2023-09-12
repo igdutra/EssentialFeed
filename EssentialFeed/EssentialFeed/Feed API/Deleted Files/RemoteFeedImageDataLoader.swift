@@ -16,6 +16,8 @@ import Foundation
  No functionality was lost! With amazing less code!
  */
 public final class RemoteFeedImageDataLoader: FeedImageDataLoader {
+    public func loadImageData(from url: URL) throws -> Data { Data() } // New API
+    
     private let client: HTTPClient
     
     public init(client: HTTPClient) {

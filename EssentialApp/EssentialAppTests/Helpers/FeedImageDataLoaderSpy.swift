@@ -9,6 +9,8 @@ import Foundation
 import EssentialFeed
 
 class FeedImageDataLoaderSpy: FeedImageDataLoader {
+    func loadImageData(from url: URL) throws -> Data { Data() } // New API
+    
     private var messages = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
     
     private(set) var cancelledURLs = [URL]()

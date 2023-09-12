@@ -59,8 +59,10 @@ public extension FeedImageDataLoader {
         
         return Deferred {
             Future { completion in
-                task = self.loadImageData(from: url, completion: completion)
-            }
+                 completion(Result {
+                     try self.loadImageData(from: url)
+                 })
+             }
         }
         .handleEvents(receiveCancel: { task?.cancel() })
         .eraseToAnyPublisher()

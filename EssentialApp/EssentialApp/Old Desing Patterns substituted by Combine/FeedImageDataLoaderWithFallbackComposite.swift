@@ -9,6 +9,8 @@ import Foundation
 import EssentialFeed
 
 public final class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
+    public func loadImageData(from url: URL) throws -> Data { Data() } // New API
+    
     private let primary: FeedImageDataLoader
     private let fallback: FeedImageDataLoader
     
