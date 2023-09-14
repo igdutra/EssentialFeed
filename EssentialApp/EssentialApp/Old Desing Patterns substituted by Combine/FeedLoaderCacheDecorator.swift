@@ -9,9 +9,9 @@ import EssentialFeed
 
 public final class FeedLoaderCacheDecorator: FeedLoader {
     private let decoratee: FeedLoader
-    private let cache: FeedCache
+    private let cache: FeedCacheAsync
     
-    public init(decoratee: FeedLoader, cache: FeedCache) {
+    public init(decoratee: FeedLoader, cache: FeedCacheAsync) {
         self.decoratee = decoratee
         self.cache = cache
     }
@@ -27,7 +27,7 @@ public final class FeedLoaderCacheDecorator: FeedLoader {
 }
 
 // NOTE: Code as documentation
-private extension FeedCache {
+private extension FeedCacheAsync {
     func saveIgnoringResult(_ feed: [FeedImage]) {
         save(feed) { _ in }
     }

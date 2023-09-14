@@ -56,7 +56,7 @@ class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
         return sut
     }
     
-    private class CacheSpy: FeedCache {
+    private class CacheSpy: FeedCacheAsync {
         /* NOTE Enum Message vs direct array
          
          I think they opted to follow the enum message due to the fact that they don't need to worry about the completion
@@ -69,7 +69,7 @@ class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
         // Make private(set)
         var messages: [Message] = .init()
         
-        func save(_ feed: [EssentialFeed.FeedImage], completion: @escaping (FeedCache.Result) -> Void) {
+        func save(_ feed: [EssentialFeed.FeedImage], completion: @escaping (Swift.Result<Void, Error>) -> Void) {
             messages.append(.save(feed: feed))
         }
     }
