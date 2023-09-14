@@ -16,7 +16,7 @@ public protocol FeedImageDataCache {
     func save(_ data: Data, for url: URL) throws
 }
 
-// Not break clients
+// Not break clients -> could create another type to avoid confusion
 public extension FeedImageDataCache {
     func save(_ data: Data, for url: URL, completion: @escaping (Result) -> Void) { }
 }

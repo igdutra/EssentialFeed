@@ -10,7 +10,7 @@ import Foundation
 public protocol FeedImageDataLoader {
     func loadImageData(from url: URL) throws -> Data
     
-    // Deleted
+    // Deleted -> could create another type to avoid confusion
     typealias Result = Swift.Result<Data, Error>
     func loadImageData(from url: URL, completion: @escaping (Result) -> Void) -> FeedImageDataLoaderTask
 }
