@@ -118,6 +118,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .caching(to: localFeedLoader)
             .fallback(to: localFeedLoader.loadPublisher)
             .map(makeFirstPage)
+            .subscribe(on: scheduler)
             .eraseToAnyPublisher()
     }
     
@@ -126,13 +127,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .zip(makeRemoteFeedLoader(after: last)) // Load from cash only when needed
             .map { (cachedItems, newItems) in
                 (cachedItems + newItems, newItems.last)
-            }.map(makePage)
+            }
             // Mock Behavior
             // .delay(for: 2, scheduler: DispatchQueue .main)
             // .flatMap { _ in
             //    Fail(error: NSError())
             // }
+            .map(makePage)
             .caching(to: localFeedLoader)
+            .subscribe(on: scheduler)
+            .eraseToAnyPublisher()
     }
     
     private func makeRemoteFeedLoader(after: FeedImage? = nil) -> AnyPublisher<[FeedImage], Error> {
