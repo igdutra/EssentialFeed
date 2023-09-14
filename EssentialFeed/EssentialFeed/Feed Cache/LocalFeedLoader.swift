@@ -32,6 +32,15 @@ extension LocalFeedLoader: FeedCache, FeedCacheAsync {
     }
 }
 
+extension LocalFeedLoader {
+    public func load() throws -> [FeedImage] {
+        if let cache = try store.retrieve(), FeedCachePolicy.validate(cache.timestamp, against: currentDate()) {
+            return cache.feed.toModels()
+        }
+        return []
+    }
+}
+
 /* NOTE This conformance should be deleted
  
  conformance to the FeedLoader was deleted, SceneDelegateForUITesting was commented OUT.
@@ -52,6 +61,8 @@ extension LocalFeedLoader: FeedLoader {
         })
     }
 }
+
+
 
 extension LocalFeedLoader {
     public typealias ValidationResult = Result<Void, Error>
