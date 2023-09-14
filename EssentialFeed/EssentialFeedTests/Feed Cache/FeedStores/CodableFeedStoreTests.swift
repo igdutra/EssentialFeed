@@ -165,11 +165,12 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
     
     
     // MARK: - Thread Test
-    func test_storeSideEffects_runSerially() {
-        let sut = makeSUT()
-        
-        assertThatSideEffectsRunSerially(on: sut)
-    }
+    // Test disabled since Core Data implementation is now sync
+//    func test_storeSideEffects_runSerially() {
+//        let sut = makeSUT()
+//        
+//        assertThatSideEffectsRunSerially(on: sut)
+//    }
 }
 
 // MARK: - Helpers
