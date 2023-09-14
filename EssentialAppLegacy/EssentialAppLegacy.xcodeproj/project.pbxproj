@@ -86,6 +86,7 @@
 		92CFB2B92AB3AB38001648B4 /* WekRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WekRefVirtualProxy.swift; sourceTree = "<group>"; };
 		92CFB2BE2AB3AEAB001648B4 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CFB2C22AB3AEAE001648B4 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92CFB2C92AB3C0AE001648B4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,11 +140,13 @@
 		92CFB25D2AB3A83C001648B4 /* EssentialAppLegacy */ = {
 			isa = PBXGroup;
 			children = (
+				92CFB2C92AB3C0AE001648B4 /* README.md */,
 				92CFB29A2AB3A8D5001648B4 /* App */,
 				92CFB2AE2AB3AA0F001648B4 /* Helpers */,
 				92CFB2AD2AB3A9B6001648B4 /* FeedUIComposer */,
 				92CFB25E2AB3A83C001648B4 /* AppDelegate.swift */,
 				92CFB2602AB3A83C001648B4 /* SceneDelegate.swift */,
+				92CFB2C52AB3B9CB001648B4 /* UI */,
 			);
 			path = EssentialAppLegacy;
 			sourceTree = "<group>";
@@ -206,6 +209,37 @@
 				92CFB2BE2AB3AEAB001648B4 /* EssentialFeed.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92CFB2C52AB3B9CB001648B4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				92CFB2C82AB3BC26001648B4 /* Presentation */,
+				92CFB2C62AB3BA69001648B4 /* Controllers */,
+				92CFB2C72AB3BA6E001648B4 /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		92CFB2C62AB3BA69001648B4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		92CFB2C72AB3BA6E001648B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		92CFB2C82AB3BC26001648B4 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
