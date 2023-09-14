@@ -9,13 +9,13 @@ import Foundation
 
 public typealias CachedFeed = (feed: [LocalFeedImage], timestamp: Date)
 
-
-// TODO: move this protocol to FeedStoreAsync
 public protocol FeedStore {
     func deleteCachedFeed() throws
     func insert(_ feed: [LocalFeedImage], timestamp: Date) throws
     func retrieve() throws -> CachedFeed?
-    
+
+    // MARK: - Deleted
+
     typealias DeletionResult = Result<Void, Error>
     typealias DeletionCompletion = (DeletionResult) -> Void
     
