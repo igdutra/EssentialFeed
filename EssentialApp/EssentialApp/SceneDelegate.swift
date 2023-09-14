@@ -85,9 +85,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
-        localFeedLoader.validateCache { _ in }
+        //        localFeedLoader.validateCache { _ in }
+        do {
+            try localFeedLoader.validateCache()
+        } catch {
+            logger.error("Failed to validate cache with error: \(error.localizedDescription)")
+        }
     }
-    
+
     // TODO: use the ImageCommentsFlow created in the challenge
     // Note: it is safe to append image.id because it is an UUID, only uses URL valid characters.
     private func showComments(for image: FeedImage) {
