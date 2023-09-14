@@ -19,75 +19,51 @@ public final class LocalFeedLoader {
 
 extension LocalFeedLoader: FeedCache {
     public typealias SaveResult = FeedCache.Result
-
-    public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
-        store.deleteCachedFeed { [weak self] deletionResult in
-            guard let self = self else { return }
-            
-            switch deletionResult {
-            case .success:
-                self.cache(feed, with: completion)
-            case let .failure(error):
-                completion(.failure(error))
-            }
-        }
-    }
     
-    private func cache(_ feed: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
-        store.insert(feed.toLocal(), timestamp: currentDate()) { [weak self] error in
-            guard self != nil else { return }
-            
-            completion(error)
-        }
+    public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
+        completion(SaveResult {
+            try store.deleteCachedFeed()
+            try store.insert(feed.toLocal(), timestamp: currentDate())
+        })
     }
 }
 
 /* NOTE This conformance should be deleted
+ 
+ conformance to the FeedLoader was deleted, SceneDelegateForUITesting was commented OUT.
  
  The FeedLoader Protocol was deleted, thus this conformance is no longer possible.
  Keeping the conformance for the other old files, such as SceneDelegateForUITesting
  
  */
 extension LocalFeedLoader: FeedLoader {
-    public typealias LoadResult = FeedLoader.Result
-
+    public typealias LoadResult = Swift.Result<[FeedImage], Error>
+    
     public func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case let .failure(error):
-                completion(.failure(error))
-
-            case let .success(.some((feed: feed, timestamp: timestamp))) where FeedCachePolicy.validate(timestamp, against: self.currentDate()):
-                completion(.success(feed.toModels()))
-                
-            case .success:
-                completion(.success([]))
+        completion(LoadResult {
+            if let cache = try store.retrieve(), FeedCachePolicy.validate(cache.timestamp, against: currentDate()) {
+                return cache.feed.toModels()
             }
-        }
+            return []
+        })
     }
 }
 
 extension LocalFeedLoader {
     public typealias ValidationResult = Result<Void, Error>
     
+    private struct InvalidCache: Error {}
+    
     public func validateCache(completion: @escaping (ValidationResult) -> Void) {
-        store.retrieve { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .failure:
-                // Note: revisit this commit decisions and understand why/how the validateUseCase uses now a completion
-                self.store.deleteCachedFeed(completion: completion)
-                
-            case let .success(.some(cache)) where !FeedCachePolicy.validate(cache.timestamp, against: self.currentDate()):
-                self.store.deleteCachedFeed(completion: completion)
-                
-            case .success:
-                completion(.success(()))
+        completion(ValidationResult {
+            do {
+                if let cache = try store.retrieve(), !FeedCachePolicy.validate(cache.timestamp, against: currentDate()) {
+                    throw InvalidCache()
+                }
+            } catch {
+                try store.deleteCachedFeed()
             }
-        }
+        })
     }
 }
 
