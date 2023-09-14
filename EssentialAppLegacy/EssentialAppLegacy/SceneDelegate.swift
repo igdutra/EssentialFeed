@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreData
+import EssentialFeed
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -23,4 +25,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
 }
-
