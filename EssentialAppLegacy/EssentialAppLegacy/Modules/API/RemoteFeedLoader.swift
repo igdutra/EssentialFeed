@@ -62,13 +62,6 @@ public final class RemoteFeedLoader: FeedLoader {
 	}
 }
 
-struct RemoteFeedItem: Decodable {
-    let id: UUID
-    let description: String?
-    let location: String?
-    let image: URL
-}
-
 private extension Array where Element == RemoteFeedItem {
 	func toModels() -> [FeedImage] {
 		return map { FeedImage(id: $0.id, description: $0.description, location: $0.location, url: $0.image) }
