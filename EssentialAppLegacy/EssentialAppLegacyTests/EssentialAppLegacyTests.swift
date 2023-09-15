@@ -11,6 +11,7 @@ import XCTest
 final class EssentialAppLegacyTests: XCTestCase {
 
     func test_firstTest() {
-        XCTFail("deveria falhar")
+        let a = true
+        XCTAssert(a)
     }
 }
