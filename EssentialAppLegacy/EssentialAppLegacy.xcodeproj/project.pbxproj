@@ -67,6 +67,7 @@
 		92CFB36A2AB3F369001648B4 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFB3602AB3F369001648B4 /* FeedImageDataLoaderPresentationAdapter.swift */; };
 		92CFB36B2AB3F369001648B4 /* FeedViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFB3612AB3F369001648B4 /* FeedViewAdapter.swift */; };
 		92CFB36C2AB3F369001648B4 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFB3622AB3F369001648B4 /* WeakRefVirtualProxy.swift */; };
+		92CFB36F2AB3F8D2001648B4 /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFB36E2AB3F8D2001648B4 /* DebuggingSceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		92CFB3602AB3F369001648B4 /* FeedImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		92CFB3612AB3F369001648B4 /* FeedViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewAdapter.swift; sourceTree = "<group>"; };
 		92CFB3622AB3F369001648B4 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
+		92CFB36E2AB3F8D2001648B4 /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 				92CFB29A2AB3A8D5001648B4 /* App */,
 				92CFB25E2AB3A83C001648B4 /* AppDelegate.swift */,
 				92CFB2602AB3A83C001648B4 /* SceneDelegate.swift */,
+				92CFB36E2AB3F8D2001648B4 /* DebuggingSceneDelegate.swift */,
 				92CFB3582AB3F355001648B4 /* FeedUIComposer */,
 				92CFB36D2AB3F376001648B4 /* Helpers */,
 				92CFB2F12AB3C67D001648B4 /* Modules */,
@@ -585,6 +588,7 @@
 				92CFB3212AB3E8F3001648B4 /* FeedLoadingViewModel.swift in Sources */,
 				92CFB3502AB3F046001648B4 /* CoreDataFeedStore.swift in Sources */,
 				92CFB3672AB3F369001648B4 /* FeedUIComposer.swift in Sources */,
+				92CFB36F2AB3F8D2001648B4 /* DebuggingSceneDelegate.swift in Sources */,
 				92CFB34A2AB3F046001648B4 /* CoreDataHelpers.swift in Sources */,
 				92CFB36C2AB3F369001648B4 /* WeakRefVirtualProxy.swift in Sources */,
 				92CFB3542AB3F046001648B4 /* FeedStore.swift in Sources */,
