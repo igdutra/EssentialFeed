@@ -1,0 +1,26 @@
+{
+  "configurations" : [
+    {
+      "id" : "05B2B3F2-2018-41BE-80A5-F01B50B61FC7",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..\/EssentialAppLegacy\/EssentialAppLegacy.xcodeproj",
+        "identifier" : "92D4870B2AB4D93000DF5B13",
+        "name" : "EssentialAppLegacyUIAcceptanceTests"
+      }
+    }
+  ],
+  "version" : 1
+}

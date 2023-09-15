@@ -7,8 +7,7 @@
 
 import XCTest
 
-// Note: This UI test did not required a Test Plan since it's the only one in it's own target.
-// Testplan was required for EssentialAppLegacyTests
+// Note: A test plan was created for this, despite the fact that there's only one test target in this scheme, so that the "random execution order" can be enabled.
 
 /* NOTE Observations in UI Testing
  
