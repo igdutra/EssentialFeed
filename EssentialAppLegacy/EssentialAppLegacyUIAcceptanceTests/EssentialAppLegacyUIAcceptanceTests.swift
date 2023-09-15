@@ -9,14 +9,15 @@ import XCTest
 
 final class EssentialAppLegacyUIAcceptanceTests: XCTestCase {
 
+    func test_TDD_SceneDelegate_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
+         let app = XCUIApplication()
 
+         app.launch()
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+         XCTAssertEqual(app.cells.count, 22)
+        // Assert that there's at least 1 visible image
+        //   on the iphone 14 there are 2, however depending on the screen size it could show only one
+         XCTAssertEqual(app.cells.firstMatch.images.count, 1)
+     }
 
 }
