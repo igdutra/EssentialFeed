@@ -14,7 +14,8 @@
       "containerPath" : "container:..\/EssentialAppLegacy\/EssentialAppLegacy.xcodeproj",
       "identifier" : "92CFB25A2AB3A83C001648B4",
       "name" : "EssentialAppLegacy"
-    }
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
