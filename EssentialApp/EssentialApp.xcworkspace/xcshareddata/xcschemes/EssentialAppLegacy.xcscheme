@@ -17,7 +17,7 @@
                BlueprintIdentifier = "92CFB25A2AB3A83C001648B4"
                BuildableName = "EssentialAppLegacy.app"
                BlueprintName = "EssentialAppLegacy"
-               ReferencedContainer = "container:EssentialAppLegacy.xcodeproj">
+               ReferencedContainer = "container:../EssentialAppLegacy/EssentialAppLegacy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -37,7 +37,7 @@
                BlueprintIdentifier = "92CFB2702AB3A83D001648B4"
                BuildableName = "EssentialAppLegacyTests.xctest"
                BlueprintName = "EssentialAppLegacyTests"
-               ReferencedContainer = "container:EssentialAppLegacy.xcodeproj">
+               ReferencedContainer = "container:../EssentialAppLegacy/EssentialAppLegacy.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -48,7 +48,18 @@
                BlueprintIdentifier = "92CFB27A2AB3A83D001648B4"
                BuildableName = "EssentialAppLegacyUITests.xctest"
                BlueprintName = "EssentialAppLegacyUITests"
-               ReferencedContainer = "container:EssentialAppLegacy.xcodeproj">
+               ReferencedContainer = "container:../EssentialAppLegacy/EssentialAppLegacy.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "92D4870B2AB4D93000DF5B13"
+               BuildableName = "EssentialAppLegacyUIAcceptanceTests.xctest"
+               BlueprintName = "EssentialAppLegacyUIAcceptanceTests"
+               ReferencedContainer = "container:../EssentialAppLegacy/EssentialAppLegacy.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -70,7 +81,7 @@
             BlueprintIdentifier = "92CFB25A2AB3A83C001648B4"
             BuildableName = "EssentialAppLegacy.app"
             BlueprintName = "EssentialAppLegacy"
-            ReferencedContainer = "container:EssentialAppLegacy.xcodeproj">
+            ReferencedContainer = "container:../EssentialAppLegacy/EssentialAppLegacy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -87,7 +98,7 @@
             BlueprintIdentifier = "92CFB25A2AB3A83C001648B4"
             BuildableName = "EssentialAppLegacy.app"
             BlueprintName = "EssentialAppLegacy"
-            ReferencedContainer = "container:EssentialAppLegacy.xcodeproj">
+            ReferencedContainer = "container:../EssentialAppLegacy/EssentialAppLegacy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
