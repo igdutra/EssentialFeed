@@ -20,13 +20,10 @@ import EssentialFeed
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
-
-    
     let localStoreURL = NSPersistentContainer
         .defaultDirectoryURL()
         .appendingPathComponent("legacy-feed-store.sqlite")
     
-    // Note: removed private to DebbuggingSceneDelegate
     private lazy var store: FeedStore & FeedImageDataStore = {
         try! CoreDataFeedStore(
             storeURL: localStoreURL)
@@ -75,7 +72,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }
     
-    // makeRemoteClient vs
+    // makeRemoteClient vs private lazy var
 //    private lazy var httpClient: HTTPClient = {
 //        URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
 //    }()
