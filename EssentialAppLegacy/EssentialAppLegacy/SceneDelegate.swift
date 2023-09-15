@@ -11,7 +11,7 @@ import EssentialFeed
 
 /* NOTE Scene Delegate for UI Testing
  
- The below configuration was changed to that it allowed DebbugingSceneDelegate
+ The below configuration was changed so that it allowed DebbugingSceneDelegate
  
  1- LocalStoreURL
  2- makeRemoteClient
@@ -68,6 +68,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     // MARK: - Helpers
+    
     func makeRemoteClient() -> HTTPClient {
         return URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }

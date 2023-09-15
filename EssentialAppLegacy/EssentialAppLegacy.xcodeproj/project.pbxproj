@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		920F6E8F2AB4E2C800A05DB6 /* EssentialAppLegacyTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 920F6E8E2AB4E2C800A05DB6 /* EssentialAppLegacyTests.xctestplan */; };
+		920F6E912AB4E7B900A05DB6 /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F6E902AB4E7B900A05DB6 /* DebuggingSceneDelegate.swift */; };
 		92CFB25F2AB3A83C001648B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFB25E2AB3A83C001648B4 /* AppDelegate.swift */; };
 		92CFB2612AB3A83C001648B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFB2602AB3A83C001648B4 /* SceneDelegate.swift */; };
 		92CFB2682AB3A83D001648B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CFB2672AB3A83D001648B4 /* Assets.xcassets */; };
@@ -103,6 +104,7 @@
 
 /* Begin PBXFileReference section */
 		920F6E8E2AB4E2C800A05DB6 /* EssentialAppLegacyTests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EssentialAppLegacyTests.xctestplan; path = Plan/EssentialAppLegacyTests.xctestplan; sourceTree = "<group>"; };
+		920F6E902AB4E7B900A05DB6 /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
 		92CFB25B2AB3A83C001648B4 /* EssentialAppLegacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialAppLegacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CFB25E2AB3A83C001648B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92CFB2602AB3A83C001648B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				92CFB29A2AB3A8D5001648B4 /* App */,
 				92CFB25E2AB3A83C001648B4 /* AppDelegate.swift */,
 				92CFB2602AB3A83C001648B4 /* SceneDelegate.swift */,
+				920F6E902AB4E7B900A05DB6 /* DebuggingSceneDelegate.swift */,
 				92CFB3582AB3F355001648B4 /* FeedUIComposer */,
 				92CFB36D2AB3F376001648B4 /* Helpers */,
 				92CFB2F12AB3C67D001648B4 /* Modules */,
@@ -586,6 +589,7 @@
 				92CFB3212AB3E8F3001648B4 /* FeedLoadingViewModel.swift in Sources */,
 				92CFB3502AB3F046001648B4 /* CoreDataFeedStore.swift in Sources */,
 				92CFB3672AB3F369001648B4 /* FeedUIComposer.swift in Sources */,
+				920F6E912AB4E7B900A05DB6 /* DebuggingSceneDelegate.swift in Sources */,
 				92CFB34A2AB3F046001648B4 /* CoreDataHelpers.swift in Sources */,
 				92CFB36C2AB3F369001648B4 /* WeakRefVirtualProxy.swift in Sources */,
 				92CFB3542AB3F046001648B4 /* FeedStore.swift in Sources */,
