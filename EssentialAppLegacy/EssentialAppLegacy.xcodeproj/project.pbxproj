@@ -10,6 +10,11 @@
 		920F6E8F2AB4E2C800A05DB6 /* EssentialAppLegacyTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 920F6E8E2AB4E2C800A05DB6 /* EssentialAppLegacyTests.xctestplan */; };
 		920F6E912AB4E7B900A05DB6 /* DebuggingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920F6E902AB4E7B900A05DB6 /* DebuggingSceneDelegate.swift */; };
 		92B071FF2AB4EE7500204BB3 /* EssentialAppLegacyUIAcceptanceTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 92B071FE2AB4EE7500204BB3 /* EssentialAppLegacyUIAcceptanceTests.xctestplan */; };
+		92B072142AB4F75C00204BB3 /* FeedLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B072132AB4F75C00204BB3 /* FeedLoaderCacheDecoratorTests.swift */; };
+		92B072172AB4F78200204BB3 /* XCTestCase+FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B072162AB4F78200204BB3 /* XCTestCase+FeedLoader.swift */; };
+		92B072192AB4F79900204BB3 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B072182AB4F79900204BB3 /* SharedTestHelpers.swift */; };
+		92B0721B2AB4F7A600204BB3 /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0721A2AB4F7A600204BB3 /* FeedLoaderStub.swift */; };
+		92B0721D2AB4F81C00204BB3 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B0721C2AB4F81C00204BB3 /* XCTestCase+MemoryLeakTracking.swift */; };
 		92CFB25F2AB3A83C001648B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFB25E2AB3A83C001648B4 /* AppDelegate.swift */; };
 		92CFB2612AB3A83C001648B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFB2602AB3A83C001648B4 /* SceneDelegate.swift */; };
 		92CFB2682AB3A83D001648B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CFB2672AB3A83D001648B4 /* Assets.xcassets */; };
@@ -106,6 +111,11 @@
 		920F6E8E2AB4E2C800A05DB6 /* EssentialAppLegacyTests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EssentialAppLegacyTests.xctestplan; path = Plan/EssentialAppLegacyTests.xctestplan; sourceTree = "<group>"; };
 		920F6E902AB4E7B900A05DB6 /* DebuggingSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebuggingSceneDelegate.swift; sourceTree = "<group>"; };
 		92B071FE2AB4EE7500204BB3 /* EssentialAppLegacyUIAcceptanceTests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EssentialAppLegacyUIAcceptanceTests.xctestplan; sourceTree = "<group>"; };
+		92B072132AB4F75C00204BB3 /* FeedLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
+		92B072162AB4F78200204BB3 /* XCTestCase+FeedLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedLoader.swift"; sourceTree = "<group>"; };
+		92B072182AB4F79900204BB3 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		92B0721A2AB4F7A600204BB3 /* FeedLoaderStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
+		92B0721C2AB4F81C00204BB3 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		92CFB25B2AB3A83C001648B4 /* EssentialAppLegacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialAppLegacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CFB25E2AB3A83C001648B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92CFB2602AB3A83C001648B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,8 +210,21 @@
 		92B072002AB4F44300204BB3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				92B072152AB4F77700204BB3 /* Helpers */,
+				92B072132AB4F75C00204BB3 /* FeedLoaderCacheDecoratorTests.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		92B072152AB4F77700204BB3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				92B072182AB4F79900204BB3 /* SharedTestHelpers.swift */,
+				92B0721A2AB4F7A600204BB3 /* FeedLoaderStub.swift */,
+				92B072162AB4F78200204BB3 /* XCTestCase+FeedLoader.swift */,
+				92B0721C2AB4F81C00204BB3 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		92CFB2522AB3A83C001648B4 = {
@@ -499,6 +522,7 @@
 					};
 					92CFB2702AB3A83D001648B4 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 						TestTargetID = 92CFB25A2AB3A83C001648B4;
 					};
 					92D4870B2AB4D93000DF5B13 = {
@@ -621,6 +645,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92B0721B2AB4F7A600204BB3 /* FeedLoaderStub.swift in Sources */,
+				92B072142AB4F75C00204BB3 /* FeedLoaderCacheDecoratorTests.swift in Sources */,
+				92B072172AB4F78200204BB3 /* XCTestCase+FeedLoader.swift in Sources */,
+				92B072192AB4F79900204BB3 /* SharedTestHelpers.swift in Sources */,
+				92B0721D2AB4F81C00204BB3 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +861,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8C3NFSJWVT;
@@ -841,6 +871,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = essential.EssentialAppLegacyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialAppLegacy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialAppLegacy";
@@ -852,6 +883,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8C3NFSJWVT;
