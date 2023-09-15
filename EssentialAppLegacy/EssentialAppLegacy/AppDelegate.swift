@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Always move these configurations one level above
         
         #if DEBUG
-        configuration.delegateClass = DebuggingSceneDelegate.self
+//        configuration.delegateClass = DebuggingSceneDelegate.self
         #endif
         
         return configuration
