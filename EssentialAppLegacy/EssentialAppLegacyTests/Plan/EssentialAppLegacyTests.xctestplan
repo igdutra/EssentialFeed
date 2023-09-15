@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "AE329C03-E595-4E11-AD3C-02840469467A",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:..\/EssentialAppLegacy\/EssentialAppLegacy.xcodeproj",
+      "identifier" : "92CFB25A2AB3A83C001648B4",
+      "name" : "EssentialAppLegacy"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:..\/EssentialAppLegacy\/EssentialAppLegacy.xcodeproj",
+        "identifier" : "92CFB2702AB3A83D001648B4",
+        "name" : "EssentialAppLegacyTests"
+      }
+    }
+  ],
+  "version" : 1
+}

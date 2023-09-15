@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class FeedCachePolicy {
+// Note: Public for EssentialAppLegacy
+public final class FeedCachePolicy {
     private init() { }
     
     private static let calendar = Calendar(identifier: .gregorian)
@@ -16,7 +17,7 @@ final class FeedCachePolicy {
         return 7
     }
     
-    static func validate(_ timestamp: Date, against date: Date) -> Bool {
+    public static func validate(_ timestamp: Date, against date: Date) -> Bool {
         guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
             return false
         }
